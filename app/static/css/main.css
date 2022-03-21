@@ -1,0 +1,181 @@
+/* Slider */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+ol {
+  padding: 0;
+}
+.carousel-item {
+  height: 100vh;
+  min-height: 300px;
+}
+
+.carousel-caption {
+  bottom: 220px;
+}
+
+.carousel-caption h5 {
+  font: 45px;
+  letter-spacing: 2px;
+  margin-top: 25px;
+}
+
+.carousel-caption p {
+  width: 60%;
+  margin: auto;
+  font: 18px;
+  line-height: 1.9;
+}
+
+.carousel-caption a {
+  text-decoration: none;
+  background: #198754;
+  padding: 10px 30px;
+  display: inline-block;
+  color: #000;
+  margin-top: 15px;
+}
+
+.navbar-nav a {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.navbar-light .navbar-brand {
+  color: rgb(25, 135, 84, 0.8);
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.navbar-light .navbar-brand:focus,
+.navbar-light .navbar-brand:hover {
+  color: rgb(25, 135, 84, 0.8);
+}
+.navbar-light .navbar-nav .nav-link {
+  color: rgb(25, 135, 84, 0.8);
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+  color: rgb(25, 135, 84, 0.8);
+}
+
+.w-100 {
+  height: 100vh;
+}
+
+.navbar-toggler {
+  padding: 1px 5px;
+  font-size: 18px;
+  line-height: 0.3;
+  background: rgb(25, 135, 84, 0.8);
+}
+
+section.cards {
+  margin-top: 55px;
+  width: 100%;
+  display: flex;
+  padding: 32px;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fafafa;
+}
+section ol li div.icon {
+  width: 300px;
+  height: 300px;
+}
+
+section ol li {
+  list-style-type: none;
+}
+
+section ol li img {
+  width: 100%;
+}
+
+section ol {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+section ol.card {
+  background-color: rgb(253, 253, 253);
+}
+section ol li div img div h3 span button {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  border-radius: 32px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 500;
+}
+.reference-text {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+div.text-center.p-3 {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.whatsapp-link {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 1px 1px 2px #888;
+  z-index: 1000;
+}
+
+.fa-whatsapp {
+  margin-top: 15px;
+  margin-left: 3px;
+  color: white;
+}
+
+@media screen and (max-width: 978px) {
+  section.cards {
+    width: 100%;
+    flex-direction: column;
+    margin: 20px;
+  }
+  ol.card {
+    margin: 32px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .nav-nav {
+    text-align: center;
+  }
+  .carousel-caption h5 {
+    font-size: 17px;
+  }
+}
+/* Login */
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+.form-control:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+} 
+
