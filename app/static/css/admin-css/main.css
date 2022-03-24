@@ -1,0 +1,45 @@
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+  } 
+
+.svg-icon path{
+  fill: #858796
+}
+
+.svg-icon path:hover{
+  fill: #616060
+}
+
+.text-gray-600{
+  color: #858796 !important;
+}
+
+.text-gray-600:hover{
+  color: #616060
+}
+
+.alert-icon path{
+  color: #f8f9fc
+}
+
+.icon-nav-item{
+  width:1rem;
+  text-align:center;
+  float: right;
+  vertical-align: 0;
+  border: 0;
+}
+
+.rotate{
+  -moz-transition: all 2s linear;
+  -webkit-transition: all 2 linear;
+  transition: all 2 linear
+}
+
+.rotate.down{
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg)
+}
