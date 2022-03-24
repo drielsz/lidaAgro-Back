@@ -116,4 +116,9 @@ def register_aviso():
 
     return render_template('register_aviso.html')
 
+@app.route("/admin/register/lista")
+def lista():
+    avisos = Aviso.query.all()
+    return render_template("olhar_avisos.html", avisos=avisos)
+
 app.run(debug=True)
