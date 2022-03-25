@@ -277,3 +277,16 @@ button:active {
   justify-content: center;
   color: #fff
 }
+
+.left{
+  margin-left: 10rem
+}
+
+.left-button{
+  margin-left: 11rem;
+}
+
+.img-products{
+  width: 200px;
+  height: 200px;
+}
