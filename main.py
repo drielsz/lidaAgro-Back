@@ -45,10 +45,6 @@ def login():
 def forgotpassword():
     return render_template('forgotpassword.html')
 
-@app.route('/produtos', methods=['GET', 'POST'])
-def produtos():
-    return render_template('produtos.html')
-
 @app.route('/logout', methods=['GET'])
 def logout():
     logout_user()
@@ -127,8 +123,9 @@ def save_images(photo):
     photo.save(file_path)
     return photo_name
 
-@app.route("/admin/addproduct", methods=['GET', 'POST'])
-def addproduct():
+# Adicionar produto
+@app.route("/admin/addproduto", methods=['GET', 'POST'])
+def addproduto():
     if request.method =='POST':
         nome = request.form['nome']
         price = request.form['price']
@@ -141,10 +138,24 @@ def addproduct():
 
         db.session.add(post)
         db.session.commit()
-
-        flash('Your post has been uploaded')
     return render_template('add_product.html')
 
+# Olhar os produtos
+@app.route("/admin/produtos", methods=['GET', 'POST'])
+def produtos():
+    produtos = Produtos.query.all()
+    return render_template('show_product.html', produtos=produtos)
+
+# Delete
+@app.route("/delete_produto/<int:id>/", methods=['POST'])
+def delete_produto(id):
+    produto = Produtos.query.get(id)
+    if request.method =='POST':
+        db.session.delete(produto)
+        db.session.commit()
+
+        return redirect(url_for('dashboard'))
+    return redirect(url_for('addproduct'))
 
 @app.route("/admin/register/lista", methods=['GET'])
 def lista():
