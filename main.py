@@ -1,7 +1,8 @@
 from flask import redirect, render_template, jsonify, request, url_for
 from flask_login import login_user, logout_user
 from app import app, login_manager, db
-from app.models import User, Aviso
+from app.models import User, Aviso, Produtos
+from werkzeug.utils import secure_filename
 
 @app.route('/')
 def home():
@@ -19,7 +20,7 @@ def register():
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('register'))
+        return redirect(url_for('login'))
 
     return render_template('register.html')
 
@@ -84,7 +85,7 @@ def admin_register():
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('register'))
+        return redirect(url_for('admin/login'))
 
     return render_template('register.html')
 
@@ -116,9 +117,33 @@ def register_aviso():
 
     return render_template('register_aviso.html')
 
-@app.route("/admin/register/lista")
+@app.route("/admin/addproduct", methods=['GET', 'POST'])
+def addproduct():
+    if request.method =='POST':
+        nome = request.form['nome']
+        price = request.form['price']
+        desconto = request.form['desconto']
+        estoque = request.form['estoque']
+        desc = request.form['desc']
+        file = request.files['file']
+
+        dbContent = Produtos(nome, price, desconto, estoque, desc, image=file.read())
+
+        db.session.add(dbContent)
+        db.session.commit()
+
+        return f'Uploaded: {file.image}'
+    return render_template('add_product.html')
+
+
+@app.route("/admin/register/lista", methods=['GET'])
 def lista():
     avisos = Aviso.query.all()
     return render_template("olhar_avisos.html", avisos=avisos)
+
+@app.route("/quem-somos", methods=['GET'])
+def quem_somos():
+    return render_template("quem_somos.html")
+
 
 app.run(debug=True)

@@ -2,6 +2,7 @@ from decimal import Decimal
 from app import db, login_manager
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
+import datetime
 
 @login_manager.user_loader
 def get_user(user_id):
@@ -31,6 +32,26 @@ class Aviso(db.Model):
 
     def __init__(self, info):
         self.info = info
+
+class Produtos(db.Model):
+    __tablename__ ='produtos'
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    nome = db.Column(db.String(80), nullable=False)
+    price = db.Column(db.Numeric(10,2), nullable=False)
+    desconto = db.Column(db.Integer, default=0)
+    estoque = db.Column(db.Integer, nullable=False)
+    desc = db.Column(db.Text, nullable=False)
+    data = db.Column(db.LargeBinary)
+    image = db.Column(db.Text(150), nullable=False)
+    
+    def __init__(self, nome, price, desconto, estoque, desc, image):
+        self.nome=nome,
+        self.price=price,
+        self.desconto=desconto,
+        self.estoque=estoque,
+        self.desc=desc,
+        self.image=image
+    
 
 # class Venda(db.Model):
 #     __tablename__ = 'venda'
@@ -66,9 +87,3 @@ class Aviso(db.Model):
 #     id = db.Column(db.Integer)
 #     nome = db.Column(db.String(120), nullable=False)
 
-# class Produtos(db.Model):
-#     __tablename__ ='produtos'
-#     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-#     nome = db.Column(db.String(120), nullable=False)
-#     price = db.Column(db.Integer, nullable=False)
-#     describe = db.Column(db.String(255), nullable=False)

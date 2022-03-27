@@ -285,8 +285,78 @@ button:active {
 .left-button{
   margin-left: 11rem;
 }
+/* 2°PAGE */
+.gallery_product
+{
+    width: 100%;
+    margin-bottom: 30px;
+}
+.gallery_product .title-main{
+  color:#fff;
+  margin: 0;
+  position:relative;
+  font-size: 38px;
+  bottom:28rem;
+  left:16rem
+}
 
-.img-products{
-  width: 200px;
-  height: 200px;
+.sub-title-main{
+  position: relative;
+  color: #fff;
+  margin: 0;
+  font-size: 15px;
+  bottom: 27rem;
+  left: 16rem;
+}
+
+@media only screen and (max-width: 909px) {
+  .gallery_product .title-main{
+    font-size: 25px;
+    left: 10rem;
+  }
+  .sub-title-main{
+    left: 10rem
+  }
+}
+
+@media only screen and (max-width:838px){
+  .gallery_product .title-main{
+    font-size: 22px;
+  }
+  .sub-title-main{
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 653px){
+  .gallery_product .title-main{
+    left: 8rem;
+    font-size: 17px;
+  }
+  .sub-title-main{
+    left: 8rem;
+    font-size: 13px
+  }
+}
+
+@media only screen and (max-width: 525px){
+  .gallery_product .title-main{
+    left: 6rem;
+    font-size: 15px
+  }
+  .sub-title-main{
+    left: 6rem;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 380px){
+  .gallery_product .title-main{
+    left: 4rem;
+    font-size: 14px;
+  }
+  .sub-title-main{
+    left: 4rem;
+    font-size: 10px;
+  }
 }
