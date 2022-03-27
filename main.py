@@ -1,8 +1,10 @@
-from flask import redirect, render_template, jsonify, request, url_for
+from flask import redirect, render_template, jsonify, request, url_for, flash, current_app
 from flask_login import login_user, logout_user
 from app import app, login_manager, db
 from app.models import User, Aviso, Produtos
 from werkzeug.utils import secure_filename
+import os
+import secrets
 
 @app.route('/')
 def home():
@@ -117,6 +119,14 @@ def register_aviso():
 
     return render_template('register_aviso.html')
 
+def save_images(photo):
+    hash_photo = secrets.token_urlsafe(10)
+    _, file_extention = os.path.splitext(photo.filename)
+    photo_name = hash_photo + file_extention
+    file_path = os.path.join(current_app.root_path, 'static/assets/posts', photo_name)
+    photo.save(file_path)
+    return photo_name
+
 @app.route("/admin/addproduct", methods=['GET', 'POST'])
 def addproduct():
     if request.method =='POST':
@@ -125,14 +135,14 @@ def addproduct():
         desconto = request.form['desconto']
         estoque = request.form['estoque']
         desc = request.form['desc']
-        file = request.files['file']
+        photo = save_images(request.files['photo'])
 
-        dbContent = Produtos(nome, price, desconto, estoque, desc, image=file.read())
+        post = Produtos(nome, price, desconto, estoque, desc, image=photo)
 
-        db.session.add(dbContent)
+        db.session.add(post)
         db.session.commit()
 
-        return f'Uploaded: {file.image}'
+        flash('Your post has been uploaded')
     return render_template('add_product.html')
 
 
