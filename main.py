@@ -83,7 +83,7 @@ def admin_register():
         db.session.add(user)
         db.session.commit()
 
-        return redirect(url_for('admin/login'))
+        return redirect(url_for('admin_login'))
 
     return render_template('register.html')
 
@@ -156,6 +156,28 @@ def delete_produto(id):
 
         return redirect(url_for('dashboard'))
     return redirect(url_for('addproduct'))
+
+# Atualizar Produto
+@app.route("/admin/atualizar_produto/<int:id>/", methods=['GET', 'PUT'])
+def atualizar_produto(id):
+    produto = Produtos.query.get(id)
+    if request.method == 'PUT':
+        nome = request.form['nome']
+        price = request.form['price']
+        desconto = request.form['desconto']
+        estoque = request.form['estoque']
+        desc = request.form['desc']
+        photo = save_images(request.files['photo'])
+
+        produto.nome = nome
+        produto.price = price
+        produto.desconto = desconto
+        produto.estoque = estoque
+        produto.desc = desc
+        produto.image = photo
+
+        db.session.commit()
+    return render_template('atualizar_produto.html')
 
 @app.route("/admin/register/lista", methods=['GET'])
 def lista():
