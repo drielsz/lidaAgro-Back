@@ -158,10 +158,10 @@ def delete_produto(id):
     return redirect(url_for('addproduct'))
 
 # Atualizar Produto
-@app.route("/admin/atualizar_produto/<int:id>/", methods=['GET', 'PUT'])
+@app.route("/admin/atualizar_produto/<int:id>/", methods=['GET', 'POST'])
 def atualizar_produto(id):
     produto = Produtos.query.get(id)
-    if request.method == 'PUT':
+    if request.method == 'POST':
         nome = request.form['nome']
         price = request.form['price']
         desconto = request.form['desconto']
@@ -177,7 +177,7 @@ def atualizar_produto(id):
         produto.image = photo
 
         db.session.commit()
-    return render_template('atualizar_produto.html')
+    return render_template('atualizar_produto.html', produto=produto)
 
 @app.route("/admin/register/lista", methods=['GET'])
 def lista():
