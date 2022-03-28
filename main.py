@@ -52,7 +52,7 @@ def logout():
 
 @app.route('/admin/dashboard', methods=['GET'])
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('admin/dashboard.html')
 
 @app.route('/admin/login', methods=['GET', 'POST'])
 def admin_login():
@@ -69,7 +69,7 @@ def admin_login():
 
         return redirect(url_for('dashboard'))
 
-    return render_template('admin_login.html')
+    return render_template('admin/admin_login.html')
 
 @app.route('/admin/register', methods=['GET', 'POST'])
 def admin_register():
@@ -85,10 +85,11 @@ def admin_register():
 
         return redirect(url_for('admin_login'))
 
-    return render_template('register.html')
+    return render_template('admin/register.html')
 
 @app.route('/admin/register/funcionario', methods=['GET', 'POST'])
 def register_funcionario():
+    funcionarios = User.query.all()
     if request.method == 'POST':
         nome = request.form['nome']
         email = request.form['email']
@@ -100,7 +101,7 @@ def register_funcionario():
 
         return redirect(url_for('register_funcionario'))
 
-    return render_template('register_funcionario.html')
+    return render_template('admin/register_funcionario.html', funcionarios = funcionarios)
 
 @app.route('/admin/register/aviso', methods=['GET', 'POST'])
 def register_aviso():
@@ -113,7 +114,7 @@ def register_aviso():
 
         return redirect(url_for('register_aviso'))
 
-    return render_template('register_aviso.html')
+    return render_template('admin/register_aviso.html')
 
 def save_images(photo):
     hash_photo = secrets.token_urlsafe(10)
@@ -138,13 +139,13 @@ def addproduto():
 
         db.session.add(post)
         db.session.commit()
-    return render_template('add_product.html')
+    return render_template('admin/add_product.html')
 
 # Olhar os produtos
 @app.route("/admin/produtos", methods=['GET', 'POST'])
 def produtos():
     produtos = Produtos.query.all()
-    return render_template('show_product.html', produtos=produtos)
+    return render_template('admin/show_product.html', produtos=produtos)
 
 # Delete
 @app.route("/delete_produto/<int:id>/", methods=['POST'])
@@ -177,16 +178,20 @@ def atualizar_produto(id):
         produto.image = photo
 
         db.session.commit()
-    return render_template('atualizar_produto.html', produto=produto)
+    return render_template('admin/atualizar_produto.html', produto=produto)
 
 @app.route("/admin/register/lista", methods=['GET'])
 def lista():
     avisos = Aviso.query.all()
-    return render_template("olhar_avisos.html", avisos=avisos)
+    return render_template("admin/olhar_avisos.html", avisos=avisos)
 
 @app.route("/quem-somos", methods=['GET'])
 def quem_somos():
     return render_template("quem_somos.html")
+
+@app.route("/admin/perfil/", methods=['GET', 'POST'])
+def admin_perfil():
+    return render_template('admin/perfil.html')
 
 
 app.run(debug=True)
