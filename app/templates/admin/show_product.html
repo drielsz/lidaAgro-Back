@@ -317,13 +317,17 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{current_user.nome}}</span>
-                            <img class="img-profile rounded-circle"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq5eMRxkFIQMnfAe5p_L-BJUdf6xv6CvD0zw&usqp=CAU">
+                            {% if current_user.image == 'null' %}
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq5eMRxkFIQMnfAe5p_L-BJUdf6xv6CvD0zw&usqp=CAU"
+                                alt="Admin Image">
+                            {% else %}
+                            <img src="{{url_for('static', filename='assets/posts/' + current_user.image)}}" width="40" height="40" class="img-profile"/>
+                            {% endif %}
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                             aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="/admin/perfil">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-people" viewBox="0 0 16 16">
                                     <path
@@ -369,6 +373,7 @@
             <!-- End of Topbar -->
             <div class="container at-5">
                 <table class="table table-sm table-condensed table-striped">
+                    <h1>Produtos</h1>
                     <thead>
                         <th>id</th>
                         <th>Produto</th>

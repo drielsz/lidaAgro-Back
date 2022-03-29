@@ -1,9 +1,0 @@
-{% if current_user.perfil!=2 %}
-<form action="" method="post">
-    <input type="text" name="info" label="adicionar um aviso" placeholder="adicionar um aviso">
-    <button class="btn btn-outline-success btn-lg btn-block" type="submit" value="Cadastrar">Enviar informação</button>
-    <a href="lista">Olhar os avisos</a>
-</form>
-{% else %}
-<h1>Sem acesso, você não é um funcionaio nem um administrador</h1>
-{% endif %}

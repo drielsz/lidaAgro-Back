@@ -15,12 +15,16 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(84), nullable=False, unique=True)
     senha = db.Column(db.String(128), nullable=False)
     perfil = db.Column(db.Integer, default=2)
+    image = db.Column(db.Text(150), default='https://images.unsplash.com/photo-1548247416-ec66f4900b2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=720&q=80')
+    biografia = db.Column(db.String(86), default='Amor por animais e fazenda.')
 
-    def __init__(self, nome, email, senha, perfil=2):
+    def __init__(self, nome, email, senha, perfil=2, image='', biografia='Amor por animais e fazenda.'):
         self.nome = nome,
         self.email = email,
         self.senha = generate_password_hash(senha),
         self.perfil = perfil
+        self.image = image
+        self.biografia = biografia
         
     def verify_password(self, senha):
         return check_password_hash(self.senha, senha)
@@ -45,12 +49,12 @@ class Produtos(db.Model):
     image = db.Column(db.Text(150), nullable=False)
     
     def __init__(self, nome, price, desconto, estoque, desc, image):
-        self.nome=nome,
-        self.price=price,
-        self.desconto=desconto,
-        self.estoque=estoque,
-        self.desc=desc,
-        self.image=image
+        self.nome = nome,
+        self.price = price,
+        self.desconto= desconto,
+        self.estoque = estoque,
+        self.desc = desc,
+        self.image = image
     
 
 # class Venda(db.Model):

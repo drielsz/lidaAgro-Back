@@ -79,13 +79,13 @@ def admin_register():
         senha = request.form['senha']
 
         # if nome and email and senha:
-        user = User(nome, email, senha, 0)
+        user = User(nome, email, senha, 0, image='null')
         db.session.add(user)
         db.session.commit()
 
         return redirect(url_for('admin_login'))
 
-    return render_template('admin/register.html')
+    return render_template('admin/registrar/register.html')
 
 @app.route('/admin/register/funcionario', methods=['GET', 'POST'])
 def register_funcionario():
@@ -101,10 +101,12 @@ def register_funcionario():
 
         return redirect(url_for('register_funcionario'))
 
-    return render_template('admin/register_funcionario.html', funcionarios = funcionarios)
+    return render_template('admin/registrar/funcionario.html', funcionarios = funcionarios)
 
 @app.route('/admin/register/aviso', methods=['GET', 'POST'])
 def register_aviso():
+    funcionarios = User.query.all()
+    avisos = Aviso.query.all()
     if request.method == 'POST':
         info = request.form['info']
 
@@ -114,7 +116,7 @@ def register_aviso():
 
         return redirect(url_for('register_aviso'))
 
-    return render_template('admin/register_aviso.html')
+    return render_template('admin/registrar/aviso.html', avisos=avisos, funcionarios = funcionarios)
 
 def save_images(photo):
     hash_photo = secrets.token_urlsafe(10)
@@ -180,17 +182,25 @@ def atualizar_produto(id):
         db.session.commit()
     return render_template('admin/atualizar_produto.html', produto=produto)
 
-@app.route("/admin/register/lista", methods=['GET'])
-def lista():
-    avisos = Aviso.query.all()
-    return render_template("admin/olhar_avisos.html", avisos=avisos)
-
 @app.route("/quem-somos", methods=['GET'])
 def quem_somos():
     return render_template("quem_somos.html")
 
-@app.route("/admin/perfil/", methods=['GET', 'POST'])
-def admin_perfil():
+@app.route("/admin/perfil/<int:id>/", methods=['GET', 'POST'])
+def admin_perfil(id):
+    user = User.query.get(id)
+    if request.method == 'POST':
+        nome = request.form['nome']
+        email = request.form['email']
+        biografia = request.form['biografia']
+        photo = save_images(request.files['photo'])
+
+        user.nome = nome
+        user.email = email
+        user.biografia = biografia
+        user.image = photo
+
+        db.session.commit()
     return render_template('admin/perfil.html')
 
 

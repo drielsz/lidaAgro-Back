@@ -14,3 +14,4 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 login_manager = LoginManager(app)
 db = SQLAlchemy(app)
+
