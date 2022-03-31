@@ -1,11 +1,12 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-
-<div class="container">
+<div class="container mt-5">
     <div class="row">
+        <div class="col-md-12">
         <table class="table table-sm table-condensed table-striped">
             <thead>
                 <th>Sr</th>
+                <th>Imagem</th>
                 <th>Nome</th>
                 <th>Preço</th>
                 <th>Quantidade</th>
@@ -19,21 +20,34 @@
                 {% set desconto = "%0.2f" | format((produto.desconto/100) * produto.price|float) %}
                 <tr>
                     <td>{{loop.index}}</td>
+                    <td><img src="{{url_for('static', filename='assets/posts/'+ produto.image)}}" alt="{{produto.image}}" 
+                    width="50" height="45"/></td>
                     <td>{{produto.nome}}</td>
-                    <td>R${{produto.price}}</td>
-                    <td>{{produto.quantidade}}</td>
-                    {% if produto.desconto > 0 %}
-                    <td>{{produto.desconto}}% &nbsp; é {{desconto}}</td>
-                    {% else %}
-                    <td></td>
-                    {% endif %}
-                    {% set subtotal = produto.quantidade|int * produto.price|float %}
-                    <td>{{"%0.2f"|format((subtotal|float) - desconto|float)}}</td>
-                    <td><a href="#">Atualizar</a></td>
-                    <td><a href="">Remover</a></td>
+                    <form action="{{url_for('atualizar_carrinho', code=key)}}" method="POST">
+                        <td>R${{produto.price}}</td>
+                        <td><input type="number" name="quantidade" min="1" max="{{produto.estoque}}" value="{{produto.quantidade}}"></td>
+                        {% if produto.desconto > 0 %}
+                            <td>{{produto.desconto}}% &nbsp; é {{desconto}}</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        {% set subtotal = produto.quantidade|int * produto.price|float %}
+                            <td>{{"%0.2f"|format((subtotal|float) - desconto|float)}}</td>
+                            <td><button type="submit" class="btn btn-sm btn-info">Atualizar</button></td>
+                    </form>
+                    <td><a href="{{url_for('delete_item', id=key)}}" class="btn btn-sm btn-danger">Remover</a></td>
                 </tr>
                 {% endfor %}
+                <tr>
+                    <td></td>
+                    <td><a href="{{url_for('produtos_cliente')}}" class="btn btn-success">Continue comprando</a></td>
+                    <td colspan="3"><h5>Taxa ou frete: R${{tax}}</h5></td>
+                    <td colspan="4"><h5>Total: R${{grandtotal}}</h5></td>
+                    <td><a href="{{url_for('limpar_carrinho')}}" class="btn btn-sm btn-danger float-end">Limpar Carrinho</a>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
+  </div>
 </div>

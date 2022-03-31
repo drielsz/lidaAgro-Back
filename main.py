@@ -37,21 +37,24 @@ def AddCarrinho():
         quantidade = request.form.get('quantidade')
         produto = Produtos.query.filter_by(id=produto_id).first()
         if produto and quantidade and produto_id and request.method == 'POST':
+            # Passando as informações para o carrinho
             DictItems = {produto_id:{'nome':produto.nome, 'price':produto.price, 'desconto':produto.desconto,
-            'quantidade':quantidade, 'image':produto.image}}
+            'quantidade':quantidade, 'image':produto.image, 'estoque':produto.estoque}}
+            # End
             if 'Shoppingcart' in session:
                 print(session['Shoppingcart'])
                 if produto_id in session['Shoppingcart']:
-                    print("Esse Produto já foi adicionado ao seu carrinho")
+                    for key, item in session['Shoppingcart'].items():
+                        if int(key) == int(produto_id):
+                            session.modified = True
+                            item['quantidade'] += 1
+                    
                 else:
                     session['Shoppingcart'] = MagerDicts(session['Shoppingcart'], DictItems)
                     return redirect(request.referrer)
-                    print(MagerDicts)    
-                    print("Produto Adicionado com sucesso")
             else:
                 session['Shoppingcart'] = DictItems
                 return redirect(request.referrer)
-                print("Produto Adicionado com sucesso")
 
     except Exception as e:
         print(e)
@@ -60,8 +63,8 @@ def AddCarrinho():
 
 @app.route('/carts')
 def getCart():
-    if 'Shoppingcart' not in session:
-        return redirect(request.referrer)
+    if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
+        return redirect(url_for('produtos_cliente'))
     subtotal = 0
     grandtotal = 0
     for key, produto in session['Shoppingcart'].items():
@@ -72,6 +75,48 @@ def getCart():
         grandtotal = float("%.2f" % (1.06 * subtotal))
 
     return render_template('produtos/carts.html', tax=tax, grandtotal=grandtotal)
+
+@app.route('/atualizarcarrinho/<int:code>', methods=['POST'])
+def atualizar_carrinho(code):
+    # Key = Code 
+    if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
+        return redirect(url_for('home'))
+    if request.method == 'POST':
+        quantidade = request.form.get('quantidade')
+        try: 
+            session.modified = True
+            for key, item in session['Shoppingcart'].items():
+                if int(key) == code:
+                    item['quantidade'] = quantidade
+                    flash('O item foi atualizado!')
+                    return redirect(url_for('getCart'))
+        except Exception as e:
+            print(e)
+            return redirect(url_for('getCart'))
+
+@app.route('/deleteitem/<int:id>')
+def delete_item(id):
+    if 'Shoppingcart' not in session and len(session['Shoppingcart']) <= 0:
+        return redirect(url_for('home'))
+    try: 
+        session.modified = True
+        for key, item in session['Shoppingcart'].items():
+            if int(key) == id:
+                session['Shoppingcart'].pop(key, None)
+                return redirect(url_for('getCart'))
+    except Exception as e:
+        print(e)
+        return redirect(url_for('getCart'))
+
+@app.route('/limparcarrrinho')
+def limpar_carrinho():
+    try:
+        # Session pop para remover SOMENTE SHOPPING CART, NÃO USE SESSION.CLEAR() PQ SE NAO VAI DELETAR TODAS AS SESSOES,
+        # O QUE QUEREMOS AQUI É SOMENTE DELETAR A SESSÃO ATUAL DO SHOPPING CART.
+        session.pop('Shoppingcart', None)
+        return redirect(url_for('produtos_cliente'))
+    except Exception as e:
+        print(e)
 # End Add Carrinho
 
 @app.route('/register', methods=['GET', 'POST'])
