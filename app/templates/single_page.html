@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lida Agropecuária</title>
-    <link rel="icon" href="../static/assets/Lida agro.jpg" type="image/icon type">
+    <link rel="icon" href="{{url_for('static', filename='assets/Lida agro.jpg')}}" type="image/icon type">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -30,7 +30,7 @@
             <nav class="navbar navbar-light bg-light">
                 <div class="container">
                     <a class="navbar-brand" href="#">
-                        <img src="../static/assets/Agropecuária.png" alt="" width="40" height="35">
+                        <img src="{{url_for('static', filename='assets/Lida agro.jpg')}}" alt="" width="40" height="35">
                     </a>
                 </div>
             </nav>
@@ -76,17 +76,17 @@
                     <div class="collapse navbar-collapse right" id="navbarNavDarkDropdown">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="nav-link disabled" href="#" tabindex="-1">
-                                    Carrinho ({{session['ShoppingCart']|length}})
+                                <a class="nav-link disabled" href="#" tabindex="-1">
+                                    Carrinho ({{session['Shoppingcart']|length}})
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {% if current_user.is_authenticated %}
-                                    {{current_user.nome}}
+                                        {{current_user.nome}}
                                     {% else %}
-                                    Login/Cadastrar-se
+                                        Login/Cadastrar-se
                                     {% endif %}
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-success"
@@ -126,8 +126,8 @@
                     <b>Descrição do produto</b>
                     <p>{{produto.desc}}</p>
                 <hr>
-                <form action="{{url_for('AddCarrinho')}}" method="post">
-                    <input type="hidden" name="produto.id" value="{{produto.id}}">
+                <form action="{{ url_for('AddCarrinho') }}" method="POST">
+                    <input type="hidden" name="produto_id" value="{{produto.id}}">
                     <button type="submit" class="btn btn-sm btn-warning"> Adicionar ao carrinho</button>
                     <label for=""> Quantidade:</label>
                     <input type="number" name="quantidade" id="" value="1" min="1" max="{{produto.estoque}}">

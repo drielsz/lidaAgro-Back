@@ -1,4 +1,4 @@
-from flask import redirect, render_template, jsonify, request, url_for, flash, current_app
+from flask import redirect, render_template, jsonify, request, url_for, flash, current_app, session
 from flask_login import login_user, logout_user
 from app import app, login_manager, db
 from app.models import User, Aviso, Produtos
@@ -21,28 +21,50 @@ def single_page(id):
     produto = Produtos.query.get_or_404(id)
     return render_template('single_page.html', produto=produto)
 
+
+# Add Carrinho
+def MagerDicts(dict1, dict2):
+    if isinstance(dict1, list) and isinstance(dict2, list):
+        return dict1 + dict2
+    elif isinstance(dict1, dict) and isinstance(dict2, dict):
+        return dict(list(dict1.items()) + list(dict2.items() ))
+    return False
+
 @app.route('/addcarrinho', methods=['POST'])
 def AddCarrinho():
     try:
-        produto.id = request.form.get('produto.id')
+        produto_id = request.form.get('produto_id')
         quantidade = request.form.get('quantidade')
-        produto = Produtos.query.filter_by(id=produto.id).first()
-        if produto.id and quantidade and produto and request.method == "POST":
-            DictItems = {produto.id:{'nome': produto.nome, 'price': produto.price, 'desconto': produto.desconto,
-            'quantidade': quantidade, 'image': produto.image}}
-
-            if 'Shoppcart' in session:
+        produto = Produtos.query.filter_by(id=produto_id).first()
+        if produto and quantidade and produto_id and request.method == 'POST':
+            DictItems = {produto_id:{'nome':produto.nome, 'preço':produto.price, 'desconto':produto.desconto,
+            'quantidade':quantidade, 'image':produto.image}}
+            if 'Shoppingcart' in session:
                 print(session['Shoppingcart'])
+                if produto_id in session['Shoppingcart']:
+                    print("Esse Produto já foi adicionado ao seu carrinho")
+                else:
+                    session['Shoppingcart'] = MagerDicts(session['Shoppingcart'], DictItems)
+                    return redirect(request.referrer)
+                    print(MagerDicts)    
+                    print("Produto Adicionado com sucesso")
             else:
                 session['Shoppingcart'] = DictItems
                 return redirect(request.referrer)
-
+                print("Produto Adicionado com sucesso")
 
     except Exception as e:
         print(e)
     finally:
         return redirect(request.referrer)
 
+@app.route('/carts')
+def getCart():
+    if 'Shoppingcart' not in session:
+        return redirect(request.referrer)
+    return render_template('produtos/carts.html')
+    
+# End Add Carrinho
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':

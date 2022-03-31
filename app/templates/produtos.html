@@ -74,6 +74,11 @@
         <form class="d-flex paises">
           <div class="collapse navbar-collapse right" id="navbarNavDarkDropdown">
             <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('getCart')}}" tabindex="-1">
+                    Carrinho ({{session['ShoppingCart']|length}})
+                </a>
+              </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false">
@@ -122,8 +127,12 @@
                 </div>
                 <div class="card-footer">
                     <a href="{{url_for('single_page', id=produto.id)}}" 
-                    class="float-left btn btn-sm btn-primary"> detalhes</a> <a href="#" class="float-right btn btn-sm
-                    btn-warning"> Adicionar ao carrinho </a>
+                    class="float-start btn btn-sm btn-primary"> detalhes</a> 
+                    <form action="{{ url_for('AddCarrinho') }}" method="POST">
+                      <input type="hidden" name="produto_id" value="{{produto.id}}">
+                      <button type="submit" class="btn btn-sm btn-warning float-end"> Adicionar ao carrinho</button>
+                      <input type="hidden" name="quantidade" id="" value="1" min="1" max="{{produto.estoque}}">
+                    </form>
                 </div>
             </div>
           </div>
