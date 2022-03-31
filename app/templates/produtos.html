@@ -76,7 +76,7 @@
             <ul class="navbar-nav">
               <li class="nav-item">
                 <a class="nav-link" href="{{url_for('getCart')}}" tabindex="-1">
-                    Carrinho ({{session['ShoppingCart']|length}})
+                  Carrinho ({{session['Shoppingcart']|length}})
                 </a>
               </li>
               <li class="nav-item dropdown">
@@ -90,13 +90,12 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-success" aria-labelledby="navbarDarkDropdownMenuLink">
                   {% if current_user.is_authenticated %}
-                  <li><a class="dropdown-item" href="">Perfil</a></li>
-                  <li><a class="dropdown-item" href="">Lista de Atividade</a></li>
-                  <li><a class="dropdown-item" href="{{url_for('logout')}}">Sair</a></li>
+                    <li><a class="dropdown-item" href="">Perfil</a></li>
+                    <li><a class="dropdown-item" href="">Lista de Atividade</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('logout')}}">Sair</a></li>
                   {% else %}
-                  <li><a class="dropdown-item" href="login">Login</a></li>
-                  <li><a class="dropdown-item" href="register">Cadastrar-se</a></li>
-
+                    <li><a class="dropdown-item" href="{{url_for('login')}}">Login</a></li>
+                    <li><a class="dropdown-item" href="{{url_for('register')}}">Cadastrar-se</a></li>
                   {% endif %}
                 </ul>
               </li>

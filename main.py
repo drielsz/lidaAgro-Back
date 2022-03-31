@@ -37,7 +37,7 @@ def AddCarrinho():
         quantidade = request.form.get('quantidade')
         produto = Produtos.query.filter_by(id=produto_id).first()
         if produto and quantidade and produto_id and request.method == 'POST':
-            DictItems = {produto_id:{'nome':produto.nome, 'preço':produto.price, 'desconto':produto.desconto,
+            DictItems = {produto_id:{'nome':produto.nome, 'price':produto.price, 'desconto':produto.desconto,
             'quantidade':quantidade, 'image':produto.image}}
             if 'Shoppingcart' in session:
                 print(session['Shoppingcart'])
@@ -62,9 +62,18 @@ def AddCarrinho():
 def getCart():
     if 'Shoppingcart' not in session:
         return redirect(request.referrer)
-    return render_template('produtos/carts.html')
-    
+    subtotal = 0
+    grandtotal = 0
+    for key, produto in session['Shoppingcart'].items():
+        desconto = (produto['desconto']/100) * float(produto['price'])
+        subtotal += float(produto['price']) * int(produto['quantidade'])
+        subtotal -= desconto
+        tax = ("%.2f" % (.06 * float(subtotal)))
+        grandtotal = float("%.2f" % (1.06 * subtotal))
+
+    return render_template('produtos/carts.html', tax=tax, grandtotal=grandtotal)
 # End Add Carrinho
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
