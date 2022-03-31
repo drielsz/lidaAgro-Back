@@ -42,7 +42,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Página inicial</a>
+            <a class="nav-link active" aria-current="page" href="{{url_for('home')}}">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="quem-somos">Empresa</a>
@@ -54,9 +54,9 @@
             <a class="nav-link active" aria-current="page" href="https://web.whatsapp.com/send/?phone=5584991288330"
               target="_blank">Contato</a>
           </li>
-          <form class="d-flex paises ">
+          <form class="d-flex paises" action="{{url_for('result')}}">
             <div class="form-group w-95">
-              <input class="form-control left" list="datalistOptions" id="exampleDataList"
+              <input class="form-control left" type="search" name="q" list="datalistOptions" id="exampleDataList"
                 placeholder="Escreva para pesquisar...">
             </div>
             <datalist id="datalistOptions">

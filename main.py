@@ -1,6 +1,6 @@
 from flask import redirect, render_template, jsonify, request, url_for, flash, current_app, session
 from flask_login import login_user, logout_user
-from app import app, login_manager, db
+from app import app, login_manager, db, search
 from app.models import User, Aviso, Produtos
 from werkzeug.utils import secure_filename
 import os
@@ -10,6 +10,14 @@ import secrets
 def home():
     produtos = Produtos.query.all()
     return render_template('home.html', produtos=produtos)
+
+@app.route('/result')
+def result():
+    searchword = request.args.get('q')
+    # Limit = Limite de quantos resultados vão voltar
+    # Fields = Pesquiser por ('nome', 'desc')
+    produtos = Produtos.query.msearch(searchword, fields=['nome','desc'], limit=6)
+    return render_template('produtos/result.html', produtos=produtos)
 
 @app.route('/produtos/cliente', methods=['GET', 'POST'])
 def produtos_cliente():

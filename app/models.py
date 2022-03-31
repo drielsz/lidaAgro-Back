@@ -39,6 +39,7 @@ class Aviso(db.Model):
 
 class Produtos(db.Model):
     __tablename__ ='produtos'
+    __seachbale__ = ['nome', 'desc']
     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     nome = db.Column(db.String(80), nullable=False)
     price = db.Column(db.Numeric(10,2), nullable=False)

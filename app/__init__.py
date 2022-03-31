@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_login import LoginManager
+from flask_msearch import Search
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -14,3 +15,5 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 login_manager = LoginManager(app)
 db = SQLAlchemy(app)
+search = Search()
+search.init_app(app)
