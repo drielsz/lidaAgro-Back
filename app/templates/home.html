@@ -16,14 +16,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="{{url_for('static', filename='js/home/css/main.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home/main.css')}}">
 
-  <link rel="stylesheet" href="{{url_for('static', filename='js/home/css/owl-css/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{url_for('static', filename='js/home/css/owl-css/owl.theme.default.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home/css/owl-css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home/css/owl-css/owl.theme.default.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home/cards/main.css')}}">
 </head>
 
 <body>
-  <nav id="navbar-example2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <nav id="navbar-example2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top navnavnav">
     <div class="container-fluid">
       <!-- Header -->
       <nav class="navbar navbar-light bg-light">
@@ -47,7 +48,7 @@
             <a class="nav-link active" aria-current="page" href="quem-somos">Empresa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="produtos">Produtos</a>
+            <a class="nav-link active" aria-current="page" href="produtos/cliente">Produtos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="https://web.whatsapp.com/send/?phone=5584991288330"
@@ -137,9 +138,10 @@
           <img src="../static/assets/LIDA-CAMPEONATO-IMAGE2.jpg" class="d-block w-100" alt="...">
           <div class="carousel-caption">
             <h5 class="animated bounceInRight" style="animation-delay: 1s">Lida Agropecuária</h5>
-            <p class="animated bounceInLeft d-none d-md-block" style="animation-delay: 2s">Somos uma empresa agropecuária. Mas também somos muito mais que isso.</p>
+            <p class="animated bounceInLeft d-none d-md-block" style="animation-delay: 2s">Somos uma empresa
+              agropecuária. Mas também somos muito mais que isso.</p>
             <form action="quem-somos">
-                <button class="btn btn-success" type="submit">Saiba mais</button>
+              <button class="btn btn-success" type="submit">Saiba mais</button>
             </form>
           </div>
         </div>
@@ -158,41 +160,47 @@
   </main>
 
   <!-- Produtos -->
-  <section class="cards" id="card-lists">
-    <div class="owl-carousel">
-      <ol class="card">
-        <li>
-          <div class="icon">
-            <img src="https://portalestrada.com.br/file/2020/12/3025_GOV.jpg" alt="">
-          </div>
-          <div class="text-cards">
-            <h3 class="card-title">Primeira image.</h3>
-            <span>Lorem ipsum dolor sit.</span>
-            <button>Buy Now</button>
-          </div>
-        </li>
-      </ol>
-      <ol class="card">
-        <li>
-          <div class="icon">
-            <img src="https://portalestrada.com.br/file/2020/12/3025_GOV.jpg" alt="">
-          </div>
-          <h3>Lorem, ipsum.</h3>
-          <span>Lorem ipsum dolor sit.</span>
-          <button>Buy Now</button>
-        </li>
-      </ol>
-      <ol class="card">
-        <li>
-          <div class="icon">
-            <img src="https://portalestrada.com.br/file/2020/12/3025_GOV.jpg" alt="">
-          </div>
-          <h3>Lorem, ipsum.</h3>
-          <span>Lorem ipsum dolor sit.</span>
-          <button>Buy Now</button>
-        </li>
-      </ol>
+  <section>
+    <h1 style="text-align: center; margin-top: 40px;">Sessão de produtos em destaque</h1>
+    <div class="container-produtos">
+    <div class="card">
+      <div class="imgBx-card">
+        <img
+          src="{{url_for('static', filename='assets/sementes_de_melancia_hibrida_galapagos_1_000_sementes_sakata_1047_1_e17bc5d1884c654941237e415b9572d5-removebg-preview.png')}}" />
+      </div>
+      <div class="contentBx-card">
+        <h2>Sementes de Melancia<br>Sakata</h2>
+        <a href="#">Comprar Agora</a>
+      </div>
     </div>
+    <div class="card">
+      <div class="imgBx-card">
+        <img src="{{url_for('static', filename='assets/GLIFOMATO.png')}}" />
+      </div>
+      <div class="contentBx-card">
+        <h2>Glifomato 1%</h2>
+        <a href="#">Comprar Agora</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgBx-card">
+        <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" />
+      </div>
+      <div class="contentBx-card">
+        <h2>Gramizap Herbidicida</h2>
+        <a href="#">Comprar Agora</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgBx-card">
+        <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" />
+      </div>
+      <div class="contentBx-card">
+        <h2>Gramizap Herbidicida</h2>
+        <a href="#">Comprar Agora</a>
+      </div>
+    </div>
+  </div>
   </section>
 
   <!-- End Produtos -->

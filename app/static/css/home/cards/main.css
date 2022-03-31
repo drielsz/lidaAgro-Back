@@ -1,0 +1,177 @@
+:root{
+    --main-color: #339412
+}
+
+.container-produtos .card{
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #232323;
+    border-radius: 20px;
+    overflow: hidden
+}
+
+.container-produtos .card:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--main-color);
+    clip-path: circle(150px at 80% 20%);
+    transition: 0.5s ease-in-out
+}
+
+.container-produtos .card:hover:before{
+    clip-path: circle(300px at 80% -20%)
+}
+
+.container-produtos .card:after{
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: -20%;
+    font-size: 12em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255,255,25,0.5)
+}
+
+.container-produtos .card .imgBx-card{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10000;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s
+}
+
+.container-produtos .card:hover .imgBx-card{
+    top: 0%;
+    transform: translateY(0%)
+}
+
+.container-produtos .card .imgBx-card img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-25deg);
+    width: 270px;
+}
+
+.container-produtos .card .contentBx-card{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 1s;
+    z-index: 10
+}
+
+.container-produtos .card:hover .contentBx-card{
+    height: 210px;
+}
+
+.container-produtos .card:hover .contentBx-card h2{
+    position: relative;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #fff;
+    margin: 0
+}
+
+.container-produtos .card:hover .contentBx-card .size-card, .container-produtos .card .contentBx-card
+.color{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;opacity:0;
+    visibility: hidden;
+    padding-top: 0;
+    padding-bottom:0;
+}
+
+.container-produtos .card:hover .contentBx-card .size-card{
+    opacity:1;
+    visibility: visible;
+    transition-delay: 0.5s
+}
+
+.container-produtos .card:hover .contentBx-card .color{
+    opacity:1;
+    visibility: visible;
+    transition-delay: 0.6s;
+}
+
+.container-produtos .card .contentBx-card .size-card h3, .container-produtos .card
+.contentBx-card .color h3{
+    color: #fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+
+.container-produtos .card .contentBx-card .size-card span{
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    display: inline-block;
+    color: #111;
+    background: #fff;
+    margin: 0 5px;
+    transition: 0.5s;
+    color: #111;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.container-produtos .card .contentBx-card .size-card span:hover{
+    background: #9cdc28;
+}
+
+.container-produtos .card .contentBx-card .color span:nth-child(2){
+    background: #9bdc28;
+}
+
+.container-produtos .card .contentBx-card .color span:nth-child(3){
+    background: #03a9f4;
+}
+
+.container-produtos .card .contentBx-card .color span:nth-child(4){
+    background: #e91e63
+}
+
+.container-produtos .card .contentBx-card a{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform: 0.5s;
+    margin-top: 3.5rem;
+}
+
+
+.container-produtos .card:hover .contentBx-card a{
+    opacity: 1;
+    transform: translateY(0px);
+    transition-delay: 0.75s
+}
+
+@media only screen and (max-width: 1080px){
+    .container-produtos .card{
+        margin: 20% auto;
+    }
+}

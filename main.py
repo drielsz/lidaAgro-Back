@@ -8,7 +8,40 @@ import secrets
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    produtos = Produtos.query.all()
+    return render_template('home.html', produtos=produtos)
+
+@app.route('/produtos/cliente', methods=['GET', 'POST'])
+def produtos_cliente():
+    produtos = Produtos.query.filter(Produtos.estoque > 0)
+    return render_template('produtos.html', produtos=produtos)
+
+@app.route('/produtos/cliente/<int:id>')
+def single_page(id):
+    produto = Produtos.query.get_or_404(id)
+    return render_template('single_page.html', produto=produto)
+
+@app.route('/addcarrinho', methods=['POST'])
+def AddCarrinho():
+    try:
+        produto.id = request.form.get('produto.id')
+        quantidade = request.form.get('quantidade')
+        produto = Produtos.query.filter_by(id=produto.id).first()
+        if produto.id and quantidade and produto and request.method == "POST":
+            DictItems = {produto.id:{'nome': produto.nome, 'price': produto.price, 'desconto': produto.desconto,
+            'quantidade': quantidade, 'image': produto.image}}
+
+            if 'Shoppcart' in session:
+                print(session['Shoppingcart'])
+            else:
+                session['Shoppingcart'] = DictItems
+                return redirect(request.referrer)
+
+
+    except Exception as e:
+        print(e)
+    finally:
+        return redirect(request.referrer)
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():

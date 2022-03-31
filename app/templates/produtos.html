@@ -1,198 +1,284 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Produtos Lida</title>
-    <link rel="icon" href="../static/assets/Lida agro.jpg" type="image/icon type">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/main.css')}}"
-    />
-  </head>
 
-    <div class="row g-2">
-        <div class="col-md-3">
-            <div class="t-products p-2">
-                <h6 class="text-uppercase">Produtos Lida Agropecuária</h6>
-                <div class="p-lists">
-                    <div class="d-flex justify-content-between mt-2"> <span>Laptops</span> <span>23</span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span>Desktops</span> <span>46</span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span>Monitors</span> <span>13</span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span>Mouse</span> <span>33</span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span>Keyboard</span> <span>12</span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span>Printer</span> <span>53</span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span>Mobiles</span> <span>203</span> </div>
-                    <div class="d-flex justify-content-between mt-2"> <span>CPU</span> <span>23</span> </div>
-                </div>
-            </div>
-            <div class="processor p-2">
-                <div class="heading d-flex justify-content-between align-items-center">
-                    <h6 class="text-uppercase">Mato</h6> <span>--</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault"> Mato Desnatado </label> </div> <span>3</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Coral </label> </div> <span>4</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Leite </label> </div> <span>14</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Mato </label> </div> <span>8</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Matinho </label> </div> <span>14</span>
-                </div>
-            </div>
-            <div class="brand p-2">
-                <div class="heading d-flex justify-content-between align-items-center">
-                    <h6 class="text-uppercase">Brand</h6> <span>--</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault"> Apple </label> </div> <span>13</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Asus </label> </div> <span>4</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Dell </label> </div> <span>24</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Lenovo </label> </div> <span>18</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Acer </label> </div> <span>44</span>
-                </div>
-            </div>
-            <div class="type p-2 mb-2">
-                <div class="heading d-flex justify-content-between align-items-center">
-                    <h6 class="text-uppercase">Type</h6> <span>--</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault"> Hybrid </label> </div> <span>23</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Laptop </label> </div> <span>24</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Desktop </label> </div> <span>14</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Touch </label> </div> <span>28</span>
-                </div>
-                <div class="d-flex justify-content-between mt-2">
-                    <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> <label class="form-check-label" for="flexCheckChecked"> Tablets </label> </div> <span>44</span>
-                </div>
-            </div>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lida Agropecuária</title>
+  <link rel="icon" href="../static/assets/Lida agro.jpg" type="image/icon type">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home/main.css')}}">
+
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home/css/owl-css/owl.carousel.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home/css/owl-css/owl.theme.default.min.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home/produtos/main.scss')}}">
+</head>
+
+<body>
+  <nav id="navbar-example2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top navnavnav">
+    <div class="container-fluid">
+      <!-- Header -->
+      <nav class="navbar navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="../static/assets/Agropecuária.png" alt="" width="40" height="35">
+          </a>
         </div>
-        <div class="col-md-9">
-            <div class="row g-2">
-                <div class="col-md-4">
-                    <div class="product py-4"> <span class="off bg-success">-25% OFF</span>
-                        <div class="text-center"> <img src="https://m.media-amazon.com/images/I/7120FhxtzIL._AC_SY445_.jpg" width="200"> </div>
-                        <div class="about text-center">
-                            <h5>XRD Active Shoes</h5> <span>$1,999.99</span>
-                        </div>
-                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Adicionar ao carrinho</button>
-                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product py-4"> <span class="off bg-warning">A VENDA</span>
-                        <div class="text-center"> <img src="https://m.media-amazon.com/images/I/7120FhxtzIL._AC_SY445_.jpg" width="200"> </div>
-                        <div class="about text-center">
-                            <h5>Hygen Smart watch </h5> <span>$123.43</span>
-                        </div>
-                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Adicionar ao carrinho</button>
-                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product py-4">
-                        <div class="text-center"> <img src="https://m.media-amazon.com/images/I/7120FhxtzIL._AC_SY445_.jpg" width="200"> </div>
-                        <div class="about text-center">
-                            <h5>Acer surface book 2.5</h5> <span>$1,999.99</span>
-                        </div>
-                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Adicionar ao carrinho</button>
-                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product py-4"> <span class="off bg-success">-10% OFF</span>
-                        <div class="text-center"> <img src="https://m.media-amazon.com/images/I/7120FhxtzIL._AC_SY445_.jpg" width="200"> </div>
-                        <div class="about text-center">
-                            <h5>Dell XPS Surface</h5> <span>$1,245.89</span>
-                        </div>
-                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Adicionar ao carrinho</button>
-                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product py-4">
-                        <!-- <span class="off bg-success">-25% OFF</span> -->
-                        <div class="text-center"> <img src="https://m.media-amazon.com/images/I/7120FhxtzIL._AC_SY445_.jpg" width="200"> </div>
-                        <div class="about text-center">
-                            <h5>Acer surface book 5.5</h5> <span>$2,999.99</span>
-                        </div>
-                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Adicionar ao carrinho</button>
-                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product py-4"> <span class="off bg-success">-5% OFF</span>
-                        <div class="text-center"> <img src="https://m.media-amazon.com/images/I/7120FhxtzIL._AC_SY445_.jpg" width="200"> </div>
-                        <div class="about text-center">
-                            <h5>Xps smart watch 5.0</h5> <span>$999.99</span>
-                        </div>
-                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Adicionar ao carrinho</button>
-                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product py-4"> <span class="off bg-warning">SALE</span>
-                        <div class="text-center"> <img src="https://m.media-amazon.com/images/I/7120FhxtzIL._AC_SY445_.jpg" width="200"> </div>
-                        <div class="about text-center">
-                            <h5>Acer surface book 8.5</h5> <span>$3,999.99</span>
-                        </div>
-                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Adicionar ao carrinho</button>
-                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product py-4">
-                        <div class="text-center"> <img src="https://m.media-amazon.com/images/I/7120FhxtzIL._AC_SY445_.jpg" width="200"> </div>
-                        <div class="about text-center">
-                            <h5>Tyko Running shoes</h5> <span>$99.99</span>
-                        </div>
-                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Adicionar ao carrinho</button>
-                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="product py-4">
-                        <div class="text-center"> <img src="https://m.media-amazon.com/images/I/7120FhxtzIL._AC_SY445_.jpg" width="200"> </div>
-                        <div class="about text-center">
-                            <h5>Dell surface book 5</h5> <span>$1,999.99</span>
-                        </div>
-                        <div class="cart-button mt-3 px-2 d-flex justify-content-between align-items-center"> <button class="btn btn-primary text-uppercase">Adicionar ao carrinho</button>
-                            <div class="add"> <span class="product_fav"><i class="fa fa-heart-o"></i></span> <span class="product_fav"><i class="fa fa-opencart"></i></span> </div>
-                        </div>
-                    </div>
-                </div>
+      </nav>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Página inicial</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="quem-somos">Empresa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="produtos/cliente">Produtos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="https://web.whatsapp.com/send/?phone=5584991288330"
+              target="_blank">Contato</a>
+          </li>
+          <form class="d-flex paises ">
+            <div class="form-group w-95">
+              <input class="form-control left" list="datalistOptions" id="exampleDataList"
+                placeholder="Escreva para pesquisar...">
             </div>
-        </div>
+            <datalist id="datalistOptions">
+              <option value="Milho">
+              <option value="Café">
+              <option value="Algodão">
+              <option value="Laranja">
+              <option value="Arroz">
+            </datalist>
+            <div class="form-group w-75">
+              <button class="btn btn-outline-success left-button" type="submit">Pesquisar</button>
+            </div>
+          </form>
+        </ul>
+        <form class="d-flex paises">
+          <div class="collapse navbar-collapse right" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  {% if current_user.is_authenticated %}
+                  {{current_user.nome}}
+                  {% else %}
+                  Login/Cadastrar-se
+                  {% endif %}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-success" aria-labelledby="navbarDarkDropdownMenuLink">
+                  {% if current_user.is_authenticated %}
+                  <li><a class="dropdown-item" href="">Perfil</a></li>
+                  <li><a class="dropdown-item" href="">Lista de Atividade</a></li>
+                  <li><a class="dropdown-item" href="{{url_for('logout')}}">Sair</a></li>
+                  {% else %}
+                  <li><a class="dropdown-item" href="login">Login</a></li>
+                  <li><a class="dropdown-item" href="register">Cadastrar-se</a></li>
+
+                  {% endif %}
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
+  </nav>
+  <!-- Header End -->
+
+  <!-- Content -->
+      <div class="container">
+        <div class="row">
+          {% for produto in produtos %}
+          <div class="col-md-3" style="margin-top: 95px">
+            <div class="card">
+              <img src="{{url_for('static', filename='assets/posts/' + produto.image)}}" alt="{{produto.nome}}" class="card-img-top"
+              height="300px"/>
+                <div class="card-body">
+                    {% if produto.desconto > 0%}
+                    <h5 style="text-shadow: 1px 1px 2px #000; color: #f00; transform: rotate(-15deg); position: absolute; top: 20%;
+                    left: 20%;"
+                    >Desconto {{produto.desconto}} %</h5>
+                    {% endif %}
+                    <h5 class="text-center">{{produto.nome}}</h5>
+                    <p class="text-center">Preço R${{produto.price}}</p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{url_for('single_page', id=produto.id)}}" 
+                    class="float-left btn btn-sm btn-primary"> detalhes</a> <a href="#" class="float-right btn btn-sm
+                    btn-warning"> Adicionar ao carrinho </a>
+                </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+  <!-- End Content -->
+
+  <!-- Whatsapp link -->
+  <a class='whatsapp-link' href="https://web.whatsapp.com/send/?phone=5584991288330" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <div class=" my-5">
+    </section>
+    <!-- Whatsapp link -->
+    <a class='whatsapp-link' href="https://web.whatsapp.com/send/?phone=5584991288330" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div class=" my-5">
+      </section>
+
+      <!-- Whatsapp link -->
+      <a class='whatsapp-link' href="https://web.whatsapp.com/send/?phone=5584991288330" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+      </a>
+
+      <div class=" my-5">
+        <!-- Footer -->
+        <footer class="text-center text-lg-start text-dark" style="background-color: #ECEFF1">
+          <!-- Section: Social media -->
+          <section class="d-flex justify-content-between p-4 text-white" style="background-color: #198754">
+            <!-- Left -->
+            <div class="me-5">
+              <span>Conecte-se conosco nas redes sociais:</span>
+
+            </div>
+            <!-- Left -->
+
+            <!-- Right -->
+            <div>
+              <a href="" class="text-white me-4">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="" class="text-white me-4">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+            <!-- Right -->
+          </section>
+          <!-- Section: Social media -->
+
+          <!-- Section: Links  -->
+          <section class="">
+            <div class="container text-center text-md-start mt-5">
+              <!-- Grid row -->
+              <div class="row mt-3">
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                  <!-- Content -->
+                  <h6 class="text-uppercase fw-bold">lida Agropecuária</h6>
+                  <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                    style="width: 60px; background-color: #7c4dff; height: 2px" />
+                  <p>
+                    Here you can use rows and columns to organize your footer
+                    content. Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit.
+                  </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                  <!-- Links -->
+                  <h6 class="text-uppercase fw-bold">Produtos</h6>
+                  <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                    style="width: 60px; background-color: #7c4dff; height: 2px" />
+                  <p>
+                    <a href="#!" class="text-dark">MDBootstrap</a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-dark">MDWordPress</a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-dark">BrandFlow</a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-dark">Bootstrap Angular</a>
+                  </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                  <!-- Links -->
+                  <h6 class="text-uppercase fw-bold">Links Úteis</h6>
+                  <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                    style="width: 60px; background-color: #7c4dff; height: 2px" />
+                  <p>
+                    <a href="#!" class="text-dark">Your Account</a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-dark">Become an Affiliate</a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-dark">Shipping Rates</a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-dark">Help</a>
+                  </p>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                  <!-- Links -->
+                  <h6 class="text-uppercase fw-bold">Contato</h6>
+                  <hr class="mb-4 mt-0 d-inline-block mx-auto"
+                    style="width: 60px; background-color: #7c4dff; height: 2px" />
+                  <p><i class="fas fa-home mr-3"></i> Mossoró/RN</p>
+                  <p><i class="fas fa-envelope mr-3"></i> comercial@lidaagropecuaria.com.br</p>
+                  <p><i class="fas fa-phone mr-3"></i> (84) 3314-5080</p>
+                  <!-- <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p> -->
+                </div>
+                <!-- Grid column -->
+              </div>
+              <!-- Grid row -->
+            </div>
+          </section>
+          <!-- Section: Links  -->
+
+          <!-- Copyright -->
+          <div class="text-center p-3">
+            © 2020 Copyright:
+            <a class="reference-text" href="https://mdbootstrap.com/">LidaAgropecuaria.com</a>
+          </div>
+          <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+      </div>
+      <!-- End of .container -->
+      <script src="../static/js/home/index.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+      <!-- OWL CAROUSEL -->
+      <script src="../static/js/home/jquery.min.js"></script>
+      <script src="../static/js/home/owl.caroulse.min.js"></script>
+</body>
+
+</html>
