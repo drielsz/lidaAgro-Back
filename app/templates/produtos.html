@@ -49,9 +49,9 @@
               {% set x = produto.desconto/100 %}
               {% set y = "%0.2f" | format((x * produto.price|float)) %}
               {% set z = "%0.2f" | format((y|float - produto.price|float) *-1) %}
-              <p class="price-produto-com-desconto">R$ {{"%0.2f"|format(z|float)}}</p>
+              <p class="price-produto-com-desconto" style="padding-right: 10px;">R$ {{"%0.2f"|format(z|float)}}</p>
               {% else %}
-              <p class="price-produto-com-desconto">R$ {{produto.price}}</p>
+              <p class="price-produto-com-desconto">R$ {{"%0.2f"|format(produto.price|float)}}</p>
             {% endif %}
             <p class="tipo-compra">À vista</p>
             <form action="{{ url_for('AddCarrinho') }}" method="POST">
