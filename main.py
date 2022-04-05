@@ -1,6 +1,7 @@
 from flask import redirect, render_template, jsonify, request, url_for, flash, current_app, session
 from flask_login import login_user, logout_user
-from app import app, login_manager, db, search
+from flask_mail import Message
+from app import app, login_manager, db, search, mail, otp
 from app.models import User, Aviso, Produtos
 from werkzeug.utils import secure_filename
 import os
@@ -16,7 +17,7 @@ def result():
     searchword = request.args.get('q')
     # Limit = Limite de quantos resultados vão voltar
     # Fields = Pesquiser por ('nome', 'desc')
-    produtos = Produtos.query.msearch(searchword, fields=['nome','desc'], limit=6)
+    produtos = Produtos.query.msearch(searchword, fields=['nome','desc'])
     return render_template('produtos/result.html', produtos=produtos)
 
 @app.route('/produtos/cliente', methods=['GET', 'POST'])
@@ -132,6 +133,7 @@ def register():
     if request.method == 'POST':
         nome = request.form['nome']
         email = request.form['email']
+        
         senha = request.form['senha']
 
         # if nome and email and senha:

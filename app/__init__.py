@@ -1,19 +1,27 @@
+from ast import Param
 from flask import Flask
 from flask_login import LoginManager
 from flask_msearch import Search
-
+from flask_mail import *
 from flask_sqlalchemy import SQLAlchemy
+import random
 
-import datetime
-
-UPLOAD_FOLDER= './upload'
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/lida'
 app.config['SECRET_KEY'] = 'secret'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_USE_TLS']=False
+app.config['MAIL_USE_SSL']=True
+
 
 login_manager = LoginManager(app)
 db = SQLAlchemy(app)
+
 search = Search()
 search.init_app(app)
+
+mail=Mail(app)
+mail.init_app(app)
+
+otp = random.randint(0000,9999)

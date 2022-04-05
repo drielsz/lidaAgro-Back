@@ -16,342 +16,236 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="{{url_for('static', filename='css/home/main.css')}}">
 
-  <link rel="stylesheet" href="{{url_for('static', filename='css/home/css/owl-css/owl.carousel.min.css')}}">
-  <link rel="stylesheet" href="{{url_for('static', filename='css/home/css/owl-css/owl.theme.default.min.css')}}">
-  <link rel="stylesheet" href="{{url_for('static', filename='css/home/cards/main.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/home/home/main.css')}}">
 </head>
 
 <body>
-  <nav id="navbar-example2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top navnavnav">
-    <div class="container-fluid">
-      <!-- Header -->
-      <nav class="navbar navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <img src="../static/assets/Agropecuária.png" alt="" width="40" height="35">
-          </a>
-        </div>
-      </nav>
+  {% include "navbar.html" %}
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Página inicial</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="quem-somos">Empresa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="produtos/cliente">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="https://web.whatsapp.com/send/?phone=5584991288330"
-              target="_blank">Contato</a>
-          </li>
-          <form class="d-flex paises ">
-            <div class="form-group w-95">
-              <input class="form-control left" type="search" name="q" list="datalistOptions" id="exampleDataList"
-                placeholder="Escreva para pesquisar...">
-            </div>
-            <datalist id="datalistOptions">
-              <option value="Milho">
-              <option value="Café">
-              <option value="Algodão">
-              <option value="Laranja">
-              <option value="Arroz">
-            </datalist>
-            <div class="form-group w-75">
-              <button class="btn btn-outline-success left-button" type="submit">Pesquisar</button>
-            </div>
-          </form>
-        </ul>
-        <form class="d-flex paises">
-          <div class="collapse navbar-collapse right" id="navbarNavDarkDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  {% if current_user.is_authenticated %}
-                  {{current_user.nome}}
-                  {% else %}
-                  Login/Cadastrar-se
-                  {% endif %}
-                </a>
-                <ul class="dropdown-menu dropdown-menu-success" aria-labelledby="navbarDarkDropdownMenuLink">
-                  {% if current_user.is_authenticated %}
-                  <li><a class="dropdown-item" href="">Perfil</a></li>
-                  <li><a class="dropdown-item" href="">Lista de Atividade</a></li>
-                  <li><a class="dropdown-item" href="{{url_for('logout')}}">Sair</a></li>
-                  {% else %}
-                  <li><a class="dropdown-item" href="login">Login</a></li>
-                  <li><a class="dropdown-item" href="register">Cadastrar-se</a></li>
-
-                  {% endif %}
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </form>
-      </div>
-    </div>
-  </nav>
-  <!-- Header End -->
-
-  <!-- Carousel -->
-  <main>
-    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-          aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-          aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="../static/assets/agriculture.jpg" class="d-block w-100" alt="...">
-          <div class="carousel-caption">
-            <h5 class="animated bounceInRight" style="animation-delay: 1s">Lida Agropecuária</h5>
-            <p class="animated bounceInLeft d-none d-md-block" style="animation-delay: 2s">Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit. Vero consequuntur neque ipsa!</p>
-            <p class="animated bounceInRight" style="animation-delay: 3s"><a>Testando</a></p>
-
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../static/assets/agriculture02.jpg" class="d-block w-100" alt="...">
-          <div class="carousel-caption">
-            <h5 class="animated bounceInRight" style="animation-delay: 1s">Lida Agropecuária</h5>
-            <p class="animated bounceInLeft d-none d-md-block" style="animation-delay: 2s">Lorem ipsum dolor sit amet
-              consectetur, adipisicing elit. Vero consequuntur neque ipsa!</p>
-            <p class="animated bounceInRight" style="animation-delay: 3s"><a>Testando</a></p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="../static/assets/LIDA-CAMPEONATO-IMAGE2.jpg" class="d-block w-100" alt="...">
-          <div class="carousel-caption">
-            <h5 class="animated bounceInRight" style="animation-delay: 1s">Lida Agropecuária</h5>
-            <p class="animated bounceInLeft d-none d-md-block" style="animation-delay: 2s">Somos uma empresa
-              agropecuária. Mas também somos muito mais que isso.</p>
-            <form action="quem-somos">
-              <button class="btn btn-success" type="submit">Saiba mais</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-  </main>
-
-  <!-- Produtos -->
-  <section>
-    <h1 style="text-align: center; margin-top: 40px;">Sessão de produtos em destaque</h1>
-    <div class="container-produtos">
-    <div class="card">
-      <div class="imgBx-card">
-        <img
-          src="{{url_for('static', filename='assets/sementes_de_melancia_hibrida_galapagos_1_000_sementes_sakata_1047_1_e17bc5d1884c654941237e415b9572d5-removebg-preview.png')}}" />
-      </div>
-      <div class="contentBx-card">
-        <h2>Sementes de Melancia<br>Sakata</h2>
-        <a href="#">Comprar Agora</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="imgBx-card">
-        <img src="{{url_for('static', filename='assets/GLIFOMATO.png')}}" />
-      </div>
-      <div class="contentBx-card">
-        <h2>Glifomato 1%</h2>
-        <a href="#">Comprar Agora</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="imgBx-card">
-        <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" />
-      </div>
-      <div class="contentBx-card">
-        <h2>Gramizap Herbidicida</h2>
-        <a href="#">Comprar Agora</a>
-      </div>
-    </div>
-    <div class="card">
-      <div class="imgBx-card">
-        <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" />
-      </div>
-      <div class="contentBx-card">
-        <h2>Gramizap Herbidicida</h2>
-        <a href="#">Comprar Agora</a>
+  <div class="col-sm-12 align-items-center com-md-4">
+    <div class="img-banner-bg">
+      <div class="img-banner-text">
+        <h3>SEJA BEM-VINDO A LIDA AGROPECUÁRIA</h3>
+        <hr>
+        <h1>TEMOS TUDO PARA SEU AGRONEGÓCIO</h1>
       </div>
     </div>
   </div>
+
+  <main>
+    <div class="container-bg">
+      <div class="container">
+        <h1>Os mais pedidos</h1>
+      </div>
+    </div>
+    <!-- Cards -->
+    <div class="content-info-produtos">
+      <ul class="ul-info-produtos">
+        <div class="div-desconto">
+          <p class="text-desconto percent">25%</p>
+          <p class="text-desconto">OFF</p>
+
+          <div class="div-image-container">
+            <div class="div-child-image">
+              <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" class="div-child-image" />
+            </div>
+          </div>
+
+          <div class="div-nome-produto">
+            <p class="nome-produto">Primeiro Mineral Dimy Grass</p>
+            <p class="price-produto-sem-desconto">R$ 47.90</p>
+            <p class="price-produto-com-desconto">R$ 35,90</p>
+            <p class="tipo-compra">À vista</p>
+            <button class="button-compra">COMPRAR</button>
+          </div>
+        </div>
+      </ul>
+      <ul class="ul-info-produtos">
+        <div class="div-desconto">
+          <p class="text-desconto percent">0%</p>
+          <p class="text-desconto">OFF</p>
+
+          <div class="div-image-container">
+            <div class="div-child-image">
+              <img
+                src="https://io.convertiez.com.br/m/lojaagropecuaria/shop/products/images/1837/small/rodilon-blocos-extrusados-1-kg-66-blocos-de-15-g_181914.jpg"
+                class="div-child-image" />
+            </div>
+          </div>
+
+          <div class="div-nome-produto">
+            <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
+            <p class="price-produto-sem-desconto">R$ 47.90</p>
+            <p class="price-produto-com-desconto">R$ 35,90</p>
+            <p class="tipo-compra">À vista</p>
+            <button class="button-compra">COMPRAR</button>
+          </div>
+      </ul>
+      <ul class="ul-info-produtos">
+        <div class="div-desconto">
+          <p class="text-desconto percent">25%</p>
+          <p class="text-desconto">OFF</p>
+
+          <div class="div-image-container">
+            <div class="div-child-image">
+              <img
+                src="https://io.convertiez.com.br/m/lojaagropecuaria/shop/products/images/2084/medium/ade-po-champion_186524.jpg"
+                class="div-child-image" />
+            </div>
+          </div>
+
+          <div class="div-nome-produto">
+            <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
+            <p class="price-produto-sem-desconto">R$ 47.90</p>
+            <p class="price-produto-com-desconto">R$ 35,90</p>
+            <p class="tipo-compra">À vista</p>
+            <button class="button-compra">COMPRAR</button>
+          </div>
+      </ul>
+      <ul class="ul-info-produtos">
+        <div class="div-desconto">
+          <p class="text-desconto percent">25%</p>
+          <p class="text-desconto">OFF</p>
+
+          <div class="div-image-container">
+            <div class="div-child-image">
+              <img
+                src="https://io.convertiez.com.br/m/lojaagropecuaria/shop/products/images/2132/small/vermisal-champion_186520.jpg"
+                class="div-child-image" />
+            </div>
+          </div>
+
+          <div class="div-nome-produto">
+            <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
+            <p class="price-produto-sem-desconto">R$ 47.90</p>
+            <p class="price-produto-com-desconto">R$ 35,90</p>
+            <p class="tipo-compra">À vista</p>
+            <button class="button-compra">COMPRAR</button>
+          </div>
+      </ul>
+    </div>
+  </main>
+
+  <section>
+    <div class="destaques">
+      <div class="container">
+        <h1>DESTAQUE</h1>
+      </div>
+      <div class="content-info-produtos-destaques">
+        <ul class="ul-info-produtos-destaques">
+          <div class="div-desconto-destaques">
+            <div class="div-image-container">
+              <div style="width: 100%; height: 100%; position: absolute;">
+                <div class="path-brown"></div>
+                <div class="path-green"></div>
+              </div>
+              <div class="div-destaque-img">
+                <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" class="destaque-img" />
+              </div>
+            </div>
+
+            <div class="div-nome-produto">
+              <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
+              <p class="price-produto-sem-desconto">R$ 47.90</p>
+              <p class="price-produto-com-desconto">R$ 35,90</p>
+              <p class="tipo-compra">À vista</p>
+              <button class="button-compra">COMPRAR</button>
+            </div>
+          </div>
+        </ul>
+        <ul class="ul-info-produtos-destaques">
+          <div class="div-desconto-destaques">
+            <div class="div-image-container">
+              <div style="width: 100%; height: 100%; position: absolute;">
+                <div class="path-brown"></div>
+                <div class="path-green"></div>
+              </div>
+              <div class="div-destaque-img">
+                <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" class="destaque-img" />
+              </div>
+            </div>
+
+            <div class="div-nome-produto">
+              <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
+              <p class="price-produto-sem-desconto">R$ 47.90</p>
+              <p class="price-produto-com-desconto">R$ 35,90</p>
+              <p class="tipo-compra">À vista</p>
+              <button class="button-compra">COMPRAR</button>
+            </div>
+          </div>
+        </ul>
+        <ul class="ul-info-produtos-destaques">
+          <div class="div-desconto-destaques">
+            <div class="div-image-container">
+              <div style="width: 100%; height: 100%; position: absolute;">
+                <div class="path-brown"></div>
+                <div class="path-green"></div>
+              </div>
+              <div class="div-destaque-img">
+                <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" class="destaque-img" />
+              </div>
+            </div>
+
+            <div class="div-nome-produto">
+              <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
+              <p class="price-produto-sem-desconto">R$ 47.90</p>
+              <p class="price-produto-com-desconto">R$ 35,90</p>
+              <p class="tipo-compra">À vista</p>
+              <button class="button-compra">COMPRAR</button>
+            </div>
+          </div>
+        </ul>
+        <ul class="ul-info-produtos-destaques">
+          <div class="div-desconto-destaques">
+            <div class="div-image-container">
+              <div style="width: 100%; height: 100%; position: absolute;">
+                <div class="path-brown"></div>
+                <div class="path-green"></div>
+              </div>
+              <div class="div-destaque-img">
+                <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" class="destaque-img" />
+              </div>
+            </div>
+
+            <div class="div-nome-produto">
+              <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
+              <p class="price-produto-sem-desconto">R$ 47.90</p>
+              <p class="price-produto-com-desconto">R$ 35,90</p>
+              <p class="tipo-compra">À vista</p>
+              <button class="button-compra">COMPRAR</button>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <!-- End Produtos -->
-
-  <!-- Whatsapp link -->
-  <a class='whatsapp-link' href="https://web.whatsapp.com/send/?phone=5584991288330" target="_blank">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <div class=" my-5">
-    </section>
-    <!-- Whatsapp link -->
-    <a class='whatsapp-link' href="https://web.whatsapp.com/send/?phone=5584991288330" target="_blank">
-      <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <div class=" my-5">
-      </section>
-
-      <!-- Whatsapp link -->
-      <a class='whatsapp-link' href="https://web.whatsapp.com/send/?phone=5584991288330" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
-
-      <div class=" my-5">
-        <!-- Footer -->
-        <footer class="text-center text-lg-start text-dark" style="background-color: #ECEFF1">
-          <!-- Section: Social media -->
-          <section class="d-flex justify-content-between p-4 text-white" style="background-color: #198754">
-            <!-- Left -->
-            <div class="me-5">
-              <span>Conecte-se conosco nas redes sociais:</span>
-
-            </div>
-            <!-- Left -->
-
-            <!-- Right -->
-            <div>
-              <a href="" class="text-white me-4">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="" class="text-white me-4">
-                <i class="fab fa-instagram"></i>
-              </a>
-            </div>
-            <!-- Right -->
-          </section>
-          <!-- Section: Social media -->
-
-          <!-- Section: Links  -->
-          <section class="">
-            <div class="container text-center text-md-start mt-5">
-              <!-- Grid row -->
-              <div class="row mt-3">
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                  <!-- Content -->
-                  <h6 class="text-uppercase fw-bold">lida Agropecuária</h6>
-                  <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                    style="width: 60px; background-color: #7c4dff; height: 2px" />
-                  <p>
-                    Here you can use rows and columns to organize your footer
-                    content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                    elit.
-                  </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <!-- Links -->
-                  <h6 class="text-uppercase fw-bold">Produtos</h6>
-                  <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                    style="width: 60px; background-color: #7c4dff; height: 2px" />
-                  <p>
-                    <a href="#!" class="text-dark">MDBootstrap</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-dark">MDWordPress</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-dark">BrandFlow</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-dark">Bootstrap Angular</a>
-                  </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                  <!-- Links -->
-                  <h6 class="text-uppercase fw-bold">Links Úteis</h6>
-                  <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                    style="width: 60px; background-color: #7c4dff; height: 2px" />
-                  <p>
-                    <a href="#!" class="text-dark">Your Account</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-dark">Become an Affiliate</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-dark">Shipping Rates</a>
-                  </p>
-                  <p>
-                    <a href="#!" class="text-dark">Help</a>
-                  </p>
-                </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
-                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                  <!-- Links -->
-                  <h6 class="text-uppercase fw-bold">Contato</h6>
-                  <hr class="mb-4 mt-0 d-inline-block mx-auto"
-                    style="width: 60px; background-color: #7c4dff; height: 2px" />
-                  <p><i class="fas fa-home mr-3"></i> Mossoró/RN</p>
-                  <p><i class="fas fa-envelope mr-3"></i> comercial@lidaagropecuaria.com.br</p>
-                  <p><i class="fas fa-phone mr-3"></i> (84) 3314-5080</p>
-                  <!-- <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p> -->
-                </div>
-                <!-- Grid column -->
-              </div>
-              <!-- Grid row -->
-            </div>
-          </section>
-          <!-- Section: Links  -->
-
-          <!-- Copyright -->
-          <div class="text-center p-3">
-            © 2020 Copyright:
-            <a class="reference-text" href="https://mdbootstrap.com/">LidaAgropecuaria.com</a>
-          </div>
-          <!-- Copyright -->
-        </footer>
-        <!-- Footer -->
-      </div>
-      <!-- End of .container -->
-      <script src="../static/js/home/index.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-      <!-- OWL CAROUSEL -->
-      <script src="../static/js/home/jquery.min.js"></script>
-      <script src="../static/js/home/owl.caroulse.min.js"></script>
+  <!-- Footer -->
+  {% extends "footer.html" %}
+  <!-- End of .container -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <script src="../static/js/home/index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+    crossorigin="anonymous"></script>
+  <!-- OWL CAROUSEL -->
+  <script src="../static/js/home/jquery.min.js"></script>
+  <script src="../static/js/home/owl.caroulse.min.js"></script>
 </body>
 
 </html>

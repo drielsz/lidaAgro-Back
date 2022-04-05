@@ -1,0 +1,471 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Khula:wght@600&family=Poppins&display=swap");
+
+body {
+  min-width: 100vh;
+  min-height: 100%;
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+}
+
+code {
+  background: #fff;
+  padding: 0.2rem;
+  border-radius: 0.2rem;
+  margin: 0 0.3rem;
+}
+
+.bg-dark {
+  background: #f7f7f7 !important;
+}
+
+.navbar-dark .navbar-brand {
+  color: #6b6b6b;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #6b6b6b;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  top: 12px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #339121 !important;
+}
+
+.navbar-dark .navbar-toggler {
+  color: #6b6b6b !important;
+  border-color: #6b6b6b !important;
+  position: absolute;
+  right: 10px;
+  top: 30%;
+  margin: 0;
+}
+
+span.navbar-toggler-icon {
+  color: #6b6b6b !important;
+}
+
+.div-input {
+  position: absolute;
+  top: 4vh;
+  left: 300px;
+  background: #eeeeee;
+  border: 2px solid #cccccc;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.shadow-sm {
+  -webkit-box-shadow: 0px 0px 0px 0px #000000 !important;
+  box-shadow: 0px 0px 0px 0px #000000 !important;
+}
+
+.second-nav {
+  height: 40px;
+  background-color: #eeeeee;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+}
+
+.text-image {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  font-size: 32px;
+  color: #ffffff;
+}
+
+.second-text-image {
+  position: absolute;
+  top: 60%;
+  left: 13%;
+  font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
+  color: #ffffff;
+}
+
+.ul-second-nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  list-style: none;
+  margin: 8px;
+  padding: 0;
+}
+
+.nav-second-link {
+  color: #6b6b6b;
+  font-family: "Khula", sans-serif;
+  text-decoration: none;
+  text-align: center;
+}
+
+.nav-second-link:hover {
+  color: #339121;
+  cursor: pointer;
+}
+
+.input-nav {
+  background-color: #eeeeee;
+  border: border 2px solid #cccccc;
+  padding: 5px 10px;
+}
+
+.content-info-produtos {
+  background-color: #f7f7f7;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 100%;
+  justify-content: space-evenly;
+  padding-top: 8vh;
+}
+
+main .container h1 {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(12px, 3em, 50px);
+
+  text-transform: uppercase;
+  position: absolute;
+
+  top: 20%;
+  margin: 0;
+}
+
+.container-bg {
+  min-width: 100%;
+  height: 100px;
+  background-color: #339121;
+  position: relative;
+}
+
+.ul-info-produtos {
+  background-color: #ffffff;
+  height: 450px;
+  max-height: 450px;
+  width: 250px;
+  max-width: 250px;
+  padding: 0;
+  border-radius: 6px;
+  /* POSITION */
+  position: relative;
+  /*  */
+  margin-bottom: 60px;
+  /*  */
+  display: flex;
+}
+
+.div-desconto {
+  background-color: #339121;
+  height: 50px;
+  width: 50px;
+  border-radius: 6px;
+}
+
+.text-desconto {
+  margin: 0;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.percent {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.img-banner-bg {
+  background-image: url("../../../assets/AGRO-BANNER.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 700px;
+  position: relative;
+}
+
+.img-banner-text {
+  text-align: center;
+  margin: auto;
+  padding-top: 15%;
+  color: white;
+}
+
+div .img-banner-text h3 {
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 2vw, 2vw);
+}
+
+div .img-banner-text h1 {
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2.5rem, 4vw, 4vw);
+}
+
+div .img-banner-text hr {
+  margin: auto;
+  text-align: center;
+  border: 2px solid #339121;
+  max-width: 120px;
+  margin-bottom: 16px;
+}
+
+.img-fluid {
+  height: 600px;
+  object-fit: cover;
+}
+
+main .div-image {
+  background-color: red;
+  width: 120px;
+  height: 150px;
+  align-items: center;
+  justify-content: center;
+}
+
+.div-image-container {
+  font-family: arial;
+  font-size: 24px;
+  margin: 25px;
+  width: 200px;
+  height: 150px;
+  /* Setup */
+  position: relative;
+}
+
+.div-child-image {
+  width: 130px;
+  height: 130px;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  margin: -25px 0 0 -25px; /* Apply negative top and left margins to truly center the element */
+}
+
+.div-nome-produto {
+  width: 100%;
+  position: absolute;
+  bottom: 9vh;
+}
+
+.nome-produto {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #6b6b6b;
+  font-size: 16px;
+  margin-left: 3vh;
+  margin-bottom: 0;
+  z-index: 2;
+}
+
+.price-produto-sem-desconto {
+  width: 45%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  text-decoration-line: line-through;
+  margin: 0;
+  color: #b0b0b0;
+  z-index: 2;
+}
+
+.price-produto-com-desconto {
+  width: 72%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #339121;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+  z-index: 2;
+}
+
+.tipo-compra {
+  width: 38%;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  color: #b0b0b0;
+}
+
+.button-compra {
+  width: 80%;
+  border: none;
+  padding: 15px;
+  border-radius: 6px;
+  position: absolute;
+  background-color: #339121;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  position: absolute;
+  left: 10%;
+}
+
+.button-compra:focus {
+  background-color: #00ff40;
+}
+
+/* Section destaque */
+.content-info-produtos-destaques {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-width: 100%;
+  justify-content: space-evenly;
+}
+
+.ul-info-produtos-destaques {
+  height: 450px;
+  max-height: 450px;
+  width: 250px;
+  max-width: 250px;
+  padding: 0;
+  border-radius: 6px;
+  /* POSITION */
+  position: relative;
+  /*  */
+  display: flex;
+}
+
+.path-green {
+  clip-path: circle(50%);
+  background-color: #339121;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+  position: absolute;
+  top: 80px;
+  margin-left: 16px;
+}
+
+.path-brown {
+  clip-path: circle(50%);
+  background-color: #574c41;
+  position: absolute;
+  margin-left: 50px;
+  top: 50px;
+  left: 24px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
+
+.div-desconto-destaques {
+  height: 50px;
+  width: 50px;
+  border-radius: 6px;
+}
+
+.destaques {
+  background-color: #f7f7f7;
+  height: 500px;
+}
+
+section .destaques .container h1 {
+  color: #339121;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+}
+
+.div-destaque-img {
+  width: 130px;
+  height: 130px;
+  /* Center vertically and horizontally */
+  position: relative;
+  top: 15%;
+  left: 25%;
+  margin: -25px 0 0 -25px; /* Apply negative top and left margins to truly center the element */
+}
+
+.destaque-img {
+  width: 242px;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 15%;
+  left: -10%;
+  bottom: 10%;
+  margin: -54px 0 0 -36px; /* Apply negative top and left margins to truly center the element */
+  transform: rotate(30deg);
+  z-index: 2;
+}
+
+.my-5 {
+  margin-bottom: 0 !important;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.oferta {
+  color: #339121;
+}
+
+.img-finalizar:hover {
+  cursor: pointer;
+}
+
+.badge-counter {
+  position: absolute;
+  transform: scale(0.7);
+  transform-origin: top right;
+  right: 0.25rem;
+  margin-top: -0.25rem;
+}
+
+.badge-danger {
+  color: #fff;
+  background-color: #e74a3b;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.35rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+@media only screen and (max-width: 1251px) {
+  .img-banner-text {
+    padding-top: 25%;
+  }
+}
+
+@media only screen and (max-width: 999px) {
+  footer {
+    margin-top: 500px;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  nav.container-fluid.second-nav {
+    padding: 0;
+    display: none;
+  }
+}
