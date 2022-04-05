@@ -27,7 +27,6 @@
     <div class="row">
       {% for produto in produtos %}
       <div class="col-md-3" style="margin-top: 30px">
-        <div class="card">
           <div class="content-info-produtos">
             <ul class="ul-info-produtos">
               {% if produto.desconto > 0%}
@@ -48,8 +47,13 @@
                 <p class="nome-produto">{{produto.nome}}</p>
                 {% if produto.desconto > 0 %}
                 <p class="price-produto-sem-desconto">R$ {{produto.price}}</p>
+                  {% set x = produto.desconto/100 %}
+                  {% set y = "%0.2f" | format((x * produto.price|float)) %}
+                  {% set z = "%0.2f" | format((y|float - produto.price|float) *-1) %}
+                  <p class="price-produto-com-desconto">R$ {{"%0.2f"|format(z|float)}}</p>
+                  {% else %}
+                  <p class="price-produto-com-desconto">R$ {{produto.price}}</p>
                 {% endif %}
-                <p class="price-produto-com-desconto">R$ {{produto.price}}</p>
                 <p class="tipo-compra">À vista</p>
                 <form action="{{ url_for('AddCarrinho') }}" method="POST">
                   <input type="hidden" name="produto_id" value="{{produto.id}}">
@@ -59,7 +63,6 @@
               </div>
           </div>
           </ul>
-        </div>
       </div>
 
       {% endfor %}
