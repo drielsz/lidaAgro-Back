@@ -126,6 +126,7 @@ span.navbar-toggler-icon {
   min-width: 100%;
   justify-content: space-evenly;
   padding-top: 8vh;
+  padding-right: 0;
 }
 
 main .container h1 {
@@ -236,7 +237,6 @@ main .div-image {
 }
 
 .div-image-container {
-  font-family: arial;
   font-size: 24px;
   margin: 25px;
   width: 200px;

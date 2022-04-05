@@ -1,0 +1,47 @@
+  <!-- Content -->
+  <div class="container-fluid">
+    <div class="row">
+      {% for produto in produtos %}
+      <div class="col-md-3" style="margin-top: 30px">
+          <div class="content-info-produtos">
+            <ul class="ul-info-produtos">
+              {% if produto.desconto > 0 %}
+              <div class="div-desconto">
+                <p class="text-desconto percent">25%</p>
+                <p class="text-desconto">OFF</p>
+                {% else %}
+                <div class="div-desconto" style="background-color: transparent;">
+                  <p class="text-desconto percent"></p>
+                  <p class="text-desconto">OFF</p>
+                  {% endif %}
+              <div class="div-image-container">
+                <div class="div-child-image">
+                  <a href="{{url_for('single_page', id=produto.id)}}">
+                  <img src="{{url_for('static', filename='assets/posts/' + produto.image)}}" alt="{{produto.nome}}"
+                    class="div-child-image" /></a>
+                </div>
+              </div>
+
+              <div class="div-nome-produto">
+                <p class="nome-produto">{{produto.nome}}</p>
+                {% if produto.desconto > 0 %}
+                <p class="price-produto-sem-desconto">R$ {{produto.price}}</p>
+                  {% set x = produto.desconto/100 %}
+                  {% set y = "%0.2f" | format((x * produto.price|float)) %}
+                  {% set z = "%0.2f" | format((y|float - produto.price|float) *-1) %}
+                  <p class="price-produto-com-desconto">R$ {{"%0.2f"|format(z|float)}}</p>
+                  {% else %}
+                  <p class="price-produto-com-desconto">R$ {{produto.price}}</p>
+                {% endif %}
+                <p class="tipo-compra">À vista</p>
+                <form action="{{ url_for('AddCarrinho') }}" method="POST">
+                  <input type="hidden" name="produto_id" value="{{produto.id}}">
+                  <button type="submit" class="button-compra">COMPRAR</button>
+                  <input type="hidden" name="quantidade" id="" value="1" min="1" max="{{produto.estoque}}">
+                </form>
+              </div>
+          </div>
+          </ul>
+      </div>
+
+      {% endfor %}
