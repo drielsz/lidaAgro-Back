@@ -322,7 +322,3 @@ def admin_perfil(id):
 
         db.session.commit()
     return render_template('admin/perfil.html')
-
-port = os.getenv('PORT')
-if __name__ == '__main__':
-    app.run(debug=False, host='0.0.0.0', port=port)
