@@ -14,7 +14,8 @@ app.config['SECRET_KEY'] = 'secret'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_USE_TLS']=False
 app.config['MAIL_USE_SSL']=True
-
+DEBUG = False
+ALLOWED_HOSTS = ['lidaagropecuaria.herokuapp.com', '192.168.0.18']
 
 login_manager = LoginManager(app)
 db = SQLAlchemy(app)
