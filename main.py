@@ -73,6 +73,7 @@ def AddCarrinho():
 @app.route('/carts')
 def getCart():
     if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
+        flash('Nenhum item no carrinho')
         return redirect(url_for('produtos_cliente'))
     subtotal = 0
     grandtotal = 0
@@ -90,6 +91,7 @@ def atualizar_carrinho(code):
     # Key = Code 
     if 'Shoppingcart' not in session or len(session['Shoppingcart']) <= 0:
         return redirect(url_for('home'))
+
     if request.method == 'POST':
         quantidade = request.form.get('quantidade')
         try: 
@@ -97,7 +99,6 @@ def atualizar_carrinho(code):
             for key, item in session['Shoppingcart'].items():
                 if int(key) == code:
                     item['quantidade'] = quantidade
-                    flash('O item foi atualizado!')
                     return redirect(url_for('getCart'))
         except Exception as e:
             print(e)

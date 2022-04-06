@@ -21,13 +21,13 @@
 
 <body>
   {% include "navbar.html" %}
-
+  {% include "layout.html" %}
   <div class="content-info-produtos">
     {% for produto in produtos %}
     <ul class="ul-info-produtos">
       {% if produto.desconto > 0 %}
       <div class="div-desconto">
-        <p class="text-desconto percent">25%</p>
+        <p class="text-desconto percent">{{produto.desconto}}%</p>
         <p class="text-desconto">OFF</p>
         {% else %}
         <div class="div-desconto" style="background-color: transparent;">

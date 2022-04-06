@@ -1,0 +1,39 @@
+.col-md-12 table{
+    border-top: 2px solid #339121;
+}
+
+.col-md-12 table thead{
+    border-bottom: 2px solid #339121; border-left: 2px solid #339121; border-right: 2px solid #339121;
+}
+
+.top-content h1 {
+  font-size: 24px;
+  line-height: 24px;
+  font-weight: 700;
+  color: #339121;
+}
+
+.top-content h2 {
+  font-size: 13px;
+}
+
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.total-price table {
+  border-top: 3px solid #339121;
+  width: 100%;
+  max-width: 350px;
+  margin-bottom: 50px;
+}
+
+td:last-child {
+  text-align: right;
+}
+
+th:last-child {
+  text-align: right;
+}

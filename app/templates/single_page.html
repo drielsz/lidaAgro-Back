@@ -18,14 +18,18 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
+<style>
+
+</style>
+
 <body>
     {% include "navbar.html" %}
     <!-- Header End -->
-    <div class="container" style="margin-top: 200px">
+    <div class="container" style="margin-top: 100px;">
         <div class="row">
             <div class="col-md-6" id="produto.image">
                 <img src="{{url_for('static', filename='assets/posts/' + produto.image)}}" alt="{{produto.nome}}"
-                    width="400" height="400" />
+                    class="img-hover" id="zoom" width="400" height="400" />
             </div>
             <div class="col-md-6">
                 <h4> Nome do Produto: {{produto.nome}}</h4>
@@ -35,12 +39,12 @@
                 <p> Desconto do produto: {{produto.desconto}} %</p>
                 {% endif %}
                 <hr>
-                    <b>Descrição do produto</b>
-                    <p>{{produto.desc}}</p>
+                <b>Descrição do produto</b>
+                <p>{{produto.desc}}</p>
                 <hr>
                 <form action="{{ url_for('AddCarrinho') }}" method="POST">
                     <input type="hidden" name="produto_id" value="{{produto.id}}">
-                    <button type="submit" class="btn btn-sm btn-warning"> Adicionar ao carrinho</button>
+                    <button type="submit" class="btn btn-sm btn-success"> Comprar agora</button>
                     <label for=""> Quantidade:</label>
                     <input type="number" name="quantidade" id="" value="1" min="1" max="{{produto.estoque}}">
                 </form>
@@ -71,3 +75,7 @@
             s_image.innerHTML = "<img src=" + ImageSRC + " width='400' height='400'>"
         }
     </script>
+    <!-- zoom -->
+</body>
+
+</html>

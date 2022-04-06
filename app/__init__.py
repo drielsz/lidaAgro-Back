@@ -9,6 +9,7 @@ import random
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:123456@localhost/lida'
+app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 app.config['SECRET_KEY'] = 'secret'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_USE_TLS']=False

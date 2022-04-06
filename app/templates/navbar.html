@@ -33,6 +33,11 @@
         <div id="navbarSupportedContent" class="collapse navbar-collapse">
           <ul class="navbar-nav ml-auto">
             <div class="div-input">
+              {% if "carts.html" %}
+              <form>
+
+              </form>
+              {% endif %}
             <form class="d-flex paises" action="{{url_for('result')}}">
               <li class=""><input placeholder="Digite o produto que deseja" class="input-nav" style="border: none"
                   size="28" name="q"/></li>

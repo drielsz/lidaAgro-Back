@@ -1,53 +1,97 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-12">
-        <table class="table table-sm table-condensed table-striped">
-            <thead>
-                <th>Sr</th>
-                <th>Imagem</th>
-                <th>Nome</th>
-                <th>Preço</th>
-                <th>Quantidade</th>
-                <th>Desconto</th>
-                <th>SubTotal</th>
-                <th>Atualizar</th>
-                <th>Remover</th>
-            </thead>
-            <tbody>
-                {% for key, produto in session['Shoppingcart'].items() %}
-                {% set desconto = "%0.2f" | format((produto.desconto/100) * produto.price|float) %}
-                <tr>
-                    <td>{{loop.index}}</td>
-                    <td><img src="{{url_for('static', filename='assets/posts/'+ produto.image)}}" alt="{{produto.image}}" 
-                    width="50" height="45"/></td>
-                    <td>{{produto.nome}}</td>
-                    <form action="{{url_for('atualizar_carrinho', code=key)}}" method="POST">
-                        <td>R${{produto.price}}</td>
-                        <td><input type="number" name="quantidade" min="1" max="{{produto.estoque}}" value="{{produto.quantidade}}"></td>
-                        {% if produto.desconto > 0 %}
-                            <td>{{produto.desconto}}% &nbsp; é {{desconto}}</td>
-                        {% else %}
-                            <td></td>
-                        {% endif %}
-                        {% set subtotal = produto.quantidade|int * produto.price|float %}
-                            <td>{{"%0.2f"|format((subtotal|float) - desconto|float)}}</td>
-                            <td><button type="submit" class="btn btn-sm btn-info">Atualizar</button></td>
-                    </form>
-                    <td><a href="{{url_for('delete_item', id=key)}}" class="btn btn-sm btn-danger">Remover</a></td>
-                </tr>
-                {% endfor %}
-                <tr>
-                    <td></td>
-                    <td><a href="{{url_for('produtos_cliente')}}" class="btn btn-success">Continue comprando</a></td>
-                    <td colspan="3"><h5>Taxa ou frete: R${{tax}}</h5></td>
-                    <td colspan="4"><h5>Total: R${{grandtotal}}</h5></td>
-                    <td><a href="{{url_for('limpar_carrinho')}}" class="btn btn-sm btn-danger float-end">Limpar Carrinho</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lida - Carrinho</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/cart/main.css">
+</head>
+
+<body>
+    {% include "navbar.html" %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="top-content col-md-12 pull-left">
+                <h1><span>Carrinho de Compras</span></h1>
+                <h2><span>Confira seus itens adicionados</span></h2>
+            </div>
+            <div class="col-md-12">
+                <table class="table table-bordered text-center">
+                    <thead >
+                        <tr>
+                            <td>Imagem</td>
+                            <td>Nome</td>
+                            <td>Preço</td>
+                            <td>Quantidade</td>
+                            <td>SubTotal</td>
+                            <td>Atualizar</td>
+                            <td>Remover</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key, produto in session['Shoppingcart'].items() %}
+                        {% set desconto = "%0.2f" | format((produto.desconto/100) * produto.price|float) %}
+                        <tr>
+                            <td><img src="{{url_for('static', filename='assets/posts/'+ produto.image)}}"
+                                    alt="{{produto.image}}" width="80" height="60" /></td>
+
+                            <td style="vertical-align: middle">{{produto.nome}}</td>
+
+                            <td style="vertical-align: middle">R${{produto.price}}</td>
+                            <form action="{{url_for('atualizar_carrinho', code=key)}}" method="POST">
+                                <td style="vertical-align: middle"><input type="number" name="quantidade" min="1"
+                                        max="{{produto.estoque}}" value="{{produto.quantidade}}"></td>
+                                {% set subtotal = produto.quantidade|int * produto.price|float %}
+                                <td style="vertical-align: middle">R${{"%0.2f"|format((subtotal|float) - desconto|float)}}
+                                </td>
+                                <td style="vertical-align: middle"><button type="submit"
+                                        class="btn btn-link link-info">Atualizar</button></td>
+                            </form>
+                            <td style="vertical-align: middle"><a href="{{url_for('delete_item', id=key)}}"
+                                    class="btn btn-link link-danger">Remover</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div class="total-price">
+                    <table>
+                        <tr>
+                            <td>Taxa</td>
+                            <td>R${{tax}}</td>
+                        </tr>
+                        <tr>
+                            <td>Total</td>
+                            <td>R${{grandtotal}}</td>
+                        </tr>
+                    </table> 
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <a href="#" class="btn btn-success float-end">Comprar agora</a>
+                    <a href="{{url_for('produtos_cliente')}}" class="btn  float-end">Volte para a loja</a>
+                    <a href="{{url_for('limpar_carrinho')}}" class="btn btn-sm btn-danger">Limpar
+                        Carrinho</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+ 
+    {% extends "footer.html" %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
