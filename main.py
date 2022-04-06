@@ -324,4 +324,4 @@ def admin_perfil(id):
     return render_template('admin/perfil.html')
 
 
-app.run(debug=True)
+app.run(debug=False)
