@@ -324,4 +324,4 @@ def admin_perfil(id):
     return render_template('admin/perfil.html')
 
 port = int(os.getenv('PORT'))
-app.run(debug=False, host='0.0.0.0', port=port)
+app.run(debug=True, host='0.0.0.0', port=port)
