@@ -322,3 +322,5 @@ def admin_perfil(id):
 
         db.session.commit()
     return render_template('admin/perfil.html')
+
+app.run(debug=True)

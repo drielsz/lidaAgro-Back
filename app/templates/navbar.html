@@ -3,7 +3,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lida Agropecuária</title>
-    <link rel="icon" href="../static/assets/Lida agro.jpg" type="image/icon type">
+    <link rel="shortcut icon" href="../static/assets/Lida agro.jpg" type="image/icon type">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,24 +21,17 @@
   <nav class="navbar navbar-expand-lg py-3 navbar-dark bg-dark shadow-sm">
     <div class="container">
       <a href="{{url_for('home')}}" class="navbar-brand">
-        <!-- Logo Image -->
         <img src="{{url_for('static', filename='assets/LIDA_LOGO.png')}}" width="120" alt="LIDA LOGO" class="d-inline-block align-middle mr-2">
-        <!-- Logo Text -->
       </a>
-      <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
-        class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <div style="display: flex">
-        <div id="navbarSupportedContent" class="collapse navbar-collapse">
+      <div>
+        <div id="navbarSupportedContent" class="collapse navbar-collapse row">
           <ul class="navbar-nav ml-auto">
             <div class="div-input">
-              {% if "carts.html" %}
-              <form>
-
-              </form>
-              {% endif %}
-            <form class="d-flex paises" action="{{url_for('result')}}">
+            <form class="d-flex" action="{{url_for('result')}}">
               <li class=""><input placeholder="Digite o produto que deseja" class="input-nav" style="border: none"
                   size="28" name="q"/></li>
             </form>
@@ -81,9 +74,10 @@
       <div style="position: relative;">
         <ul class="ul-second-nav">
           <div class="show">
-            <li class="nav-item dropdown"><a class="dropdown-toggle nav-second-link" href="#" role="button"
-                id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                TODAS AS CATEGORIAS</a></li>
+            <li style="vertical-align: middle;"
+            class="nav-item dropdown"><a class="dropdown-toggle nav-second-link" href="#" role="button"
+            id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            TODAS AS CATEGORIAS</a></li>
             <ul class="dropdown-menu dropdown-menu-success" aria-labelledby="dropdownMenuLink">
               <li><a class="dropdown-item" href="#">Action</a></li>
               <li><a class="dropdown-item" href="#">Another action</a></li>

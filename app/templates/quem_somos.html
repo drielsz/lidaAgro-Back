@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lida Agropecuária</title>
-    <link rel="icon" href="../static/assets/Lida agro.jpg" type="image/icon type" />
+    <link rel="shortcut icon" href="../static/assets/Lida agro.jpg" type="image/icon type" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,92 +20,7 @@
 </head>
 
 <body class="body-2°page">
-    <nav id="navbar-example2" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container-fluid">
-            <!-- Header -->
-            <nav class="navbar navbar-light bg-light">
-                <div class="container">
-                    <a class="navbar-brand" href="#">
-                        <img src="../static/assets/Agropecuária.png" alt="" width="40" height="35" />
-                    </a>
-                </div>
-            </nav>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Página inicial</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Empresa</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="produtos">Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page"
-                            href="https://web.whatsapp.com/send/?phone=5584991288330" target="_blank">Contato</a>
-                    </li>
-                    <form class="d-flex paises">
-                        <div class="form-group w-95">
-                            <input class="form-control left" list="datalistOptions" id="exampleDataList"
-                                placeholder="Escreva para pesquisar..." />
-                        </div>
-                        <datalist id="datalistOptions">
-                            <option value="Milho"></option>
-                            <option value="Café"></option>
-                            <option value="Algodão"></option>
-                            <option value="Laranja"></option>
-                            <option value="Arroz"></option>
-                        </datalist>
-
-                        <div class="form-group w-75">
-                            <button class="btn btn-outline-success left-button" type="submit">
-                                Pesquisar
-                            </button>
-                        </div>
-                    </form>
-                </ul>
-                <form class="d-flex paises">
-                    <div class="collapse navbar-collapse right" id="navbarNavDarkDropdown">
-                        <ul class="navbar-nav">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink"
-                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    {% if current_user.is_authenticated %} {{current_user.nome}}
-                                    {% else %} Login/Cadastrar-se {% endif %}
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-success"
-                                    aria-labelledby="navbarDarkDropdownMenuLink">
-                                    {% if current_user.is_authenticated %}
-                                    <li><a class="dropdown-item" href="">Perfil</a></li>
-                                    <li>
-                                        <a class="dropdown-item" href="">Lista de Atividade</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="{{url_for('logout')}}">Sair</a>
-                                    </li>
-                                    {% else %}
-                                    <li><a class="dropdown-item" href="login">Login</a></li>
-                                    <li>
-                                        <a class="dropdown-item" href="register">Cadastrar-se</a>
-                                    </li>
-
-                                    {% endif %}
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </nav>
-    <!-- Header End -->
+    {% include "navbar.html" %}
     <main>
         <div class="row">
             <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe ">
