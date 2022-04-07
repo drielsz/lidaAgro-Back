@@ -2,7 +2,7 @@ from flask import redirect, render_template, jsonify, request, url_for, flash, c
 from flask_login import login_user, logout_user
 from flask_mail import Message
 from app import app, login_manager, db, search, mail, otp
-from app.app import User, Aviso, Produtos
+from app.models import User, Aviso, Produtos
 from werkzeug.utils import secure_filename
 import os
 import secrets
