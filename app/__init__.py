@@ -1,3 +1,4 @@
+import http
 from flask import Flask
 from flask_login import LoginManager
 from flask_msearch import Search
@@ -12,6 +13,8 @@ app.config['SECRET_KEY'] = 'secret'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_USE_TLS']=False
 app.config['MAIL_USE_SSL']=True
+
+server = http.createServer(app)
 
 login_manager = LoginManager(app)
 db = SQLAlchemy(app)
