@@ -40,11 +40,13 @@
   padding: 12px;
 }
 
-.navbar:focus .input-nav:focus {
-  border: 1px solid green !important;
-  box-shadow: 0 0 3px green !important;
-  -moz-box-shadow: 0 0 3px green !important;
-  -webkit-box-shadow: 0 0 3px green !important;
+.navbar input:focus, textarea:focus, select:focus {
+  outline-offset: 0px !important;
+  outline: none !important;
+  border: 1px solid #339121 !important;
+  box-shadow: 0 0 3px #339121 !important;
+  -moz-box-shadow: 0 0 3px #339121 !important;
+  -webkit-box-shadow: 0 0 3px #339121 !important;
 }
 
 .navbar .input-nav,
