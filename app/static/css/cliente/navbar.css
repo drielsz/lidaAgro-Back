@@ -8,6 +8,7 @@
   line-height: 100px;
   background-color: #f7f7f7;
   border-radius: 0px !important;
+  border-color: transparent;
 }
 
 .navbar .logo-holder {
@@ -39,6 +40,13 @@
   padding: 12px;
 }
 
+.navbar:focus .input-nav:focus {
+  border: 1px solid green !important;
+  box-shadow: 0 0 3px green !important;
+  -moz-box-shadow: 0 0 3px green !important;
+  -webkit-box-shadow: 0 0 3px green !important;
+}
+
 .navbar .input-nav,
 .navbar .input-nav::-webkit-input-placeholder {
   font-size: 15px;
@@ -65,7 +73,7 @@
 }
 
 .navbar .sections li a {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #6b6b6b;
   text-decoration: none;
 }
@@ -121,7 +129,7 @@
 }
 
 .second-nav .sections li a {
-  font-family: 'Khula', sans-serif;
+  font-family: "Khula", sans-serif;
   color: #6b6b6b;
   text-decoration: none;
 }
