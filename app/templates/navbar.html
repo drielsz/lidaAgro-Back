@@ -16,7 +16,7 @@
       <a href="{{url_for('home')}}">
         <img class='logo-holder' src="{{url_for('static', filename='assets/LIDA_LOGO.png')}}" alt="lida logo">
       </a>
-      <form action="{{url_for('result')}}">
+      <form action="{{url_for('result')}}" autocomplete="off">
         <input placeholder="Digite o produto que deseja" class="input-nav" name="q">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search q"
           viewBox="0 0 16 16" style="position: absolute; top: 45px; left: 465px;">
@@ -68,7 +68,7 @@
         <li><a href="#">Ofertas</a></li>
       </ul>
     </div>
-    <form action="{{url_for('result')}}" class="form-mobile">
+    <form action="{{url_for('result')}}" class="form-mobile" autocomplete="off">
       <input placeholder="Digite o produto que deseja" class="input-nav-mobile" name="q">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search q-mobile"
         viewBox="0 0 16 16" style="position: absolute; top: 162px; left: 630px;">
