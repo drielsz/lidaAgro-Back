@@ -1,6 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Khula:wght@600&family=Poppins&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Khula:wght@600&family=Poppins&display=swap');
 
 body {
   min-width: 100vh;
@@ -20,34 +18,6 @@ code {
   background: #f7f7f7 !important;
 }
 
-.navbar-dark .navbar-brand {
-  color: #6b6b6b;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-  color: #6b6b6b;
-  font-family: "Poppins", sans-serif;
-  position: relative;
-  top: 12px;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover {
-  color: #339121 !important;
-}
-
-.navbar-dark .navbar-toggler {
-  color: #6b6b6b !important;
-  border-color: #6b6b6b !important;
-  position: absolute;
-  right: 10px;
-  top: 30%;
-  margin: 0;
-}
-
-span.navbar-toggler-icon {
-  color: #6b6b6b !important;
-}
-
 .div-input {
   position: absolute;
   top: 4vh;
@@ -64,14 +34,6 @@ span.navbar-toggler-icon {
   box-shadow: 0px 0px 0px 0px #000000 !important;
 }
 
-.second-nav {
-  height: 40px;
-  background-color: #eeeeee;
-  text-align: center;
-  justify-content: center;
-  position: relative;
-  vertical-align: middle;
-}
 
 .text-image {
   position: absolute;
@@ -87,34 +49,6 @@ span.navbar-toggler-icon {
   left: 13%;
   font-size: clamp(1rem, -0.875rem + 8.333vw, 3.5rem);
   color: #ffffff;
-}
-
-.ul-second-nav {
-  position: absolute;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  align-items: center;
-  list-style: none;
-}
-
-.nav-second-link {
-  color: #6b6b6b;
-  font-family: "Khula", sans-serif;
-  text-decoration: none;
-  text-align: center;
-}
-
-.nav-second-link:hover {
-  color: #339121;
-  cursor: pointer;
-}
-
-.input-nav {
-  background-color: #eeeeee;
-  border: border 2px solid #cccccc;
-  padding: 5px 10px;
 }
 
 .content-info-produtos {
@@ -423,33 +357,6 @@ section .destaques .container h1 {
   cursor: pointer;
 }
 
-.badge-counter {
-  position: absolute;
-  transform: scale(0.7);
-  transform-origin: top right;
-  right: 0.25rem;
-  margin-top: -0.25rem;
-}
-
-.badge-danger {
-  color: #fff;
-  background-color: #e74a3b;
-}
-
-.badge {
-  display: inline-block;
-  padding: 0.25em 0.4em;
-  font-size: 75%;
-  font-weight: 700;
-  line-height: 1;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: 0.35rem;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
 @media only screen and (max-width: 1251px) {
   .img-banner-text {
     padding-top: 25%;
@@ -462,9 +369,3 @@ section .destaques .container h1 {
   }
 }
 
-@media only screen and (max-width: 769px) {
-  nav.container-fluid.second-nav {
-    padding: 0;
-    display: none;
-  }
-}
