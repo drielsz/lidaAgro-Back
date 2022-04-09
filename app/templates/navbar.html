@@ -34,26 +34,30 @@
       </div>
       <ul class="sections">
         {% if current_user.is_authenticated %}
-          <li><a href="#">Meus pedidos</a></li>
-          {% else %}
-          <li></li>
-          {% endif %}
-          <li><a href="{{url_for('produtos_cliente')}}">Produtos</a></li>
-          <li><a href="#">Atendimento</a></li>
-          <li><a href="#">Empresa</a></li>
-          {% if current_user.is_authenticated %}
-          <li><a href="{{url_for('logout')}}">Sair</a></li>
-          {% else %}
-          <li><a href="{{url_for('login')}}">Login</a></li>
+        <li><a href="#">Meus pedidos</a></li>
+        {% else %}
+        <li></li>
         {% endif %}
-        <li><a href="{{url_for('getCart')}}">
+        <li><a href="{{url_for('produtos_cliente')}}">Produtos</a></li>
+        <li><a href="#">Atendimento</a></li>
+        <li><a href="#">Empresa</a></li>
+        {% if current_user.is_authenticated %}
+        <li><a href="{{url_for('logout')}}">Sair</a></li>
+        {% else %}
+        <li><a href="{{url_for('login')}}">Login</a></li>
+        {% endif %}
+        {% if session['Shoppingcart']|length > 0 %}
+        <li class="anim"><a href="{{url_for('getCart')}}">
+            {% else %}
+        <li class=""><a href="{{url_for('getCart')}}">
+            {% endif %}
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-cart3"
               viewBox="0 0 16 16">
               <path
                 d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
             </svg>
-
-          </a><span class="badge badge-danger badge-counter">{{session['Shoppingcart']|length}}+</span></li>
+            <span class="badge badge-danger badge-counter">{{session['Shoppingcart']|length}}+</span>
+          </a></li>
       </ul>
     </div>
     </div>
@@ -61,7 +65,7 @@
   <div class="center">
     <div class="second-nav">
       <ul class="sections">
-        <li><a href="#">Todas as categorias</a></li>
+        <li><a href="#">Todas as Categorias <i style="padding-left: 1px;" class="fa-solid fa-caret-down"></i></a></li>
         <li><a href="#">Fertilizantes</a></li>
         <li><a href="#">Pesticidas</a></li>
         <li><a href="#">Sementes</a></li>
