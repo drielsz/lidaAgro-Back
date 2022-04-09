@@ -41,89 +41,55 @@
     </div>
     <!-- Cards -->
     <div class="content-info-produtos">
+      {% for produto in produtos %}
       <ul class="ul-info-produtos">
+        {% if produto.desconto > 0 %}
         <div class="div-desconto">
-          <p class="text-desconto percent">25%</p>
+          <p class="text-desconto percent">{{produto.desconto}}%</p>
           <p class="text-desconto">OFF</p>
-
-          <div class="div-image-container">
-            <div class="div-child-image">
-              <img src="{{url_for('static', filename='assets/gramizap-imazapir_186568-removebg-preview.png')}}" class="div-child-image" />
+          {% else %}
+          <div class="div-desconto" style="background-color: transparent;">
+            <p class="text-desconto percent">25%</p>
+            <p class="text-desconto">OFF</p>
+            {% endif %}
+            <div class="div-image-container">
+              <div class="div-child-image">
+                <a href="{{url_for('single_page', id=produto.id)}}">
+                  <img src="{{url_for('static', filename='assets/posts/' + produto.image)}}" alt="{{produto.nome}}"
+                    class="div-child-image" /></a>
+              </div>
+            </div>
+  
+            <div class="div-nome-produto">
+              <p class="nome-produto">{{produto.nome}}</p>
+              {% if produto.desconto > 0 %}
+              {% set a = "%0.2f"|format(produto.price|float) %}
+              <p class="price-produto-sem-desconto">R$ {{a.replace('.',',')}}</p>
+              {% set x = produto.desconto/100 %}
+              {% set y = "%0.2f" | format((x * produto.price|float)) %}
+              {% set z = "%0.2f" | format((y|float - produto.price|float) *-1) %}
+  
+              <div class="cifra-real">
+                <p class="">R$</p>
+                <p class="price-produto-com-desconto"> {{z.replace('.', ',')}}</p>
+              </div>
+              {% else %}
+              <div class="cifra-real">
+                <p class="">R$</p>
+                {% set h = "%0.2f"|format(produto.price|float) %}
+                <p class="price-produto-com-desconto"> {{h.replace('.', ',')}}</p>
+              </div>
+              {% endif %}
+              <p class="tipo-compra">À vista</p>
+              <form action="{{ url_for('AddCarrinho') }}" method="POST">
+                <input type="hidden" name="produto_id" value="{{produto.id}}">
+                <button type="submit" class="button-compra">COMPRAR</button>
+                <input type="hidden" name="quantidade" id="" value="1" min="1" max="{{produto.estoque}}">
+              </form>
             </div>
           </div>
-
-          <div class="div-nome-produto">
-            <p class="nome-produto">Primeiro Mineral Dimy Grass</p>
-            <p class="price-produto-sem-desconto">R$ 47.90</p>
-            <p class="price-produto-com-desconto">R$ 35,90</p>
-            <p class="tipo-compra">À vista</p>
-            <button class="button-compra">COMPRAR</button>
-          </div>
-        </div>
       </ul>
-      <ul class="ul-info-produtos">
-        <div class="div-desconto">
-          <p class="text-desconto percent">0%</p>
-          <p class="text-desconto">OFF</p>
-
-          <div class="div-image-container">
-            <div class="div-child-image">
-              <img
-                src="https://io.convertiez.com.br/m/lojaagropecuaria/shop/products/images/1837/small/rodilon-blocos-extrusados-1-kg-66-blocos-de-15-g_181914.jpg"
-                class="div-child-image" />
-            </div>
-          </div>
-
-          <div class="div-nome-produto">
-            <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
-            <p class="price-produto-sem-desconto">R$ 47.90</p>
-            <p class="price-produto-com-desconto">R$ 35,90</p>
-            <p class="tipo-compra">À vista</p>
-            <button class="button-compra">COMPRAR</button>
-          </div>
-      </ul>
-      <ul class="ul-info-produtos">
-        <div class="div-desconto">
-          <p class="text-desconto percent">25%</p>
-          <p class="text-desconto">OFF</p>
-
-          <div class="div-image-container">
-            <div class="div-child-image">
-              <img
-                src="https://io.convertiez.com.br/m/lojaagropecuaria/shop/products/images/2084/medium/ade-po-champion_186524.jpg"
-                class="div-child-image" />
-            </div>
-          </div>
-
-          <div class="div-nome-produto">
-            <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
-            <p class="price-produto-sem-desconto">R$ 47.90</p>
-            <p class="price-produto-com-desconto">R$ 35,90</p>
-            <p class="tipo-compra">À vista</p>
-            <button class="button-compra">COMPRAR</button>
-          </div>
-      </ul>
-      <ul class="ul-info-produtos">
-        <div class="div-desconto">
-          <p class="text-desconto percent">25%</p>
-          <p class="text-desconto">OFF</p>
-
-          <div class="div-image-container">
-            <div class="div-child-image">
-              <img
-                src="https://io.convertiez.com.br/m/lojaagropecuaria/shop/products/images/2132/small/vermisal-champion_186520.jpg"
-                class="div-child-image" />
-            </div>
-          </div>
-
-          <div class="div-nome-produto">
-            <p class="nome-produto">Fertilizante Mineral Dimy Grass</p>
-            <p class="price-produto-sem-desconto">R$ 47.90</p>
-            <p class="price-produto-com-desconto">R$ 35,90</p>
-            <p class="tipo-compra">À vista</p>
-            <button class="button-compra">COMPRAR</button>
-          </div>
-      </ul>
+      {% endfor %}
     </div>
   </main>
 
