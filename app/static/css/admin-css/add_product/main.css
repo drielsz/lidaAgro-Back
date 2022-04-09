@@ -48,6 +48,12 @@ form .user-details .input-box{
 
 }
 
+.input-box p{
+    color: red;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
 .user-details .input-box input{
     height: 45px;
     width: 100%;

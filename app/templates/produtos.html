@@ -36,18 +36,21 @@
           <div class="div-nome-produto">
             <p class="nome-produto">{{produto.nome}}</p>
             {% if produto.desconto > 0 %}
-            <p class="price-produto-sem-desconto">R$ {{"%0.2f"|format(produto.price|float)}}</p>
+            {% set a = "%0.2f"|format(produto.price|float) %}
+            <p class="price-produto-sem-desconto">R$ {{a.replace('.',',')}}</p>
             {% set x = produto.desconto/100 %}
             {% set y = "%0.2f" | format((x * produto.price|float)) %}
             {% set z = "%0.2f" | format((y|float - produto.price|float) *-1) %}
+
             <div class="cifra-real">
               <p class="">R$</p>
-              <p class="price-produto-com-desconto"> {{"%0.2f"|format(z|float)}}</p>
+              <p class="price-produto-com-desconto"> {{z.replace('.', ',')}}</p>
             </div>
             {% else %}
             <div class="cifra-real">
               <p class="">R$</p>
-              <p class="price-produto-com-desconto"> {{"%0.2f"|format(produto.price|float)}}</p>
+              {% set h = "%0.2f"|format(produto.price|float) %}
+              <p class="price-produto-com-desconto"> {{h.replace('.', ',')}}</p>
             </div>
             {% endif %}
             <p class="tipo-compra">À vista</p>
