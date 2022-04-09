@@ -338,6 +338,23 @@ section .destaques .container h1 {
   margin-bottom: 0 !important;
 }
 
+.cifra-real {
+  width: 50%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #339121;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+  z-index: 2;
+  display: flex;
+  padding-left: 21px;
+}
+
+.cifra-real p {
+  margin: 0;
+}
+
 .container,
 .container-fluid,
 .container-lg,
