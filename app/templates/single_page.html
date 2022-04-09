@@ -43,10 +43,12 @@
                 <p>{{produto.desc}}</p>
                 <hr>
                 <form action="{{ url_for('AddCarrinho') }}" method="POST">
-                    <input type="hidden" name="produto_id" value="{{produto.id}}">
-                    <button type="submit" class="btn btn-sm btn-success"> Comprar agora</button>
-                    <label for=""> Quantidade:</label>
+                    <label style="padding-right: 90px;" for=""> Quantidade:</label>
                     <input type="number" name="quantidade" id="" value="1" min="1" max="{{produto.estoque}}">
+                    <input type="hidden" name="produto_id" value="{{produto.id}}">
+                    <div style="padding-top: 20px;">
+                        <button type="submit" class="btn btn-sm btn-success"> Comprar agora</button>
+                    </div>
                 </form>
             </div>
         </div>
