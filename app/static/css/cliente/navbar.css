@@ -122,7 +122,7 @@
 }
 
 .badge-danger:hover {
-  background-color: black;
+  background-color: #ff0000;
 }
 
 .badge {

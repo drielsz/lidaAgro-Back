@@ -39,8 +39,8 @@
         <li></li>
         {% endif %}
         <li><a href="{{url_for('produtos_cliente')}}">Produtos</a></li>
-        <li><a href="#">Atendimento</a></li>
-        <li><a href="#">Empresa</a></li>
+        <li><a href="{{url_for('atendimento')}}">Atendimento</a></li>
+        <li><a href="{{url_for('sobre_empresa')}}">Empresa</a></li>
         {% if current_user.is_authenticated %}
         <li><a href="{{url_for('logout')}}">Sair</a></li>
         {% else %}

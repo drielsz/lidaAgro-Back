@@ -1,10 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Khula:wght@600&family=Poppins&display=swap');
 
+:root {
+  --hover: #37a720;
+}
+
 body {
   min-width: 100vh;
   min-height: 100%;
   overflow-x: hidden;
   background-color: #f7f7f7;
+}
+
+.content-info-produtos a{
+  text-decoration: none;
 }
 
 code {
@@ -105,6 +113,11 @@ main .container h1 {
   border-radius: 6px;
 }
 
+.div-desconto:hover {
+  background-color: var(--hover);
+  cursor: pointer;
+}
+
 .text-desconto {
   margin: 0;
   text-align: center;
@@ -188,6 +201,7 @@ main .div-image {
   margin: -25px 0 0 -25px; /* Apply negative top and left margins to truly center the element */
 }
 
+
 .div-nome-produto {
   width: 100%;
   position: absolute;
@@ -204,6 +218,10 @@ main .div-image {
   z-index: 2;
 }
 
+.nome-produto:hover {
+  color: var(--hover);
+}
+
 .price-produto-sem-desconto {
   width: 45%;
   text-align: center;
@@ -212,6 +230,10 @@ main .div-image {
   margin: 0;
   color: #b0b0b0;
   z-index: 2;
+}
+
+.price-produto-sem-desconto:hover {
+  color: var(--hover);
 }
 
 .price-produto-com-desconto {
@@ -225,11 +247,19 @@ main .div-image {
   z-index: 2;
 }
 
+.price-produto-com-desconto:hover {
+  color: var(--hover);
+}
+
 .tipo-compra {
   width: 38%;
   font-family: "Poppins", sans-serif;
   text-align: center;
   color: #b0b0b0;
+}
+
+.tipo-compra:hover {
+  color: var(--hover);
 }
 
 .button-compra {
@@ -246,8 +276,12 @@ main .div-image {
   left: 10%;
 }
 
+.button-compra:hover {
+  background-color: #37a720;
+}
+
 .button-compra:focus {
-  background-color: #00ff40;
+  background-color: var(--hover);
 }
 
 /* Section destaque */
@@ -349,6 +383,14 @@ section .destaques .container h1 {
   z-index: 2;
   display: flex;
   padding-left: 21px;
+}
+
+.cifra-real a{
+  color: #339121;
+}
+
+.cifra-real a:hover{
+  color: var(--hover)
 }
 
 .cifra-real p {

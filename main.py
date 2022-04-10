@@ -12,6 +12,14 @@ def home():
     produtos = Produtos.query.all()
     return render_template('home.html', produtos=produtos)
 
+@app.route('/atendimento')
+def atendimento():
+    return render_template('atendimento.html')
+
+@app.route('/sobre_a_empresa')
+def sobre_empresa():
+    return render_template('quem_somos.html')
+
 @app.route('/result')
 def result():
     searchword = request.args.get('q')

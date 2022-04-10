@@ -39,24 +39,34 @@
               {% set a = "%0.2f"|format(produto.price|float) %}
               <div class="cifra-real" style="color: #B0B0B0; font-size: 12px; margin-left: 3px; padding-top: 2px;">
               <p class="">R$</p>
-              <p class="price-produto-sem-desconto" style="color: #B0B0B0; font-size: 12px;"> {{a.replace('.',',')}}</p>
+              <a href="{{url_for('single_page', id=produto.id)}}">
+                <p class="price-produto-sem-desconto" style="color: #B0B0B0; font-size: 12px;">{{a.replace('.',',')}}</p>
+              </a>
               </div>
               {% set x = produto.desconto/100 %}
               {% set y = "%0.2f" | format((x * produto.price|float)) %}
               {% set z = "%0.2f" | format((y|float - produto.price|float) *-1) %}
 
               <div class="cifra-real">
-                <p class="">R$</p>
-                <p class="price-produto-com-desconto"> {{z.replace('.', ',')}}</p>
+                <a href="{{url_for('single_page', id=produto.id)}}">
+                  <p class="">R$</p>
+                </a>
+                <a href="{{url_for('single_page', id=produto.id)}}">
+                  <p class="price-produto-com-desconto"> {{z.replace('.', ',')}}</p>
+                </a>
               </div>
               {% else %}
               <div class="cifra-real">
-                <p class="">R$</p>
-                {% set h = "%0.2f"|format(produto.price|float) %}
-                <p class="price-produto-com-desconto"> {{h.replace('.', ',')}}</p>
+                <a href="{{url_for('single_page', id=produto.id)}}">
+                  <p class="">R$</p>
+                  {% set h = "%0.2f"|format(produto.price|float) %}
+                  <p class="price-produto-com-desconto"> {{h.replace('.', ',')}}</p>
+                </a>
               </div>
             {% endif %}
-            <p class="tipo-compra">À vista</p>
+            <a href="{{url_for('single_page', id=produto.id)}}">
+              <p class="tipo-compra">À vista</p>
+            </a>
             <form action="{{ url_for('AddCarrinho') }}" method="POST">
               <input type="hidden" name="produto_id" value="{{produto.id}}">
               <button type="submit" class="button-compra">COMPRAR</button>
