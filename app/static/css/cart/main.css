@@ -37,3 +37,7 @@ td:last-child {
 th:last-child {
   text-align: right;
 }
+
+td:last-child a:last-child {
+  padding-right: 0;
+}

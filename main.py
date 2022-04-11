@@ -1,9 +1,8 @@
-from flask import redirect, render_template, jsonify, request, url_for, flash, current_app, session
+from flask import redirect, render_template, request, url_for, flash, current_app, session
 from flask_login import login_user, logout_user
 from flask_mail import Message
-from app import app, login_manager, db, search, mail, otp
+from app import app, db
 from app.models import User, Aviso, Produtos
-from werkzeug.utils import secure_filename
 import os
 import secrets
 
@@ -16,8 +15,8 @@ def home():
 def atendimento():
     return render_template('atendimento.html')
 
-@app.route('/sobre_a_empresa')
-def sobre_empresa():
+@app.route('/lida-agro')
+def lida_agro():
     return render_template('quem_somos.html')
 
 @app.route('/result')

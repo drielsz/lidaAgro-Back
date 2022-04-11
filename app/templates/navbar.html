@@ -40,7 +40,7 @@
         {% endif %}
         <li><a href="{{url_for('produtos_cliente')}}">Produtos</a></li>
         <li><a href="{{url_for('atendimento')}}">Atendimento</a></li>
-        <li><a href="{{url_for('sobre_empresa')}}">Empresa</a></li>
+        <li><a href="{{url_for('lida_agro')}}">Empresa</a></li>
         {% if current_user.is_authenticated %}
         <li><a href="{{url_for('logout')}}">Sair</a></li>
         {% else %}
@@ -66,9 +66,9 @@
     <div class="second-nav">
       <ul class="sections">
         <li><a href="#">Todas as Categorias <i style="padding-left: 1px;" class="fa-solid fa-caret-down"></i></a></li>
-        <li><a href="#">Fertilizantes</a></li>
-        <li><a href="#">Pesticidas</a></li>
         <li><a href="#">Sementes</a></li>
+        <li><a href="#">Embalagens</a></li>
+        <li><a href="#">Substrato</a></li>
         <li><a href="#">Ofertas</a></li>
       </ul>
     </div>
