@@ -5,17 +5,17 @@ from app import app, db
 from app.models import User, Aviso, Produtos, Atendimento
 import os
 import secrets
+import random 
 
 @app.route('/')
 def home():
     produtos = Produtos.query.limit(4).all()
-    
     return render_template('home.html', produtos=produtos)
+
 # Filtros
 @app.route('/category_filter/sementes')
 def filter_by_sementes():
     produtos = Produtos.query.filter_by(categoria="sementes").all()
-
     return render_template('produtos/result.html', produtos = produtos)
 
 # Filtros
@@ -29,6 +29,13 @@ def filter_by_substrato():
 @app.route('/category_filter/biologico')
 def filter_by_biologico():
     produtos = Produtos.query.filter_by(categoria="biologico").all()
+
+    return render_template('produtos/result.html', produtos = produtos)
+
+# Filtros
+@app.route('/category_filter/adubo_foliar')
+def filter_by_aduboF():
+    produtos = Produtos.query.filter_by(categoria="Adubo Foliar").all()
 
     return render_template('produtos/result.html', produtos = produtos)
 
@@ -309,7 +316,8 @@ def save_images(photo):
 @app.route("/admin/addproduto", methods=['GET', 'POST'])
 def addproduto():
     if request.method =='POST':
-        nome = request.form['nome']
+        texto = request.form['nome']
+        nome = texto.upper()
         price = request.form['price']
         desconto = request.form['desconto']
         estoque = request.form['estoque']
@@ -348,7 +356,8 @@ def delete_produto(id):
 def atualizar_produto(id):
     produto = Produtos.query.get(id)
     if request.method == 'POST':
-        nome = request.form['nome']
+        texto = request.form['nome']
+        nome = texto.upper()
         price = request.form['price']
         desconto = request.form['desconto']
         estoque = request.form['estoque']

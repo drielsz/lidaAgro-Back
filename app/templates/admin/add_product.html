@@ -23,7 +23,7 @@
 
 <body id="page-top">
     {% include "admin/navadmin.html" %}
-    <div class="container">
+    <div class="container" style="background-color: transparent;">
         <div class="title">
             Registrar produto
         </div>
@@ -37,7 +37,7 @@
                 <div class="input-box">
                     <span class="details">Preço</span>
                     <input type="text" name="price" placeholder="Preço" required>
-                    <p>Observação: Pode-se colocar o preço com ponto ou vírgula.</p>
+                    <p>Observação: Coloque o preço com ponto invés de VÍRGULA.</p>
                 </div>
                 <div class="input-box">
                     <span class="details">Desconto</span>
@@ -61,7 +61,12 @@
                     <input type="text" name="categoria" placeholder="Categoria" required list="list-category" autocomplete="off" requried>
                     <p>Observação: Não é preciso escrever, as categorias são mostradas a clicar na caixa de escrever.</p>
                     <datalist id="list-category">
-                        <option value="TESTANDO">
+                        <option value="Sementes">
+                        <option value="Embalagens">
+                        <option value="Substrato">
+                        <option value="Adubo Foliar">   
+                        <option value="Jardinagem">
+                        <option value="Biologico">
                     </datalist>
                 </div>
             </div>
