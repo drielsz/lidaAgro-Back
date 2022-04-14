@@ -32,11 +32,12 @@
                 <div class="input-box">
                     <span class="details">Nome do Produto</span>
                     <input type="text" name="nome" placeholder="Coloque o nome do produto" required>
+                    <p>Observação: Procure um nome mais resumido.</p>
                 </div>
                 <div class="input-box">
                     <span class="details">Preço</span>
                     <input type="text" name="price" placeholder="Preço" required>
-                    <p>Observação: Coloque o preço com PONTO invés da vírgula.</p>
+                    <p>Observação: Pode-se colocar o preço com ponto ou vírgula.</p>
                 </div>
                 <div class="input-box">
                     <span class="details">Desconto</span>
@@ -50,36 +51,21 @@
                     <span class="details">Descrição</span>
                     <input type="text" name="desc" placeholder="Descrição do produto" required>
                 </div>
-                <div class="input-box">
+                
+                <div class="input-box" style="border-color: transparent">
                     <span class="details">Foto do produto</span>
-                    <input type="file" name="photo" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="file"  style="border-color: transparent" name="photo" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+                <div class="input-box">
+                    <span class="details">Categoria do Produto</span>
+                    <input type="text" name="categoria" placeholder="Categoria" required list="list-category" autocomplete="off" requried>
+                    <p>Observação: Não é preciso escrever, as categorias são mostradas a clicar na caixa de escrever.</p>
+                    <datalist id="list-category">
+                        <option value="TESTANDO">
+                    </datalist>
                 </div>
             </div>
             <div class="gender-details">
-                <input type="radio" name="gender" id="dot-1">
-                <input type="radio" name="gender" id="dot-2">
-                <input type="radio" name="gender" id="dot-3">
-                <span class="gender-title">Categoria</span>
-                <div class="category">
-                    <label for="dot-1">
-                        <span class="dot one"></span>
-                        <span class="category span">
-                            Mato
-                        </span>
-                    </label>
-                    <label for="dot-2">
-                        <span class="dot two"></span>
-                        <span class="category span">
-                            Capim
-                        </span>
-                    </label>
-                    <label for="dot-3">
-                        <span class="dot three"></span>
-                        <span class="category span">
-                            Agro
-                        </span>
-                    </label>
-                </div>
                 <div class="button">
                     <input type="submit" value="Cadastrar">
                 </div>
@@ -87,24 +73,23 @@
         </form>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="../static/js/admin/jquery.min.js"></script>
-    <script src="../static/js/admin/bootstrap.bundle.min.js"></script>
+    <script src="../../static/js/admin/jquery.min.js"></script>
+    <script src="../../static/js/admin/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../static/js/admin/jquery.easing.min.js"></script>
+    <script src="../../static/js/admin/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../static/js/admin/sb-admin-2.min.js"></script>
+    <script src="../../static/js/admin/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../static/js/admin/chart.min.js"></script>
+    <script src="../../static/js/admin/chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../static/js/admin/chart-area-demo.js"></script>
-    <script src="../static/js/chart-pie-demo.js"></script>
+    <script src="../../static/js/admin/chart-area-demo.js"></script>
+    <script src="../../static/js/chart-pie-demo.js"></script>
     <!-- Animation to Chevron -->
-    <script src="../static/js/admin/simple-animation-chevron/index.js"></script>
-
+    <script src="../../static/js/admin/simple-animation-chevron/index.js"></script> 
 </body>
 
 </html>

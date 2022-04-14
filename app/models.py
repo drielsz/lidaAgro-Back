@@ -1,4 +1,6 @@
 from decimal import Decimal
+
+from sqlalchemy import ForeignKey
 from app import db, login_manager
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -48,16 +50,46 @@ class Produtos(db.Model):
     desc = db.Column(db.Text, nullable=False)
     data = db.Column(db.LargeBinary)
     image = db.Column(db.Text(150), nullable=False)
+    categoria = db.Column(db.String(80))
     
-    def __init__(self, nome, price, desconto, estoque, desc, image):
+    def __init__(self, nome, price, desconto, estoque, desc, image, categoria):
         self.nome = nome,
         self.price = price,
         self.desconto= desconto,
         self.estoque = estoque,
         self.desc = desc,
-        self.image = image
-    
+        self.image = image,
+        self.categoria = categoria
 
+class Pedidos(db.Model):
+    __tablename__ = 'pedidos' 
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    produto_id = db.Column(db.Integer, ForeignKey('produtos.id'))
+    user_id =  db.Column(db.Integer, ForeignKey('users.id'))
+
+class Atendimento(db.Model):
+    __tablename__ = 'atendimentos'
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    
+    assunto = db.Column(db.String(86), nullable=False)
+    email = db.Column(db.String(84), nullable=False)
+    nome = db.Column(db.String(86), nullable=False)
+    telefone = db.Column(db.String(12), nullable=False)
+    cidade = db.Column(db.String(255), nullable=False)
+    estado = db.Column(db.String(84), nullable=False)
+    descricao = db.Column(db.String(255), nullable=False)
+
+
+    def __init__(self, assunto, nome, email, estado, telefone, cidade, descricao):
+        self.assunto = assunto,
+        self.email = email,
+        self.nome = nome,
+        self.telefone = telefone,
+        self.cidade = cidade,
+        self.estado = estado,
+        self.descricao = descricao
+
+    
 # class Venda(db.Model):
 #     __tablename__ = 'venda'
 #     id = db.Column(db.Integer, autoincrement=True, primary_key=True)

@@ -1,23 +1,49 @@
-from flask import redirect, render_template, request, url_for, flash, current_app, session
+from flask import redirect, render_template, request, url_for, flash, current_app, session, jsonify
 from flask_login import login_user, logout_user
 from flask_mail import Message
 from app import app, db
-from app.models import User, Aviso, Produtos
+from app.models import User, Aviso, Produtos, Atendimento
 import os
 import secrets
 
 @app.route('/')
 def home():
-    produtos = Produtos.query.all()
+    produtos = Produtos.query.limit(4).all()
+    
     return render_template('home.html', produtos=produtos)
+# Filtros
+@app.route('/category_filter/sementes')
+def filter_by_sementes():
+    produtos = Produtos.query.filter_by(categoria="sementes").all()
 
-@app.route('/atendimento')
-def atendimento():
-    return render_template('atendimento.html')
+    return render_template('produtos/result.html', produtos = produtos)
+
+# Filtros
+@app.route('/category_filter/substrato')
+def filter_by_substrato():
+    produtos = Produtos.query.filter_by(categoria="substrato").all()
+
+    return render_template('produtos/result.html', produtos = produtos)
+
+# Filtros
+@app.route('/category_filter/biologico')
+def filter_by_biologico():
+    produtos = Produtos.query.filter_by(categoria="biologico").all()
+
+    return render_template('produtos/result.html', produtos = produtos)
+
+# Filtros
+@app.route('/category_filter/ofertas')
+def filter_by_ofertas():
+    produtos = Produtos.query.filter(Produtos.desconto > 0)
+
+    return render_template('produtos/result.html', produtos = produtos)
 
 @app.route('/lida-agro')
 def lida_agro():
-    return render_template('quem_somos.html')
+    produtos = Produtos.query.limit(3).all()
+    
+    return render_template('quem_somos.html', produtos = produtos)
 
 @app.route('/result')
 def result():
@@ -153,6 +179,32 @@ def register():
 
     return render_template('register.html')
 
+@app.route('/atendimento', methods=['GET', 'POST'])
+def atendimento():
+    if request.method == 'POST':
+        assunto = request.form['assunto']
+        email = request.form['email']
+        nome = request.form['nome']
+        telefone = request.form['telefone']
+        estado = request.form['estado']
+        cidade = request.form['cidade']
+        descricao = request.form['descricao']
+
+        atendimento = Atendimento(
+            assunto = assunto, 
+            nome = nome, 
+            email = email, 
+            cidade = cidade, 
+            estado = estado, 
+            telefone = telefone, 
+            descricao = descricao)
+        db.session.add(atendimento)
+        db.session.commit()
+
+        return redirect(request.referrer)
+        
+    return render_template('atendimento.html')
+       
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -263,8 +315,12 @@ def addproduto():
         estoque = request.form['estoque']
         desc = request.form['desc']
         photo = save_images(request.files['photo'])
+        categoria = request.form['categoria']
 
-        post = Produtos(nome, price, desconto, estoque, desc, image=photo)
+        post = Produtos(nome=nome, 
+        price=price, desconto=desconto, 
+        estoque=estoque, desc=desc, 
+        image=photo, categoria=categoria)
 
         db.session.add(post)
         db.session.commit()
@@ -330,5 +386,10 @@ def admin_perfil(id):
         db.session.commit()
     return render_template('admin/perfil.html')
     
+@app.route("/navteste", methods=['GET', 'POST'])
+def navteste():
+    produtos = Produtos.query.all()
+    return render_template('navbar.html', produtos=produtos)
+
 if __name__ == '__main__':
     app.run(debug=True)

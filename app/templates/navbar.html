@@ -17,7 +17,14 @@
         <img class='logo-holder' src="{{url_for('static', filename='assets/LIDA_LOGO.png')}}" alt="lida logo">
       </a>
       <form action="{{url_for('result')}}" autocomplete="off">
-        <input placeholder="Digite o produto que deseja" class="input-nav" name="q">
+        <input placeholder="Digite o produto que deseja" class="input-nav" name="q" list="list-S">
+        {% for produto in produtos %}
+          <datalist id="list-S">
+            <div style="display: flex;">
+              <option value="{{produto.nome}}">
+            </div>
+          </datalist>
+        {% endfor %}
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search q"
           viewBox="0 0 16 16" style="position: absolute; top: 45px; left: 465px;">
           <path fill="#339121"
@@ -66,10 +73,10 @@
     <div class="second-nav">
       <ul class="sections">
         <li><a href="#">Todas as Categorias <i style="padding-left: 1px;" class="fa-solid fa-caret-down"></i></a></li>
-        <li><a href="#">Sementes</a></li>
-        <li><a href="#">Embalagens</a></li>
-        <li><a href="#">Substrato</a></li>
-        <li><a href="#">Ofertas</a></li>
+        <li><a href="{{url_for('filter_by_sementes')}}">Sementes</a></li>
+        <li><a href="{{url_for('filter_by_biologico')}}">Biologico</a></li>
+        <li><a href="{{url_for('filter_by_substrato')}}">Substrato</a></li>
+        <li><a href="{{url_for('filter_by_ofertas')}}">Ofertas</a></li>
       </ul>
     </div>
     <form action="{{url_for('result')}}" class="form-mobile" autocomplete="off">

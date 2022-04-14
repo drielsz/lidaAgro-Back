@@ -1,3 +1,80 @@
 {% include "navbar.html" %}
 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lida Admin - Adicionar Produto</title>
+
+    <link rel="shortcut icon" href="#">
+
+    <!-- Main -->
+    <link rel="stylesheet" href="../static/css/atendimento/main.css" />
+</head>
+
+<style>
+    .button-submit {
+        padding: 15px;
+        width: 48.7%;
+        color: #fff;
+        outline: none;
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        background-color: #339121;
+    }
+
+    .button-submit:hover {
+        background-color: #37a720;
+    }
+</style>
+
+<body style="background-color: #FFFFFF;">
+    <div class="container mt-5" style="background-color: transparent;">
+        <div class="title">
+            Não encontrou uma solução? Fale conosco!
+        </div>
+        <form method="post">
+            <div class="user-details">
+                <div class="input-box">
+                    <span class="details">* Assunto</span>
+                    <input type="text" name="assunto" required list="list-category" autocomplete="off">
+                    <datalist id="list-category">
+                        <option value="Dúvidas">
+                        <option value="Informações sobre o produto">
+                        <option value="Informações sobre o produto">
+                    </datalist>
+                </div>
+                <div class="input-box">
+                    <span class="details">* E-mail</span>
+                    <input type="email" value="{{current_user.email}}" name="email" required autocomplete="off">
+                </div>
+                <div class="input-box">
+                    <span class="details">* Nome</span>
+                    <input type="text" name="nome" value="{{current_user.nome}}" required autocomplete="off">
+                </div>
+                <div class="input-box">
+                    <span class="details">* Estado</span>
+                    <input type="text" name="estado" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">* Telefone para contato</span>
+                    <input type="text" required name="telefone" />
+                </div>
+                <div class="input-box">
+                    <span class="details">* Cidade</span>
+                    <input type="text" name="cidade" required>
+                </div>
+                <div class="input-box">
+                    <span class="details">* Descrição</span>
+                    <textarea name="descricao" style="width: 100%; height: 250px;  border: 1px solid #ccc;"></textarea>
+                </div>
+            </div>
+            <button type="submit" value="Cadastrar" class="button-submit">Enviar para o Atendimento</button>
+        </form>
+    </div>
+
+</body>
 {% include "footer.html" %}
