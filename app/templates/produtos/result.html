@@ -7,13 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lida Agropecuária</title>
   <link rel="shortcut icon" href="../static/assets/Lida agro.jpg" type="image/icon type">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="{{url_for('static', filename='css/home/home/main.css')}}">
 </head>
 
 <body>
   {% include "navbar.html" %}
   {% include "layout.html" %}
-  <div class="content-info-produtos">
+  <div class="" style="padding-left: 57px; padding-top: 50px;">
+    <h3><span>Resultados</span></h3>
+</div>
+<hr>
+  <div class="content-info-produtos" style="padding-top: 1vh !important;">
     {% for produto in produtos %}
     <ul class="ul-info-produtos">
       {% if produto.desconto > 0 %}
@@ -78,7 +84,83 @@
     </ul>
     {% endfor %}
   </div>
-
+  <hr>
+  <div style="padding-left: 57px">
+    <h3><span>Produtos relacionados:</span></h3>
+    <div class="content-info-produtos" style="padding-top: 1vh !important;">
+      {% for allproduto in allprodutos %}
+      <ul class="ul-info-produtos">
+        {% if allproduto.desconto > 0 %}
+        <div class="div-desconto">
+          <p class="text-desconto percent">{{allproduto.desconto}}%</p>
+          <p class="text-desconto">OFF</p>
+          {% else %}
+          <div class="div-desconto" style="background-color: transparent;">
+            <p class="text-desconto percent">25%</p>
+            <p class="text-desconto">OFF</p>
+            {% endif %}
+            <div class="div-image-container">
+              <div class="div-child-image">
+                <a href="{{url_for('single_page', id=allproduto.id)}}">
+                  <img src="{{url_for('static', filename='assets/posts/' + allproduto.image)}}" alt="{{allproduto.nome}}"
+                    class="div-child-image" /></a>
+              </div>
+            </div>
+  
+            <div class="div-nome-produto">
+              <p class="nome-produto">{{allproduto.nome}}</p>
+              {% if allproduto.desconto > 0 %}
+                {% set a = "%0.2f"|format(allproduto.price|float) %}
+                <div class="cifra-real" style="color: #B0B0B0; font-size: 12px; margin-left: 3px; padding-top: 2px;">
+                <p class="">R$</p>
+                <a href="{{url_for('single_page', id=allproduto.id)}}">
+                  <p class="price-produto-sem-desconto" style="color: #B0B0B0; font-size: 12px;">{{a.replace('.',',')}}</p>
+                </a>
+                </div>
+                {% set x = allproduto.desconto/100 %}
+                {% set y = "%0.2f" | format((x * allproduto.price|float)) %}
+                {% set z = "%0.2f" | format((y|float - allproduto.price|float) *-1) %}
+  
+                <div class="cifra-real">
+                  <a href="{{url_for('single_page', id=allproduto.id)}}">
+                    <p class="">R$</p>
+                  </a>
+                  <a href="{{url_for('single_page', id=allproduto.id)}}">
+                    <p class="price-produto-com-desconto"> {{z.replace('.', ',')}}</p>
+                  </a>
+                </div>
+                {% else %}
+                <!-- Produto sem desconto -->
+                <div class="cifra-real">
+                  <a href="{{url_for('single_page', id=allproduto.id)}}" style="display: flex;">
+                    <p class="">R$</p>
+                    {% set h = "%0.2f"|format(allproduto.price|float) %}
+                    <p class="price-produto-com-desconto"> {{h.replace('.', ',')}}</p>
+                  </a>
+                </div>
+              {% endif %}
+              <a href="{{url_for('single_page', id=allproduto.id)}}">
+                <p class="tipo-compra">À vista</p>
+              </a>
+              <form action="{{ url_for('AddCarrinho') }}" method="POST">
+                <input type="hidden" name="produto_id" value="{{allproduto.id}}">
+                <button type="submit" class="button-compra">COMPRAR</button>
+                <input type="hidden" name="quantidade" id="" value="1" min="1" max="{{allproduto.estoque}}">
+              </form>
+            </div>
+          </div>
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+  <hr>
+  <div class="" style="padding-left: 57px; padding-top: 50px;">
+    <h3><span>Não perca as ofertas, cadastre o seu correio eletrônico para nós enviarmos novidades.</span></h3>
+    <div style="display: flex;">
+      <input placeholder="E-mail aqui">
+      <button type="submit" style="padding: 5px; border: none">Enviar</button>
+    </div>
+</div>
   <!-- End Content -->
   {% extends "footer.html" %}
 </body>

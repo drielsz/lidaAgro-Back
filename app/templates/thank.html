@@ -1,0 +1,34 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="{{url_for('static', filename='css/thanks/main.css')}}" rel="stylesheet">
+<link rel="shortcut icon" href="../static/assets/Lida agro.jpg" type="image/icon type">
+<title>Lida Agropecuária - Obrigado</title>
+<div class="thankyou-page">
+    <div class="_header">
+        <div class="logo">
+            <img src="../static/assets/Agropecuária.png" alt="">
+        </div>
+        <h1>Obrigado pela compra!</h1>
+    </div>
+    <div class="_body">
+        <div class="_box">
+            <h2>
+                <strong>Verifique seu e-mail</strong> para obter mais intruções sobre a sua compra.
+            </h2>
+            <p>
+                Muito obrigado pela compra. Significa muito para nós, assim como para você! Nós realmente apreciamos você nos dando um momento do seu tempo hoje. Obrigado por ser você.
+            </p>
+        </div>
+    </div>
+    <div class="_footer">
+        <p>Tendo algum problema? <a href="https://api.whatsapp.com/send?phone=5584991288330" target="_blank">Entre em contato</a> </p>
+        <form action="{{url_for('get_pdf', invoice=amount)}}" method="post">
+            <button type="submit" class="btn btn-link">Obter o seu pdf</button>
+        </form>
+        <div class="homehome">
+            <a class="btn" href="{{url_for('home')}}" target="_blank">Página inicial</a>
+        </div>
+    </div>
+</div>
+
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
