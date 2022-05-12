@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/cliente/test.navbar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/cliente/navbar.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/cliente/second-nav.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 
@@ -93,26 +94,23 @@
         </div>
     </header>
 
-
-    <div class="center">
-        <div class="second-nav">
-            <ul class="sections">
-                <li><a href="#" onclick="myFunction();" class="dropbtn">Todas as Categorias <i
-                            class="bi bi-caret-down"></i></a></li>
+    <div class="lh-40 bg-color">  
+        <ul class="w-100 space-around categories display-flex list-style" style="margin-bottom: 0;">
+            <li><a href="#" onclick="myFunction()" class="dropbtn">Todas as categorias <i class="bi bi-caret-down-fill"></i></a>
                 <div id="mydropDown" class="dropdown-content">
-                    <a href="#">Sementes</a>
-                    <a href="#">Adubo Foliar</a>
-                    <a href="#">Substrato</a>
-                    <a href="#">Biológico</a>
-                    <a href="#">Jardinagem</a>
-                    <a href="#">Embalagens </a>
-                </div>
-                <li><a href="{{url_for('filter_by_sementes')}}">Sementes</a></li>
-                <li><a href="{{url_for('filter_by_aduboF')}}">Adubo Foliar</a></li>
-                <li><a href="{{url_for('filter_by_substrato')}}">Substrato</a></li>
-                <li><a href="{{url_for('filter_by_ofertas')}}">Ofertas</a></li>
-            </ul>
-        </div>
+                    <a href="#" class="dropdown-seeds">Sementes</a>
+                    <a href="#" class="dropdown-Foliarmanure">Adubo Foliar</a>
+                    <a href="#" class="dropdown-substrate">Substrato</a>
+                    <a href="#" class="dropdown-biological">Biológico</a>
+                    <a href="#" class="dropdown-gardening">Jardinagem</a>
+                    <a href="#" class="dropdown-packaging">Embalagens </a>
+                </div></li> 
+            
+            <li><a href="" class="seeds">Sementes</a></li>
+            <li><a href="" class="foliar-manure">Adubo Foliar</a></li>
+            <li><a href="" class="penultimate">Substrato</a></li>
+            <li><a href="" class="last">Ofertas</a></li>
+        </ul>
     </div>
 
     <div class="div-input-mobile">
