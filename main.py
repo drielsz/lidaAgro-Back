@@ -20,6 +20,11 @@ publishable_key = stripe_keys["publishable_key"]
 
 stripe.api_key = stripe_keys["secret_key"]
 
+@app.route('/testprodutos', methods=['GET', 'POST'])
+def testprodutos():
+    produtos = Produtos.query.all()
+    return render_template('teste/produtos.html', produtos = produtos)
+
 @app.route('/payment', methods=['POST'])
 def payment():
     data = request.form
