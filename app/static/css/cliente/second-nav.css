@@ -98,7 +98,7 @@
   padding-right: 10px;
 }
 
-.dropdown-content .dropdown-foliarmanure,
+.dropdown-content .dropdown-Foliarmanure,
 .dropdown-content .dropdown-substrate,
 .dropdown-content .dropdown-seeds{
   display: none;
@@ -117,7 +117,7 @@
     .foliar-manure{
         display: none;
     }
-    .dropdown-content .dropdown-foliarmanure{
+    .dropdown-content .dropdown-Foliarmanure{
       display: block;
     }
 }

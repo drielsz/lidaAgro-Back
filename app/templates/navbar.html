@@ -28,11 +28,11 @@
                             <input placeholder="Digite o produto que deseja" class="input-nav" name="q" list="list-S">
                         </div>
                         {% for produto in produtos %}
-                        <datalist id="list-S">
-                            <div style="display: flex;">
-                                <option value="{{produto.nome}}">
-                            </div>
-                        </datalist>
+                            <datalist id="list-S">
+                                <div style="display: flex;">
+                                    <option value="{{produto.nome}}">
+                                </div>
+                            </datalist>
                         {% endfor %}
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -56,7 +56,7 @@
                         {% if current_user.is_authenticated %}
                         <li><a href="{{url_for('logout')}}">sair</a></li>
                         {% else %}
-                        <li><a href="#">login</a></li>
+                        <li><a href="{{url_for('login')}}">login</a></li>
                         {% endif %}
                         <!-- Mobile Cart -->
                         <li class="row">
@@ -98,24 +98,26 @@
         <ul class="w-100 space-around categories display-flex list-style" style="margin-bottom: 0;">
             <li><a href="#" onclick="myFunction()" class="dropbtn">Todas as categorias <i class="bi bi-caret-down-fill"></i></a>
                 <div id="mydropDown" class="dropdown-content">
-                    <a href="#" class="dropdown-seeds">Sementes</a>
-                    <a href="#" class="dropdown-Foliarmanure">Adubo Foliar</a>
-                    <a href="#" class="dropdown-substrate">Substrato</a>
+                    <a href="{{url_for('filter_by_sementes')}}" class="dropdown-seeds">Sementes</a>
+                    <a href="{{url_for('filter_by_aduboF')}}" class="dropdown-Foliarmanure">Adubo Foliar</a>
+                    <a href="{{url_for('filter_by_substrato')}}" class="dropdown-substrate">Substrato</a>
                     <a href="#" class="dropdown-biological">Biológico</a>
                     <a href="#" class="dropdown-gardening">Jardinagem</a>
                     <a href="#" class="dropdown-packaging">Embalagens </a>
                 </div></li> 
             
-            <li><a href="" class="seeds">Sementes</a></li>
-            <li><a href="" class="foliar-manure">Adubo Foliar</a></li>
-            <li><a href="" class="penultimate">Substrato</a></li>
-            <li><a href="" class="last">Ofertas</a></li>
+            <li><a class="seeds" href="{{url_for('filter_by_sementes')}}">Sementes</a></li>
+            <li><a class="foliar-manure" href="{{url_for('filter_by_aduboF')}}">Adubo Foliar</a></li>
+            <li><a class="penultimate" href="{{url_for('filter_by_substrato')}}">Substrato</a></li>
+            <li><a class="last" href="{{url_for('filter_by_ofertas')}}">Ofertas</a></li>
         </ul>
     </div>
 
-    <div class="div-input-mobile">
-        <input class="input-mobile" placeholder="Digite o produto que deseja">
-    </div>
+    <form action="{{url_for('result')}}" autocomplete="off">
+        <div class="div-input-mobile">
+            <input class="input-mobile" placeholder="Digite o produto que deseja" name="q">
+        </div>
+    </form>
 
     <script src="{{url_for('static', filename='js/cliente/navbar/index.js')}}"></script>
 </body>
