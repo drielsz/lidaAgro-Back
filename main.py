@@ -116,8 +116,8 @@ def filter_by_ofertas():
 @app.route('/lida-agro')
 def lida_agro():
     produtos = Produtos.query.limit(3).all()
-
-    return render_template('quem_somos.html', produtos=produtos)
+    return render_template('error404.html')
+    # return render_template('quem_somos.html', produtos=produtos)
 
 
 @app.route('/result')
