@@ -1,10 +1,18 @@
 .col-md-12 table{
     border-top: 2px solid #339121;
+    white-space: nowrap;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.cart-container{
+  overflow-x: auto;
 }
 
 .col-md-12 table thead{
     border-bottom: 2px solid #339121; border-left: 2px solid #339121; border-right: 2px solid #339121;
 }
+
 
 .top-content h1 {
   font-size: 24px;

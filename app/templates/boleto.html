@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boleto</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="{{url_for('static', filename='js/cliente/checkout/boleto.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/cliente/checkout/main.css')}}">
+</head>
+<body>
+    <main>
+        <h1>Boleto</h1>
+        <div id="messages" role="alert"></div>
+        <form id="payment-form">
+
+            <label for="name">Nome</label>
+            <input type="text" id="name" value="Adriel Laurentino">
+
+            <label for="email"></label>
+            <input type="email" id="email" value="adriellaurentino4@gmail.com">
+
+            <label for="tax_id">Cpf</label>
+            <input type="text" id="tax_id" value="000.000.000-00">
+
+            <label for="address">Endereço</label>
+            <input type="text" id="address" value="Av Angelica 2491, Conjunto 91E">
+
+            <label for="city">Cidade</label>
+            <input type="text" id="city" value="São Paulo">
+
+            <label for="state">Estado</label>
+            <input type="text" id="state" value="SP">
+
+            <label for="postal_code">Código Postal</label>
+            <input type="text" id="postal_code" value="01227-200">
+
+            <label for="country">País</label>
+            <input type="text" id="country" value="BR">
+
+            <button>Pay</button>
+            
+        </form>
+    </main>
+</body>
+</html>
