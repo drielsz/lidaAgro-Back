@@ -1,35 +1,36 @@
 const cookieStorage = {
-    getItem: (key) => {
-        const cookies = document.cookie
-            .split(';')
-            .map(cookie => cookie.split('='))
-            .reduce((acc, [key, value]) => ({...acc, [key.trim()]: value}), {});
-        return cookies[key]
-    },
-    setItem: (key, value) => {
-        document.cookie = `${key}=${value}`
-    }
-}
+  getItem: (key) => {
+    const cookies = document.cookie
+      .split(";")
+      .map((cookie) => cookie.split("="))
+      .reduce((acc, [key, value]) => ({ ...acc, [key.trim()]: value }), {});
+    return cookies[key];
+  },
+  setItem: (key, value) => {
+    document.cookie = `${key}=${value}`;
+  },
+};
 
 const storageType = cookieStorage;
-const consentPropertyName = 'lida_consent';
+const consentPropertyName = "lida_consent";
 
 const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
-const saveToStorage = () => storageType.setItem(consentPropertyName, true)
-
+const saveToStorage = () => storageType.setItem(consentPropertyName, true);
 
 window.onload = () => {
-    const consentPopup = document.getElementById('consent-popup')
-    const acceptBtn = document.getElementById('accept')
+  const consentPopup = document.getElementById("consent-popup");
+  const acceptBtn = document.getElementById("accept");
 
-    const acceptFn = event => {
-        saveToStorage(storageType)
-        consentPopup.style.display= "none"
-    }
+  consentPopup.style.display = "block"
+  
+  const acceptFn = (event) => {
+    saveToStorage(storageType);
+    consentPopup.style.display = "none";
+  };
+  console.log(shouldShowPopup(storageType));
+  acceptBtn.addEventListener("click", acceptFn);
 
-    acceptBtn.addEventListener('click', acceptFn)
-
-    if (!shouldShowPopup(storageType)) {
-      consentPopup.style.display ='none'
-    }
-}
+  if (!shouldShowPopup(storageType)) {
+    (consentPopup.style.display = "none")
+  }
+};

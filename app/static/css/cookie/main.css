@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 #consent-popup{
+    display: none;
     position: fixed;
     bottom: 0;
     left: 0;
