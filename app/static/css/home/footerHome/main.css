@@ -77,3 +77,16 @@ body {
   color: #aaa;
   margin-bottom: 0;
 }
+
+
+@media (max-width: 999px) {
+  .footer{
+    margin-top: 500px;
+  }
+}
+
+@media (max-width: 490px) {
+  .footer{
+    margin-top: 1451px;
+  }
+}

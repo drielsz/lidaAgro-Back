@@ -8,6 +8,11 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='css/teste/index.css')}}">
     <link rel="shortcut icon" href="../static/assets/Lida agro.jpg" type="image/icon type">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/home/footerHome/main.css')}}">
+    
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+  integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Lida Agropecuária - Seja bem vindo</title>
 </head>
 <style>
@@ -198,6 +203,33 @@
             </div>
           </section>
         </div>
-        {% include "footer.html" %}
+
+        <!-- FOOTER -->
+        <section class="footer">
+          <div class="social">
+            <a href="https://www.instagram.com/lida_agropecuaria_/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.google.com/maps/@-5.1999891,-37.3079294,0a,73.7y,225.36h,68.69t/data=!3m4!1e1!3m2!1sgtOOzjiyzeRQ8_AP2zHF1Q!2e0?source=apiv3" target="_blank"><i class="fa-solid fa-location-dot"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100028551081820" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          </div>
+          <ul class="list">
+            <li>
+              <a href="{{url_for('home')}}">Home</a>
+            </li>
+            <li>
+              <a href="{{url_for('produtos_cliente')}}">Produtos</a>
+            </li>
+            <li>
+              <a href="#">Termos</a>
+            </li>
+            <li>
+              <a href="#">Política de Privacidade</a>
+            </li>
+          </ul>
+          <p class="copyright">
+            <a href="https://github.com/drielsz" target="_blank" style="color: #fff">
+              Adriel Oliveira @ 2022
+            </a>
+          </p>
+        </section>
 </body>
 </html>
