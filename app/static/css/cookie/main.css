@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+#consent-popup{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #574c41;
+    opacity: 1;
+    transition: all 500ms ease-out;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    text-align: center !important;
+    z-index: 999;
+    padding: 12px 20px;
+    font-family: 'Poppins', sans-serif;
+    overflow: auto;
+}
+
+.hidden{
+    opacity: 0;
+}
+
+.hidden a{
+    color: #198754;
+}
+
+.hidden p{
+    text-align: center;
+    margin-bottom: 0 !important;
+    color: #f7f7f7;
+}

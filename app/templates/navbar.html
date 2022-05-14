@@ -13,7 +13,7 @@
 
 <body>
     <header class="header">
-        <div class="container" >
+        <div class="container">
             <div class="row align-items-center justify-content-between">
                 <div class="logo">
                     <a href="{{url_for('home')}}">
@@ -28,11 +28,11 @@
                             <input placeholder="Digite o produto que deseja" class="input-nav" name="q" list="list-S">
                         </div>
                         {% for produto in produtos %}
-                            <datalist id="list-S">
-                                <div style="display: flex;">
-                                    <option value="{{produto.nome}}">
-                                </div>
-                            </datalist>
+                        <datalist id="list-S">
+                            <div style="display: flex;">
+                                <option value="{{produto.nome}}">
+                            </div>
+                        </datalist>
                         {% endfor %}
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -44,7 +44,7 @@
                     </div>
                 </form>
 
-                <button type="button" class="nav-toggler">
+                <button type="button" class="nav-toggler" style="width: 10px;">
                     <span></span>
                 </button>
 
@@ -94,9 +94,10 @@
         </div>
     </header>
 
-    <div class="lh-40 bg-color">  
+    <div class="lh-40 bg-color">
         <ul class="w-100 space-around categories display-flex list-style" style="margin-bottom: 0;">
-            <li><a href="#" onclick="myFunction()" class="dropbtn">Todas as categorias <i class="bi bi-caret-down-fill"></i></a>
+            <li><a href="#" onclick="myFunction()" class="dropbtn">Todas as categorias <i
+                        class="bi bi-caret-down-fill"></i></a>
                 <div id="mydropDown" class="dropdown-content">
                     <a href="{{url_for('filter_by_sementes')}}" class="dropdown-seeds">Sementes</a>
                     <a href="{{url_for('filter_by_aduboF')}}" class="dropdown-Foliarmanure">Adubo Foliar</a>
@@ -104,8 +105,9 @@
                     <a href="#" class="dropdown-biological">Biológico</a>
                     <a href="#" class="dropdown-gardening">Jardinagem</a>
                     <a href="#" class="dropdown-packaging">Embalagens </a>
-                </div></li> 
-            
+                </div>
+            </li>
+
             <li><a class="seeds" href="{{url_for('filter_by_sementes')}}">Sementes</a></li>
             <li><a class="foliar-manure" href="{{url_for('filter_by_aduboF')}}">Adubo Foliar</a></li>
             <li><a class="penultimate" href="{{url_for('filter_by_substrato')}}">Substrato</a></li>
@@ -120,7 +122,10 @@
     </form>
 
     <script src="{{url_for('static', filename='js/cliente/navbar/index.js')}}"></script>
-</body>
+
 </body>
 
 </html>
+
+{% include "whatsapp.html" %}
+{% include "/cookie.html" %}

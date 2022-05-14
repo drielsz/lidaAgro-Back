@@ -21,6 +21,10 @@ publishable_key = stripe_keys["publishable_key"]
 
 stripe.api_key = stripe_keys["secret_key"]
 
+@app.route('/cookie', methods=['GET'])
+def cookie():
+    return render_template('/teste/cookie.html')
+
 @app.route('/checkout', methods=['GET', 'POST'])
 def checkout():
     subtotal = 0

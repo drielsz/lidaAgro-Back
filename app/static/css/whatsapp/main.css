@@ -1,0 +1,54 @@
+.whatsapp-div {
+  position: fixed;
+  right: 20px;
+  bottom: 60px;
+  min-width: 50px;
+  max-width: 50px;
+  min-height: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  z-index: 1000;
+  background-color: #25d366;
+  text-align: center;
+  justify-content: center;
+  -webkit-box-shadow: -1px 5px 29px -8px rgba(0, 0, 0, 0.18);
+  box-shadow: -1px 5px 29px -8px rgba(0, 0, 0, 0.18);
+}
+
+.icon-whatsapp {
+  padding-top: 0.25rem;
+  padding-left: 0.2rem;
+  color: wheat;
+}
+
+.anim {
+  animation: shake-animation 4.72s ease infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes shake-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  1.78571% {
+    transform: translate(5px, 0);
+  }
+  3.57143% {
+    transform: translate(0, 0);
+  }
+  5.35714% {
+    transform: translate(5px, 0);
+  }
+  7.14286% {
+    transform: translate(0, 0);
+  }
+  8.92857% {
+    transform: translate(5px, 0);
+  }
+  10.71429% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
