@@ -8,9 +8,8 @@
 {% if messages %}
 <ul class="flashes mt-1 ms-1 me-1" style="margin: 0; padding-left: 0;">
     {% for category, message in messages %}
-    
     <div class="alert alert-{{category}} align-center" style="width: 100%; padding-left: 0 !important; height: 60px" role="alert" id="danger-alert">
-        <p class="text-center fs-6">{{message}}</p>
+        <p class="text-center fs-6" style="color: #101010">{{message}}</p>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"
             style="display: none;">
             <span aria-hidden="true">&times;</span></button>

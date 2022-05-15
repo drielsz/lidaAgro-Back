@@ -1,3 +1,5 @@
+from cgi import test
+from functools import wraps
 import json
 from flask import redirect, render_template, request, url_for, flash, current_app, session, jsonify, make_response
 from flask_login import current_user, login_user, logout_user
@@ -16,16 +18,23 @@ stripe_keys = {
     "publishable_key": os.environ["STRIPE_PUBLISHABLE_KEY"],
 }
 
-
 publishable_key = stripe_keys["publishable_key"]
 
 stripe.api_key = stripe_keys["secret_key"]
 
-@app.route('/cookie', methods=['GET'])
-def cookie():
-    return render_template('/teste/cookie.html')
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if current_user.is_authenticated:
+            return f(*args, **kwargs)
+        else:
+            flash("Você precisa fazer login primeiro.", "danger")
+            return redirect(request.referrer)
+
+    return wrap
 
 @app.route('/checkout', methods=['GET', 'POST'])
+@login_required
 def checkout():
     subtotal = 0
     grandtotal = 0
@@ -437,10 +446,11 @@ def forgotpassword():
 
 
 @app.route('/logout', methods=['GET'])
+@login_required
 def logout():
     logout_user()
-    flash('Saiu da conta', 'warning')
-    return redirect(url_for('home'))
+    flash('Saiu da conta', 'danger')
+    return redirect(request.referrer)
 
 
 @app.route('/admin/dashboard', methods=['GET'])

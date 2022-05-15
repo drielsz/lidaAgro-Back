@@ -13,25 +13,26 @@
     <main>
         <h1>Boleto</h1>
         <div id="messages" role="alert"></div>
-        <form id="payment-form">
+        <form action="{{url_for('create_payment_intent')}}" id="payment-form">
 
             <label for="name">Nome</label>
-            <input type="text" id="name" value="Adriel Laurentino">
+            <input type="text" id="name" value="">
 
-            <label for="email"></label>
-            <input type="email" id="email" value="adriellaurentino4@gmail.com">
+            <label for="email">Email</label>
+            <input type="email" id="email" value="">
+
 
             <label for="tax_id">Cpf</label>
-            <input type="text" id="tax_id" value="000.000.000-00">
+            <input type="text" id="tax_id" value="">
 
             <label for="address">Endereço</label>
-            <input type="text" id="address" value="Av Angelica 2491, Conjunto 91E">
+            <input type="text" id="address" value="">
 
             <label for="city">Cidade</label>
-            <input type="text" id="city" value="São Paulo">
+            <input type="text" id="city" value="">
 
             <label for="state">Estado</label>
-            <input type="text" id="state" value="SP">
+            <input type="text" id="state" value="">
 
             <label for="postal_code">Código Postal</label>
             <input type="text" id="postal_code" value="01227-200">
