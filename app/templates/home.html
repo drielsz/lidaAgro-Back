@@ -19,6 +19,9 @@
     p{
         color: #339121
     }
+    a{
+      text-decoration: none !important;
+    }
 </style>
 <body style="background-color: #f7f7f7;">
     {% include "navbar.html" %}
@@ -52,7 +55,7 @@
                     {% endif %}
                     <div class="div-image-container">
                       <div class="div-child-image">
-                        <a href="{{url_for('single_page', id=produto.id)}}">
+                        <a href="{{url_for('single_page', id=produto.id)}}" style="text-decoration: none;">
                           <p>
                             <img src="{{url_for('static', filename='assets/posts/' + produto.image)}}" alt="{{produto.nome}}"
                             class="div-child-image padding-bottom"/></a>

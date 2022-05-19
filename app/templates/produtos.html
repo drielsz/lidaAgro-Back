@@ -15,6 +15,9 @@
     p{
         color: #339121
     }
+    a{
+      text-decoration: none !important;
+    }
 </style>
 <body style="background-color: #f7f7f7">
     {% include "navbar.html" %}
@@ -45,7 +48,9 @@
                   </div>
         
                   <div class="div-nome-produto">
-                    <p class="nome-produto">{{produto.nome}}</p>
+                    <a href="{{url_for('single_page', id=produto.id)}}" class="hover-name">
+                      <p class="nome-produto">{{produto.nome}}</p>
+                    </a>
                     {% if produto.desconto > 0 %}
                       {% set a = "%0.2f"|format(produto.price|float) %}
                       <div class="cifra-real" style="color: #B0B0B0; font-size: 12px; margin-left: 3px; padding-top: 2px;">
