@@ -4,6 +4,10 @@
   --hover: #37a720;
 }
 
+.padding-bottom{
+  padding-bottom: 1.25rem;
+}
+
 .img-banner-bg {
   background-image: url("../../assets/AGRO-BANNER.png");
   background-position: center;
