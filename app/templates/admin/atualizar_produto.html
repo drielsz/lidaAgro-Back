@@ -29,15 +29,21 @@
   <!-- End of Topbar -->
   <div class="container at-5">
     <form action="{{url_for('atualizar_produto', id=produto.id)}}" method="POST" enctype="multipart/form-data">
-      <input type="text" name="nome" placeholder="Nome">
-      <input type="text" name="price" placeholder="Preço">
-      <input type="text" name="desconto" placeholder="Desconto">
-      <input type="text" name="estoque" placeholder="Quantidade no Estoque">
-      <input type="text" name="desc" placeholder="descrição">
-      <input type="file" name="photo" class="form-control-file" id="exampleFormControlFile1">
+      <p><input type="text" name="nome" placeholder="Nome" value="{{produto.nome}}" class="w-100"></p>
+      <p><input type="text" name="price" placeholder="Preço" value="{{produto.price}}"></p>
+      <p><input type="text" name="desconto" placeholder="Desconto" value="{{produto.desconto}}"></p>
+      <p><input type="text" name="estoque" placeholder="Quantidade no Estoque" value="{{produto.estoque}}"></p>
+      <textarea type="text" name="desc" placeholder="descrição" style="width: 100%; height: 250px;  border: 1px solid #ccc;">{{produto.desc}}</textarea>
+      <p></p>
+      <p>Foto do produto:</p>
+      <p><input type="file" name="photo" class="form-control-file" id="exampleFormControlFile1" placeholder="Foto do produto"></p>
+      <p>
+        
       <div class="button">
+        <p></p>
         <input type="submit" value="Cadastrar">
       </div>
+      </p>
     </form>
   </div>
 

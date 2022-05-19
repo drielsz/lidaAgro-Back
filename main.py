@@ -197,6 +197,23 @@ def filter_by_ofertas():
 
     return render_template('produtos/result.html', produtos=produtos)
 
+# Filtros
+
+@app.route('/category_filter=?jardinagem')
+def filter_by_jardinagem():
+    produtos = Produtos.query.filter_by(categoria="Jardinagem")
+
+    return render_template('produtos/result.html' , produtos=produtos)
+
+# Filtros
+
+@app.route('/category_filter=?embalagens')
+def filter_by_embalagens():
+    produtos = Produtos.query.filter_by(categoria="Embalagens")
+
+    return render_template('produtos/result.html', produtos=produtos)
+
+# End Filtros
 
 @app.route('/lida-agro')
 def lida_agro():
@@ -483,6 +500,7 @@ def admin_login():
 @app.route('/admin/register', methods=['GET', 'POST'])
 def admin_register():
     ip = request.remote_addr
+    print(" IP :",ip)
     if request.method == 'POST':
         nome = request.form['nome']
         email = request.form['email']
@@ -494,7 +512,7 @@ def admin_register():
         db.session.commit()
 
         return redirect(url_for('admin_login'))
-    if ip != '127.0.01':
+    if ip != '127.0.0.1':
         return jsonify(message="ENTRADA NAO ESTA DISPONIVEL")
     else:
         return render_template('admin/registrar/register.html')
