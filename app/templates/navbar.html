@@ -27,13 +27,6 @@
                         <div class="input">
                             <input placeholder="Digite o produto que deseja" class="input-nav" name="q" list="list-S">
                         </div>
-                        {% for produto in produtos.items %}
-                        <datalist id="list-S">
-                            <div style="display: flex;">
-                                <option value="{{produto.nome}}">
-                            </div>
-                        </datalist>
-                        {% endfor %}
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-search q" viewBox="0 0 16 16"

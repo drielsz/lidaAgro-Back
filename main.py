@@ -654,6 +654,10 @@ def admin_perfil(id):
         db.session.commit()
     return render_template('admin/perfil.html')
 
+@app.route('/navbar')
+def navbar():
+    produtos = Produtos.query.all()
+    return render_template('navbar.html', produtos=produtos)
 
 if __name__ == '__main__':
     app.run(port=4242, debug=True)
