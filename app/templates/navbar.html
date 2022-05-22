@@ -27,7 +27,7 @@
                         <div class="input">
                             <input placeholder="Digite o produto que deseja" class="input-nav" name="q" list="list-S">
                         </div>
-                        {% for produto in produtos %}
+                        {% for produto in produtos.items %}
                         <datalist id="list-S">
                             <div style="display: flex;">
                                 <option value="{{produto.nome}}">
@@ -52,7 +52,6 @@
                     <ul class="sections">
                         <li><a href="{{url_for('produtos_cliente')}}">produtos</a></li>
                         <li><a href="{{url_for('atendimento')}}">atendimento</a></li>
-                        <li><a href="{{url_for('lida_agro')}}">empresa</a></li>
                         {% if current_user.is_authenticated %}
                         <li><a href="{{url_for('logout')}}">sair</a></li>
                         {% else %}

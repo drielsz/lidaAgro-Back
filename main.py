@@ -234,7 +234,8 @@ def result():
 
 @app.route('/produtos=?user=?cliente', methods=['GET', 'POST'])
 def produtos_cliente():
-    produtos = Produtos.query.filter(Produtos.estoque > 0)
+    page = request.args.get('page', 1, type=int)
+    produtos = Produtos.query.filter(Produtos.estoque > 0).paginate(page=page, per_page=3)
     return render_template('produtos.html', produtos=produtos)
 
 
