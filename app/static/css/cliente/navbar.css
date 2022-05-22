@@ -161,7 +161,7 @@ a {
 
 .nav-toggler span::before,
 .nav-toggler span::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -174,12 +174,15 @@ a {
 .nav-toggler span::before {
   transform: translateY(-6px);
 }
+
+.nav-toggler span::after{
+  transform: translateY(6px);
+}
+
 .nav-toggler.active span::before {
   transform: rotate(45deg);
 }
-.nav-toggler span::after {
-  transform: translateY(-6px);
-}
+
 .nav-toggler.active span::after {
   transform: rotate(135deg);
 }
