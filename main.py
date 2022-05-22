@@ -22,6 +22,7 @@ publishable_key = stripe_keys["publishable_key"]
 
 stripe.api_key = stripe_keys["secret_key"]
 
+
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -32,6 +33,7 @@ def login_required(f):
             return redirect(request.referrer)
 
     return wrap
+
 
 @app.route('/checkout', methods=['GET', 'POST'])
 @login_required
@@ -46,20 +48,25 @@ def checkout():
         grandtotal = ("%.2f" % (1.06 * float(subtotal)))
     return render_template('/checkout/index.html', tax=tax, grandtotal=grandtotal)
 
+
 @app.route('/boleto', methods=['GET', 'POST'])
 def boleto():
     return render_template('boleto.html')
 
+
 @app.route('/testprodutos', methods=['GET', 'POST'])
 def testprodutos():
     produtos = Produtos.query.all()
-    return render_template('teste/produtos.html', produtos = produtos)
+    return render_template('teste/produtos.html', produtos=produtos)
+
 
 @app.route('/config')
 def config():
-    return jsonify({'publishableKey' : stripe_keys['publishable_key']})
+    return jsonify({'publishableKey': stripe_keys['publishable_key']})
 
 # Intenção de compra do usuario ( boleto, cartão.. )
+
+
 @app.route('/create-payment-intent', methods=['POST'])
 def create_payment_intent():
     try:
@@ -68,15 +75,15 @@ def create_payment_intent():
         currency = data['currency']
 
         payment_intent = stripe.PaymentIntent.create(
-            amount = 1999,
-            currency= currency,
+            amount=1999,
+            currency=currency,
             payment_method_types=[payment_method_type]
         )
-        return jsonify({'clientSecret' : payment_intent.client_secret})
+        return jsonify({'clientSecret': payment_intent.client_secret})
     except stripe.error.StripeError as e:
-        return jsonify({'error':{'message' : e.user_message}}), 400
+        return jsonify({'error': {'message': e.user_message}}), 400
     except Exception as e:
-        return jsonify({'error' : {'message' :  e.user_message}}), 500
+        return jsonify({'error': {'message':  e.user_message}}), 500
 
 
 @app.route('/webhook', methods=['POST'])
@@ -110,11 +117,16 @@ def webhook_received():
         print('❌ Payment failed.')
     return jsonify({'status': 'success'})
 
+
 @app.route('/payment', methods=['POST'])
 def payment():
     data = request.form
     invoice = request.form.get('invoice')
     amount = request.form.get('amount')
+    produtos = Produtos.query.all()
+    subtotal = 0
+    grandtotal = 0
+    
     customer = stripe.Customer.create(
         email=data['stripeEmail'],
         source=data['stripeToken'],
@@ -126,8 +138,15 @@ def payment():
         amount=amount,
         currency='brl',
     )
-    return redirect(url_for('thanks'))
 
+    try:
+        session.pop('Shoppingcart', None)
+        return render_template('thank.html', amount=amount, produtos=produtos)
+
+    except Exception as e:
+        print(e)
+        
+    return render_template('thank.html', amount=amount, produtos=produtos)
 
 @app.route('/thanks')
 def thanks():
@@ -147,7 +166,8 @@ def thanks():
     grandtotal = ("%.2f" % (1.06 * float(subtotal)))
     amount = grandtotal.replace('.', '')
     return render_template('thank.html', tax=tax, grandtotal=amount, produtos=produtos)
-    
+
+
 @app.route('/')
 def home():
     produtos = Produtos.query.limit(4).all()
@@ -199,13 +219,15 @@ def filter_by_ofertas():
 
 # Filtros
 
+
 @app.route('/category_filter=?jardinagem')
 def filter_by_jardinagem():
     produtos = Produtos.query.filter_by(categoria="Jardinagem")
 
-    return render_template('produtos/result.html' , produtos=produtos)
+    return render_template('produtos/result.html', produtos=produtos)
 
 # Filtros
+
 
 @app.route('/category_filter=?embalagens')
 def filter_by_embalagens():
@@ -214,6 +236,7 @@ def filter_by_embalagens():
     return render_template('produtos/result.html', produtos=produtos)
 
 # End Filtros
+
 
 @app.route('/lida-agro')
 def lida_agro():
@@ -235,7 +258,8 @@ def result():
 @app.route('/produtos=?user=?cliente', methods=['GET', 'POST'])
 def produtos_cliente():
     page = request.args.get('page', 1, type=int)
-    produtos = Produtos.query.filter(Produtos.estoque > 0).paginate(page=page, per_page=3)
+    produtos = Produtos.query.filter(
+        Produtos.estoque > 0).paginate(page=page, per_page=3)
     return render_template('produtos.html', produtos=produtos)
 
 
@@ -253,6 +277,7 @@ def MagerDicts(dict1, dict2):
         return dict(list(dict1.items()) + list(dict2.items()))
     return False
 
+
 @app.route('/get_pdf/<invoice>', methods=['POST'])
 def get_pdf(invoice):
     produtos = Produtos.query.all()
@@ -265,18 +290,21 @@ def get_pdf(invoice):
             orders = customer_id
             for key, produto in session['Shoppingcart'].items():
                 desconto = (produto['desconto']/100) * float(produto['price'])
-                subTotal += float(produto['price']) * int(produto['quantidade'])
+                subTotal += float(produto['price']) * \
+                    int(produto['quantidade'])
                 subTotal -= desconto
                 tax = ("%.2f" % (.06 * float(subTotal)))
                 grandtotal = ("%.2f" % (1.06 * float(subTotal)))
-            rendered = render_template('pdf.html', invoice=invoice, tax=tax, grandtotal=grandtotal, customer=customer, orders=orders, produtos=produtos)
+            rendered = render_template('pdf.html', invoice=invoice, tax=tax,
+                                       grandtotal=grandtotal, customer=customer, orders=orders, produtos=produtos)
             pdf = pdfkit.from_string(rendered, False)
             response = make_response(pdf)
-            response.headers['content-Type']='application/pdf'
-            response.headers['content-Disposition']='atteched; filename='+invoice+'.pdf'
+            response.headers['content-Type'] = 'application/pdf'
+            response.headers['content-Disposition'] = 'atteched; filename='+invoice+'.pdf'
             return response
 
     return request(url_for('getCart'))
+
 
 @app.route('/addcarrinho', methods=['POST'])
 def AddCarrinho():
@@ -287,7 +315,7 @@ def AddCarrinho():
         if produto and quantidade and produto_id and request.method == 'POST':
             # Passando as informações para o carrinho
             DictItems = {produto_id: {'nome': produto.nome, 'price': produto.price, 'desconto': produto.desconto,
-            'quantidade': quantidade, 'image': produto.image, 'estoque': produto.estoque}}
+                                      'quantidade': quantidade, 'image': produto.image, 'estoque': produto.estoque}}
             # End
             if 'Shoppingcart' in session:
                 print(session['Shoppingcart'])
@@ -478,9 +506,9 @@ def dashboard():
 
 @app.route('/admin/login', methods=['GET', 'POST'])
 def admin_login():
-   ip = request.remote_addr
-   print(ip)
-   if request.method == 'POST':
+    ip = request.remote_addr
+    print(ip)
+    if request.method == 'POST':
         email = request.form['email']
         senha = request.form['senha']
 
@@ -492,16 +520,16 @@ def admin_login():
         login_user(user)
 
         return redirect(url_for('dashboard'))
-   if ip != '127.0.0.1':
-       return jsonify(message="ENTRADA NAO ESTA DISPONIVEL")
-   else:
-       return render_template('admin/admin_login.html')
+    if ip != '127.0.0.1':
+        return jsonify(message="ENTRADA NAO ESTA DISPONIVEL")
+    else:
+        return render_template('admin/admin_login.html')
 
 
 @app.route('/admin/register', methods=['GET', 'POST'])
 def admin_register():
     ip = request.remote_addr
-    print(" IP :",ip)
+    print(" IP :", ip)
     if request.method == 'POST':
         nome = request.form['nome']
         email = request.form['email']
@@ -632,11 +660,6 @@ def atualizar_produto(id):
     return render_template('admin/atualizar_produto.html', produto=produto)
 
 
-@app.route("/quem-somos", methods=['GET'])
-def quem_somos():
-    return render_template("quem_somos.html")
-
-
 @app.route("/admin/perfil/<int:id>/", methods=['GET', 'POST'])
 def admin_perfil(id):
     user = User.query.get(id)
@@ -654,10 +677,6 @@ def admin_perfil(id):
         db.session.commit()
     return render_template('admin/perfil.html')
 
-@app.route('/navbar')
-def navbar():
-    produtos = Produtos.query.all()
-    return render_template('navbar.html', produtos=produtos)
 
 if __name__ == '__main__':
     app.run(port=4242, debug=True)
