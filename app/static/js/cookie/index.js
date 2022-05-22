@@ -11,7 +11,7 @@ const cookieStorage = {
   },
 };
 
-const storageType = cookieStorage;
+const storageType = localStorage;
 const consentPropertyName = "lida_consent";
 
 const shouldShowPopup = () => !storageType.getItem(consentPropertyName);
