@@ -35,6 +35,10 @@ def login_required(f):
     return wrap
 
 
+@app.route('/lida', methods=['GET'])
+def lida():
+    return render_template('quem_somos.html')
+
 @app.route('/checkout', methods=['GET', 'POST'])
 @login_required
 def checkout():
