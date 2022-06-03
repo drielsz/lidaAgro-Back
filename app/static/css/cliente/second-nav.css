@@ -74,10 +74,6 @@
   color: var(--hover);
 }
 
-.categories li:last-child a:last-child {
-  color: #339121;
-}
-
 .categories li:last-child:hover a:last-child:hover {
   color: var(--hover);
 }
