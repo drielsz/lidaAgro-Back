@@ -331,20 +331,21 @@ a {
   .header .nav {
     width: 100%;
     padding: 0;
-    max-height: 0px;
     overflow: hidden;
     visibility: hidden;
     transition: all 0.5 ease;
   }
   .header .nav.open {
     visibility: visible;
-    background-color: var(--color-2);
+    background-color: #f7f7f7;
     z-index: 9999;
+    height: 100vh;
+    position: absolute;
+    top: 100px;
   }
 
   .header .nav ul {
     padding: 12px 7px 0;
-    margin-top: 99px;
     position: absolute;
     left: -3px;
     background-color: #f7f7f7;
