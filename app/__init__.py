@@ -12,7 +12,7 @@ from sqlalchemy import ForeignKey
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_CONNECTION_STRING')
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://sql10497527:FcmTACziQ8@sql10.freesqldatabase.com/sql10497527"
 app.secret_key = os.environ.get('APP_K')
 app.config['SECRET_KEY'] = os.environ.get('S_K')
 
