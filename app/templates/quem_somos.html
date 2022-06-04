@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,15 +9,17 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="../static/assets/Lida agro.jpg" type="image/icon type">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <style>
-        footer .mt-5{
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        footer .mt-5 {
             margin-top: 0 !important;
             padding-top: 35px !important;
         }
+
         .mt-5 {
             padding-top: 85px;
         }
@@ -44,11 +45,14 @@
         }
 
         .jumbotron {
+            background-image: url("https://images.unsplash.com/photo-1618775293437-91b843a7bcc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
             background-color: #339121;
-            ;
             color: #fff;
             padding: 100px 25px;
-            font-family: Montserrat, sans-serif;
+            font-family: 'Poppins', sans-serif;
         }
 
         .bg-grey {
@@ -100,6 +104,11 @@
             border: 1px solid #37a720;
             border-radius: 0 !important;
             transition: box-shadow 0.5s;
+        }
+
+        .wf-div {
+            padding-top: 150px;
+            padding-left: 200px;
         }
 
         .panel:hover {
@@ -194,6 +203,18 @@
                 width: 100%;
                 margin-bottom: 35px;
             }
+
+            .wf {
+                display: none;
+            }
+
+            .wrd {
+                display: none;
+            }
+
+            .wf-div {
+                display: none;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -212,60 +233,69 @@
         <p>NÓS SOMOS ESPECIALIZADOS EM<br>PRODUTOS AGROPECUÁRIOS, MAIS DE 15 ANOS NO MERCADO.</p>
         <form>
     </div>
-        <!-- Container (About Section) -->
-        <div id="about" class="container">
-            <div class="row">
+    <!-- Container (About Section) -->
+    <div id="about" class="container">
+        <div class="row">
+            <div class="col-sm-8" style="margin-top: 40px !important;">
+                <h2>SOMOS UMA EMPRESA AGROPECUÁRIA</h2><br>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat.</h4><br>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+                    officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <br>
+                <a href="https://api.whatsapp.com/send?phone=5584991288330" target="_blank"
+                style="text-decoration: none; font-family: 'Poppins', sans-serif;" class="text-light"
+                ><button
+                        class="btn btn-default btn-lg btn-success"><span
+                            style="font-family: 'Poppins', sans-serif;">ENTRE EM CONTATO</span>
+                        <i class="bi bi-whatsapp text-light" style="margin-left: 5px;"></i>
+                </a>
+            </div>
+            <div class="col-sm-4 mt-5 wf-div">
+                <i class="bi bi-reception-4 fa-10x wf text-light"></i>
+            </div>
+        </div>
+    </div>
+
+    <div style="background-color: #F4F4F4; width: 100%;">
+        <div class="container">
+            <div class="row" style="margin-top: 30px;">
+                <div class="col-sm-4 wrd">
+                    <i class="fa-solid fa-globe fa-10x wrd text-success"
+                        style="padding-top: 220px; padding-right: 200px;"></i>
+                </div>
                 <div class="col-sm-8 mt-5">
-                    <h2>SOMOS UMA EMPRESA AGROPECUÁRIA</h2><br>
-                    <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat.</h4><br>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-                        officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                        ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <br><button class="btn btn-default btn-lg">Entre em contato</button>
-                </div>
-                <div class="col-sm-4 mt-5" style="padding-top: 150px; padding-left: 200px;">
-                    <i class="bi bi-reception-4 fa-10x"></i>
-                </div>
-            </div>
-        </div>
-
-        <div style="background-color: #F4F4F4; width: 100%;">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4">
-                        <i class="fa-solid fa-globe fa-10x" style="padding-top: 220px; padding-right: 200px;"></i>
-                    </div>
-                    <div class="col-sm-8 mt-5">
-                        <h2>Nossos valores</h2><br>
-                        <h4><strong>MISSÃO:</strong> Nossa missão é entregar produtos de qualidades para os nossos clientes, ter uma transparêcia..lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                            sed
-                            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
-                        <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                            do
-                            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                            nostrud
-                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore
-                            et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-                            ut
-                            aliquip ex ea commodo consequat.</p>
-                    </div>
+                    <h2>Nossos valores</h2><br>
+                    <h4><strong>MISSÃO:</strong> Nossa missão é entregar produtos de qualidades para os nossos clientes,
+                        ter uma transparêcia..lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed
+                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+                    <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                        do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                        ut
+                        aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
         </div>
+    </div>
 
-         <!-- Container (Services Section) -->
+    <!-- Container (Services Section) -->
     <div id="services" class="container text-center mt-5">
         <h2>SERVIÇOS</h2>
-        <h4>O que oferecemos</h4>
+        <h4 style="padding-bottom: 20px;">O que oferecemos</h4>
         <br>
         <div class="row slideanim">
             <div class="col-sm-4">
@@ -303,37 +333,37 @@
             </div>
         </div>
     </div>
-<!-- Container (Portfolio Section) -->
-<div id="portfolio" class="container text-center bg-grey mt-5">
-    <h4>Algumas das nossas conquistas</h4>
-    <div class="row text-center slideanim">
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="../static/assets/LIDA-CAMPEONATO-IMAGE.jpg" alt="Lida Image Campeonato" width="400"
-                    height="300">
-                <p><strong>Mossoró RN</strong></p>
-                <p>Ganhamos tal premiação em 2022</p>
+    <!-- Container (Portfolio Section) -->
+    <div id="portfolio" class="container text-center bg-grey mt-5">
+        <h4 style="padding-bottom: 25px !important;">Algumas das nossas conquistas</h4>
+        <div class="row text-center slideanim">
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="../static/assets/LIDA-CAMPEONATO-IMAGE.jpg" alt="Lida Image Campeonato" width="400"
+                        height="300">
+                    <p><strong>Mossoró RN</strong></p>
+                    <p>Ganhamos tal premiação em 2022</p>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="../static/assets/LIDA-CAMPEONATO-IMAGE2.jpg" alt="Lida Image Campeonato" width="400"
-                    height="300">
-                <p><strong>Ganhamos x em y</strong></p>
-                <p>Nossa empresa foi contemplada x em y </p>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="../static/assets/LIDA-CAMPEONATO-IMAGE2.jpg" alt="Lida Image Campeonato" width="400"
+                        height="300">
+                    <p><strong>Ganhamos x em y</strong></p>
+                    <p>Nossa empresa foi contemplada x em y </p>
+                </div>
             </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="../static/assets/LIDA CAMPEONATO.jpg" alt="Lida Image Campeonato" width="400" height="300"
-                    style="max-height: 285px;">
-                <p><strong>Título aqui</strong></p>
-                <p>Descrição.</p>
+            <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="../static/assets/LIDA CAMPEONATO.jpg" alt="Lida Image Campeonato" width="400" height="300"
+                        style="max-height: 285px;">
+                    <p><strong>Título aqui</strong></p>
+                    <p>Descrição.</p>
+                </div>
             </div>
-        </div>
-    </div><br>
-</div>
-    <!-- Image of location/map --> 
+        </div><br>
+    </div>
+    <!-- Image of location/map -->
     <script src='https://maps.google.com/maps/api/js?key=AIzaSyDv7YRz1WWPhkr6aim8wEm4WDPBdk81z54'></script>
     <div style='overflow:hidden;height:280px;width:100%;color: #0095eb'>
         <div id='gmap_canvas' style='height:280px;width:100%;'></div>
@@ -347,6 +377,26 @@
                 display: none !important;
             }
         </style>
+    </div>
+    <div class="container mt-5">
+        <center>
+            <i class="bi bi-geo-alt text-success"></i>
+            &nbsp;
+            <span>Nossa localização : XYZ</span>
+            &nbsp;
+            &nbsp;
+            <span>CEP: CEP1231241</span>
+            &nbsp;
+            &nbsp;
+            <span>CNPJ: 123456</span>
+            &nbsp;
+            &nbsp;
+            <span>Mossoró/RN</span>
+            &nbsp;
+            &nbsp;
+            <span>Bairro: Rincão</span>
+        </center>
+        <hr>
     </div>
     <script type='text/javascript'>
         function init_map() { var myOptions = { zoom: 13, center: new google.maps.LatLng(-5.200041099763725, -37.30795988240373), mapTypeId: google.maps.MapTypeId.ROADMAP }; map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions); marker = new google.maps.Marker({ map: map, position: new google.maps.LatLng(-5.200041099763725, -37.30795988240373) }); infowindow = new google.maps.InfoWindow({ content: '<strong> LIDA AGROPECUÁRIA </strong>' }); google.maps.event.addListener(marker, 'click', function () { infowindow.open(map, marker); }); infowindow.open(map, marker); } google.maps.event.addDomListener(window, 'load', init_map);
