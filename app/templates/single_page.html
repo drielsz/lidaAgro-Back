@@ -49,11 +49,14 @@
                 <p></p>
                 <p></p>
                 <div class="col-md-11 d-flex justify-content-between flex-wrap" style="display: flex;">
+                    {% if produto.desconto > 0 %}
                     <div class="btn-desconto">
 
                         <span>{{produto.desconto}}% de desconto</span>
 
                     </div>
+                    {% else %}
+                    {% endif %}
                     <div class="btn-desconto">
                         <span>Ver meios de pagamento</span>
                     </div>
