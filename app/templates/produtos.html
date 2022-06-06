@@ -65,7 +65,7 @@
               {% set x = produto.desconto/100 %}
               {% set y = "%0.2f" | format((x * produto.price|float)) %}
               {% set z = "%0.2f" | format((y|float - produto.price|float) *-1) %}
-
+              <!-- Z = PREÇO DO PRODUTO COM O DESCONTO -->
               <div class="cifra-real">
                 <a href="{{url_for('single_page', id=produto.id)}}">
                   <p class="">R$</p>

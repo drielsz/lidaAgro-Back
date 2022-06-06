@@ -7,19 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lida Agropecuária - Produto</title>
     <link rel="shortcut icon" href="{{url_for('static', filename='assets/Lida agro.jpg')}}" type="image/icon type">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
         integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link rel="stylesheet" href="../static/css/single_page/main.css">
 </head>
 
 <style>
-
+    html,
+    body {
+        overflow-x: hidden;
+    }
 </style>
 
 <body>
@@ -33,29 +41,86 @@
                     class="img-hover" id="zoom" width="400" height="400" />
             </div>
             <div class="col-md-6">
-                <h4> Nome do Produto: {{produto.nome}}</h4>
-                <hr>
-                <p>Preço do produto: R${{ produto.price}}</p>
-                {% if produto.desconto > 0 %}
-                <p> Desconto do produto: {{produto.desconto}} %</p>
-                {% endif %}
-                <hr>
-                <b>Descrição do produto</b>
-                <p>{{produto.desc}}</p>
-                <hr>
-                <form action="{{ url_for('AddCarrinho') }}" method="POST">
-                    <label style="padding-right: 90px;" for=""> Quantidade:</label>
-                    <input type="number" name="quantidade" id="" value="1" min="1" max="{{produto.estoque}}">
-                    <input type="hidden" name="produto_id" value="{{produto.id}}">
-                    <div style="padding-top: 20px;">
-                        <button type="submit" class="btn btn-sm btn-success"> Comprar agora</button>
+                {% set x = produto.desconto/100 %}
+                {% set y = "%0.2f" | format((x * produto.price|float)) %}
+                {% set z = "%0.2f" | format((y|float - produto.price|float) *-1) %}
+                <!-- Z = PREÇO DO PRODUTO COM O DESCONTO -->
+                <h4>{{produto.nome}}</h4>
+                <p></p>
+                <p></p>
+                <div class="col-md-11 d-flex justify-content-between flex-wrap" style="display: flex;">
+                    <div class="btn-desconto">
+
+                        <span>{{produto.desconto}}% de desconto</span>
+
                     </div>
-                </form>
+                    <div class="btn-desconto">
+                        <span>Ver meios de pagamento</span>
+                    </div>
+                </div>
+                <div class="spacer">
+
+                </div>
+                <div class="col-md-12 desc-produto">
+                    <p>K-Othrine CE é para você que sofre com insetos em residências, bares, restaurantes, hotéis,
+                        cinemas,
+                        indústrias, comércio, etc. Com fácil aplicação e excelente rendimento. Deixando sua casa e seu
+                        estabelecimento sem aquelas pragas horríveis que atrapalham nossos dias!
+                    </p>
+                </div>
+                <hr>
+
+
+                <div class="">
+                    <div style="width: 100%; display: flex;">
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: 1.5%;">
+                            <path
+                                d="M16.5705 19.9953C16.9397 19.6262 17.5754 19.6262 17.9445 19.9953L23.2082 25.259C24.1789 26.2297 25.4709 26.7629 26.8381 26.7629H27.8703L21.2326 33.4006C19.1613 35.4172 15.7981 35.4172 13.7268 33.4006L7.06173 26.7424H7.69748C9.06466 26.7424 10.3567 26.2092 11.3274 25.2385L16.5705 19.9953V19.9953ZM17.9445 14.9641C17.507 15.3401 16.9465 15.3469 16.5705 14.9641L11.3274 9.72091C10.3567 8.68869 9.06466 8.21701 7.69748 8.21701H7.06173L13.7199 1.55607C15.7981 -0.518364 19.1613 -0.518364 21.2326 1.55607L27.8772 8.1965H26.8381C25.4709 8.1965 24.1789 8.7297 23.2082 9.7004L17.9445 14.9641V14.9641ZM7.69748 9.75509C8.64084 9.75509 9.509 10.1379 10.2336 10.8078L15.4768 16.051C15.969 16.4817 16.6115 16.7893 17.261 16.7893C17.9035 16.7893 18.5461 16.4817 19.0383 16.051L24.302 10.7873C24.9719 10.1242 25.8947 9.74142 26.8381 9.74142H29.4152L33.4006 13.7268C35.4719 15.7981 35.4719 19.1613 33.4006 21.2326L29.4152 25.218H26.8381C25.8947 25.218 24.9719 24.8352 24.302 24.1652L19.0383 18.9016C18.0881 17.9514 16.427 17.9514 15.4768 18.9084L10.2336 24.1447C9.509 24.8147 8.64084 25.1975 7.69748 25.1975H5.52228L1.55607 21.2326C-0.518364 19.1613 -0.518364 15.7981 1.55607 13.7268L5.52228 9.75509H7.69748V9.75509Z"
+                                fill="#339121" />
+                        </svg>
+                        <div style="margin-left: 20px;">
+                            <span class="price-anterior">De R$ 141,98</span>
+                            <br><span class="price-descontado">R$ 120,18</span> <span class="a-vista"> à vista</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spacer">
+
+                </div>
+
+                <div class="">
+                    <div style="width: 100%; display: flex;">
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0 8.75C0 7.58968 0.460936 6.47688 1.28141 5.65641C2.10188 4.83594 3.21468 4.375 4.375 4.375H30.625C31.7853 4.375 32.8981 4.83594 33.7186 5.65641C34.5391 6.47688 35 7.58968 35 8.75V26.25C35 27.4103 34.5391 28.5231 33.7186 29.3436C32.8981 30.1641 31.7853 30.625 30.625 30.625H4.375C3.21468 30.625 2.10188 30.1641 1.28141 29.3436C0.460936 28.5231 0 27.4103 0 26.25V8.75ZM4.375 6.5625C3.79484 6.5625 3.23844 6.79297 2.8282 7.2032C2.41797 7.61344 2.1875 8.16984 2.1875 8.75V10.9375H32.8125V8.75C32.8125 8.16984 32.582 7.61344 32.1718 7.2032C31.7616 6.79297 31.2052 6.5625 30.625 6.5625H4.375ZM32.8125 15.3125H2.1875V26.25C2.1875 26.8302 2.41797 27.3866 2.8282 27.7968C3.23844 28.207 3.79484 28.4375 4.375 28.4375H30.625C31.2052 28.4375 31.7616 28.207 32.1718 27.7968C32.582 27.3866 32.8125 26.8302 32.8125 26.25V15.3125Z"
+                                fill="#101010" />
+                            <path
+                                d="M4.375 21.875C4.375 21.2948 4.60547 20.7384 5.0157 20.3282C5.42594 19.918 5.98234 19.6875 6.5625 19.6875H8.75C9.33016 19.6875 9.88656 19.918 10.2968 20.3282C10.707 20.7384 10.9375 21.2948 10.9375 21.875V24.0625C10.9375 24.6427 10.707 25.1991 10.2968 25.6093C9.88656 26.0195 9.33016 26.25 8.75 26.25H6.5625C5.98234 26.25 5.42594 26.0195 5.0157 25.6093C4.60547 25.1991 4.375 24.6427 4.375 24.0625V21.875Z"
+                                fill="#101010" />
+                        </svg>
+                        <div style="margin-left: 20px;">
+                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$ 60.00</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spacer">
+
+                </div>
+
+                <div>
+                    <div class="compra-whatsapp">
+                        <center>
+                            <span>Comprar pelo WhatsApp <i class="bi bi-whatsapp"></i></span>
+                        </center>
+                    </div>
+                </div>
+                <hr>
             </div>
         </div>
         <div class="row">
             <div class="col-md-12 mt-3" id="s_image">
-                <hr>
                 <a href="">
                     <img src="{{url_for('static', filename='assets/posts/' + produto.image)}}" alt="{{produto.nome}}"
                         width="120" height="120" class="p-3" />

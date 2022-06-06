@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap");
+
+.container .row .col-md-6 h4 {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 38px;
+}
+
+.btn-desconto {
+  background-color: #339121;
+  /* topo | direita | inferior | esquerda */
+  padding: 0px 40px 0px 40px;
+}
+
+.btn-desconto:last-child:hover {
+  cursor: pointer;
+}
+
+.btn-desconto span {
+  line-height: 44px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.desc-produto p {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.compra-whatsapp {
+  width: 45%;
+  background-color: #339121;
+  height: 44px;
+}
+
+.compra-whatsapp:hover {
+  cursor: pointer;
+}
+
+.compra-whatsapp span {
+  line-height: 44px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.spacer {
+  margin-bottom: 30px;
+}
+
+.price-anterior {
+  font-size: 14px;
+  color: #808080;
+  text-decoration: line-through;
+}
+
+.price-descontado {
+  color: #339121;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.a-vista {
+  color: #339121;
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+.quantidade-parcela {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  color: #808080;
+  font-size: 25px;
+}
+
+.price-parcela {
+  color: #339121;
+}
+
+
+@media (max-width: 1199px) {
+    .btn-desconto:last-child {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .btn-desconto {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 523px) {
+    .btn-desconto:last-child {
+        margin-top: 30px;
+    }
+}
