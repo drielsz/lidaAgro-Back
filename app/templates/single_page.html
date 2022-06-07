@@ -82,8 +82,8 @@
                                 fill="#339121" />
                         </svg>
                         <div style="margin-left: 20px;">
-                            <span class="price-anterior">De R$ 141,98</span>
-                            <br><span class="price-descontado">R$ 120,18</span> <span class="a-vista"> à vista</span>
+                            <span class="price-anterior">De R$ {{produto.price}}</span>
+                            <br><span class="price-descontado">R$ {{z.replace('.', ',')}}</span> <span class="a-vista"> à vista</span>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,18 @@
                                 fill="#101010" />
                         </svg>
                         <div style="margin-left: 20px;">
-                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$ 60.00</span></span>
+
+                            {% set price_produto_parcela =  produto.price / 2 %}
+                            {% set xx = "%0.2f"|format(z|float / 2)  %}
+                            {% set price_produtodescontado_parcela = xx.replace('.', ',') %}
+                            {% if produto.desconto > 0 %}
+                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$ {{price_produtodescontado_parcela}}</span></span>
+
+                            {% else %}
+
+                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$ {{price_produto_parcela}}</span></span>
+
+                            {% endif %}
                         </div>
                     </div>
                 </div>
