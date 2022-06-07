@@ -74,14 +74,16 @@
 
                 <div class="">
                     <div style="width: 100%; display: flex;">
-                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-top: 1.5%;">
+                        <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="margin-top: 1.5%;">
                             <path
                                 d="M16.5705 19.9953C16.9397 19.6262 17.5754 19.6262 17.9445 19.9953L23.2082 25.259C24.1789 26.2297 25.4709 26.7629 26.8381 26.7629H27.8703L21.2326 33.4006C19.1613 35.4172 15.7981 35.4172 13.7268 33.4006L7.06173 26.7424H7.69748C9.06466 26.7424 10.3567 26.2092 11.3274 25.2385L16.5705 19.9953V19.9953ZM17.9445 14.9641C17.507 15.3401 16.9465 15.3469 16.5705 14.9641L11.3274 9.72091C10.3567 8.68869 9.06466 8.21701 7.69748 8.21701H7.06173L13.7199 1.55607C15.7981 -0.518364 19.1613 -0.518364 21.2326 1.55607L27.8772 8.1965H26.8381C25.4709 8.1965 24.1789 8.7297 23.2082 9.7004L17.9445 14.9641V14.9641ZM7.69748 9.75509C8.64084 9.75509 9.509 10.1379 10.2336 10.8078L15.4768 16.051C15.969 16.4817 16.6115 16.7893 17.261 16.7893C17.9035 16.7893 18.5461 16.4817 19.0383 16.051L24.302 10.7873C24.9719 10.1242 25.8947 9.74142 26.8381 9.74142H29.4152L33.4006 13.7268C35.4719 15.7981 35.4719 19.1613 33.4006 21.2326L29.4152 25.218H26.8381C25.8947 25.218 24.9719 24.8352 24.302 24.1652L19.0383 18.9016C18.0881 17.9514 16.427 17.9514 15.4768 18.9084L10.2336 24.1447C9.509 24.8147 8.64084 25.1975 7.69748 25.1975H5.52228L1.55607 21.2326C-0.518364 19.1613 -0.518364 15.7981 1.55607 13.7268L5.52228 9.75509H7.69748V9.75509Z"
                                 fill="#339121" />
                         </svg>
                         <div style="margin-left: 20px;">
                             <span class="price-anterior">De R$ {{produto.price}}</span>
-                            <br><span class="price-descontado">R$ {{z.replace('.', ',')}}</span> <span class="a-vista"> à vista</span>
+                            <br><span class="price-descontado">R$ {{z.replace('.', ',')}}</span> <span class="a-vista">
+                                à vista</span>
                         </div>
                     </div>
                 </div>
@@ -102,15 +104,17 @@
                         </svg>
                         <div style="margin-left: 20px;">
 
-                            {% set price_produto_parcela =  produto.price / 2 %}
-                            {% set xx = "%0.2f"|format(z|float / 2)  %}
+                            {% set price_produto_parcela = produto.price / 2 %}
+                            {% set xx = "%0.2f"|format(z|float / 2) %}
                             {% set price_produtodescontado_parcela = xx.replace('.', ',') %}
                             {% if produto.desconto > 0 %}
-                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$ {{price_produtodescontado_parcela}}</span></span>
+                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$
+                                    {{price_produtodescontado_parcela}}</span></span>
 
                             {% else %}
 
-                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$ {{price_produto_parcela}}</span></span>
+                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$
+                                    {{price_produto_parcela}}</span></span>
 
                             {% endif %}
                         </div>
@@ -124,7 +128,8 @@
                 <div>
                     <div class="compra-whatsapp">
                         <center>
-                            <span>Comprar pelo WhatsApp <i class="bi bi-whatsapp"></i></span>
+                            <span><a href="https://api.whatsapp.com/send?phone=5584991288330" target="_blank">Comprar
+                                    pelo WhatsApp <i class="bi bi-whatsapp"></i></a></span>
                         </center>
                     </div>
                 </div>

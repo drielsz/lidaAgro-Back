@@ -27,6 +27,17 @@
   color: #ffffff;
 }
 
+.compra-whatsapp a {
+  line-height: 44px;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+}
+
 .desc-produto p {
   font-family: "Poppins", sans-serif;
   font-style: normal;
