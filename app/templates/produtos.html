@@ -43,21 +43,21 @@
             {% endif %}
             <div class="div-image-container">
               <div class="div-child-image">
-                <a href="{{url_for('single_page', id=produto.id)}}">
+                <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}">
                   <img src="{{url_for('static', filename='assets/posts/' + produto.image)}}" alt="{{produto.nome}}"
                     class="div-child-image padding-bottom" /></a>
               </div>
             </div>
 
             <div class="div-nome-produto">
-              <a href="{{url_for('single_page', id=produto.id)}}" class="hover-name">
+              <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}" class="hover-name">
                 <p class="nome-produto">{{produto.nome}}</p>
               </a>
               {% if produto.desconto > 0 %}
               {% set a = "%0.2f"|format(produto.price|float) %}
               <div class="cifra-real" style="color: #B0B0B0; font-size: 12px; margin-left: 3px; padding-top: 2px;">
                 <p class="">R$</p>
-                <a href="{{url_for('single_page', id=produto.id)}}">
+                <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}">
                   <p class="price-produto-sem-desconto strikethroug" style="color: #B0B0B0; font-size: 12px;">
                     {{a.replace('.',',')}}</p>
                 </a>
@@ -67,27 +67,27 @@
               {% set z = "%0.2f" | format((y|float - produto.price|float) *-1) %}
               <!-- Z = PREÇO DO PRODUTO COM O DESCONTO -->
               <div class="cifra-real">
-                <a href="{{url_for('single_page', id=produto.id)}}">
+                <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}">
                   <p class="">R$</p>
                 </a>
-                <a href="{{url_for('single_page', id=produto.id)}}">
+                <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}">
                   <p class="price-produto-com-desconto"> {{z.replace('.', ',')}}</p>
                 </a>
               </div>
               {% else %}
               <!-- Produto sem desconto -->
               <div class="cifra-real">
-                <a href="{{url_for('single_page', id=produto.id)}}" style="display: flex;">
+                <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}" style="display: flex;">
                   <p class="">R$</p>
                   {% set h = "%0.2f"|format(produto.price|float) %}
                   <p class="price-produto-com-desconto"> {{h.replace('.', ',')}}</p>
                 </a>
               </div>
               {% endif %}
-              <a href="{{url_for('single_page', id=produto.id)}}">
+              <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}">
                 <p class="tipo-compra">À vista</p>
               </a>
-              <a href="{{url_for('single_page', id=produto.id)}}">
+              <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}">
                 <input type="hidden" name="produto_id" value="{{produto.id}}">
                 <button type="submit" class="button-compra">COMPRAR</button>
                 <input type="hidden" name="quantidade" id="" value="1" min="1" max="{{produto.estoque}}">

@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap");
 
+html,
+body {
+  box-sizing: border-box;
+}
+
 .container .row .col-md-6 h4 {
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -98,21 +103,53 @@
   color: #339121;
 }
 
+.titulo {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 38px;
+}
+
+.informacao-uso-text {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
+
+.user-name span {
+  content: "\2605";
+  color: #ffd700;
+  font-size: 25px;
+}
+
+.user-name {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.user-descricao {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+}
 
 @media (max-width: 1199px) {
-    .btn-desconto:last-child {
-        margin-top: 30px;
-    }
+  .btn-desconto:last-child {
+    margin-top: 30px;
+  }
 }
 
 @media (max-width: 767px) {
-    .btn-desconto {
-        margin-top: 0;
-    }
+  .btn-desconto {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 523px) {
-    .btn-desconto:last-child {
-        margin-top: 30px;
-    }
+  .btn-desconto:last-child {
+    margin-top: 30px;
+  }
 }

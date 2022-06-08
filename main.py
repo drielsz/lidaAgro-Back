@@ -267,10 +267,11 @@ def produtos_cliente():
     return render_template('produtos.html', produtos=produtos)
 
 
-@app.route('/produtos?=cliente?<int:id>')
-def single_page(id):
+@app.route('/produtos?=cliente?<int:id><categoria>')
+def single_page(id, categoria):
     produto = Produtos.query.get_or_404(id)
-    return render_template('single_page.html', produto=produto)
+    produtoCategoria = Produtos.query.filter_by(categoria=categoria).all()
+    return render_template('single_page.html', produto=produto, allprodutos=produtoCategoria)
 
 
 # Add Carrinho
