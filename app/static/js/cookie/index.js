@@ -27,7 +27,7 @@ window.onload = () => {
     saveToStorage(storageType);
     consentPopup.style.display = "none";
   };
-  console.log(shouldShowPopup(storageType));
+  console.log("Cookie appear", shouldShowPopup(storageType));
   acceptBtn.addEventListener("click", acceptFn);
 
   if (!shouldShowPopup(storageType)) {

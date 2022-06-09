@@ -181,6 +181,7 @@ body {
   height: 44px;
   flex: 1;
   background-color: #339121;
+  border: none
 }
 
 .xmd-div-estrela-avaliacao {
@@ -237,10 +238,37 @@ body {
   content: "\2606";
 }
 
+.box-comment{
+  flex:1;
+  height: auto;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.box-informations-comment{
+  flex: 1;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 3.125rem
+}
+
+.box-informations-comment icon::before{
+  content: "\2605";
+  color: #ffd700;
+  font-size: 25px;
+}
+
+.box-informations-name-message {
+  margin-left: 30px
+}
 
 @media (max-width: 1199px) {
   .btn-desconto:last-child {
     margin-top: 30px;
+  }
+  .box-informations-name-message{
+    margin-left: 0;
   }
 }
 

@@ -2,7 +2,7 @@ from sqlalchemy import ForeignKey
 from app import db, login_manager
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime
+import datetime
 
 @login_manager.user_loader
 def get_user(user_id):
@@ -95,6 +95,6 @@ class Comentario(db.Model):
     email = db.Column(db.String(120), unique=False)
     message = db.Column(db.Text, nullable=False)
     post_id = db.Column(db.Integer, db.ForeignKey('produtos.id'), nullable=False)
-    pub_data = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    estrela_avaliacao = db.Column(db.String(5), unique=False)
+    pub_data = db.Column(db.DateTime, nullable=False, default=datetime.date.today())
+    estrela_avaliacao = db.Column(db.Integer, unique=False, default=1)
     status = db.Column(db.Boolean, default=False)

@@ -271,15 +271,17 @@ def single_page(id, categoria):
     data = request.form.get
     produto = Produtos.query.get_or_404(id)
     produtoCategoria = Produtos.query.filter_by(categoria=categoria).all()
+    comments = Comentario.query.filter_by(post_id=produto.id).all()
     if request.method == 'POST':
         nome = data('nome')
         email = data('email')
         message = data('message')
-        estrela_avaliacao = data('estrela_avaliacao')
+        estrela_avaliacao = data('number-star')
         comentario = Comentario(nome=nome, email=email, message=message, estrela_avaliacao=estrela_avaliacao, post_id=produto.id)
         db.session.add(comentario)
         db.session.commit()
-    return render_template('single_page.html', produto=produto, allprodutos=produtoCategoria)
+        return redirect(request.referrer)
+    return render_template('single_page.html', produto=produto, allprodutos=produtoCategoria, comments=comments)
 
 
 # Add Carrinho
