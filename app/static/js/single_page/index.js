@@ -7,5 +7,6 @@ document.addEventListener('click', function(e) {
             star.classList.remove('ativo')
         })
         classStar.add('ativo')
+        console.log(e.target.getAttribute('data-avaliacao'))
     }
 })

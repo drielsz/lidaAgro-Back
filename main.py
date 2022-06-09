@@ -1,10 +1,9 @@
-from cgi import test
 from functools import wraps
 import json
 from flask import redirect, render_template, request, url_for, flash, current_app, session, jsonify, make_response
 from flask_login import current_user, login_user, logout_user
 from app import app, db
-from app.models import User, Aviso, Produtos, Atendimento
+from app.models import User, Aviso, Produtos, Atendimento, Comentario
 import os
 from dotenv import load_dotenv
 import secrets
@@ -267,10 +266,19 @@ def produtos_cliente():
     return render_template('produtos.html', produtos=produtos)
 
 
-@app.route('/produtos?=cliente?<int:id><categoria>')
+@app.route('/produtos?=cliente?<int:id><categoria>', methods=['GET', 'POST'])
 def single_page(id, categoria):
+    data = request.form.get
     produto = Produtos.query.get_or_404(id)
     produtoCategoria = Produtos.query.filter_by(categoria=categoria).all()
+    if request.method == 'POST':
+        nome = data('nome')
+        email = data('email')
+        message = data('message')
+        estrela_avaliacao = data('estrela_avaliacao')
+        comentario = Comentario(nome=nome, email=email, message=message, estrela_avaliacao=estrela_avaliacao, post_id=produto.id)
+        db.session.add(comentario)
+        db.session.commit()
     return render_template('single_page.html', produto=produto, allprodutos=produtoCategoria)
 
 
