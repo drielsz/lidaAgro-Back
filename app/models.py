@@ -1,10 +1,8 @@
-from decimal import Decimal
-
 from sqlalchemy import ForeignKey
 from app import db, login_manager
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-import datetime
+from datetime import datetime
 
 @login_manager.user_loader
 def get_user(user_id):
@@ -89,38 +87,14 @@ class Atendimento(db.Model):
         self.estado = estado,
         self.descricao = descricao
 
-    
-# class Venda(db.Model):
-#     __tablename__ = 'venda'
-#     id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-#     # valor_total = db.Column(db.Decimal(10,2))
-#     data = db.Column(db.DateTime())
-#     cliente_id = db.Column(db.Integer, primary_key=True)
-#     empresa_id = db.Column(db.Integer, primary_key=True)
-#     pagamento_id = db.Column(db.Integer, primary_key=True)
+class Comentario(db.Model):
+    __tablename__ = 'comentarios'
+    id = db.Column(db.Integer, autoincrement=True, primary_key=True)
 
-# class Empresa(db.Model):
-#     __tablename__ = 'empresa'
-#     id = db.Column(db.Integer, primary_key=True)
-#     nome = db.Column(db.String(86))
-
-# class Pagamento(db.Model):
-#     __tablename__ = 'pagamento'
-#     id = db.Column(db.Integer, primary_key=True)
-
-# class Local_Entrega(db.Model):
-#     __tablename__ = 'local_entrega'
-#     endereco = db.Column(db.String(255))
-#     bairro = db.Column(db.String(255))
-#     numero_casa = db.Column(db.Integer)
-#     cep = db.Column(db.Integer)
-
-# class Venda_Concluida(db.Model):
-#     venda_id = db.Column(db.Integer, primary_key=True)
-#     produto_id = db.Column(db.Integer, primary_key=True)
-#     local_entrega = db.Column(db.String(255))
-
-# class Categoria(db.Model):
-#     id = db.Column(db.Integer)
-#     nome = db.Column(db.String(120), nullable=False)
-
+    nome = db.Column(db.String(86), unique=False)
+    email = db.Column(db.String(120), unique=False)
+    message = db.Column(db.Text, nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('produtos.id'), nullable=False)
+    pub_data = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    estrela_avaliacao = db.Column(db.String(5), unique=False)
+    status = db.Column(db.Boolean, default=False)

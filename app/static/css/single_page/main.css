@@ -136,6 +136,105 @@ body {
   font-weight: 300;
 }
 
+.textarea {
+  width: 100%;
+  margin-left: 25px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 2px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  /* topo | direita | inferior | esquerda */
+  padding: 15px 40px 40px 15px;
+}
+
+.info-user-avaliacao {
+  display: flex;
+  grid-gap: 20px;
+  flex-flow: row wrap;
+}
+
+.info-user-avaliacao-name {
+  height: 16px;
+  flex: 1;
+
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+
+  padding: 15px;
+}
+
+.info-user-avaliacao-email {
+  height: 16px;
+  flex: 1;
+
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+
+  padding: 15px;
+}
+
+.button-enviar-avaliacao {
+  height: 44px;
+  flex: 1;
+  background-color: #339121;
+}
+
+.xmd-div-estrela-avaliacao {
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  grid-gap: 20px;
+  flex-flow: row wrap;
+}
+
+.out-div-estrela-avaliacao {
+  height: 44px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  grid-gap: 20px;
+}
+
+.div-estrela-avaliacao {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 44px;
+}
+
+.div-estrela-avaliacao li{
+  align-self: center;
+  margin-bottom: 5px;
+}
+
+.div-estrela-avaliacao li:hover{
+  cursor: pointer;
+}
+
+.div-estrela-avaliacao li::before {
+  content: "\2605";
+  font-size: 40px;
+  color: #FFD700;
+}
+
+.div-estrela-avaliacao li {
+  list-style: none;
+}
+
+.star-icon.ativo ~ .star-icon::before {
+  content: "\2606";
+}
+
+.div-estrela-avaliacao:hover .star-icon::before {
+  content: "\2605"
+}
+
+.star-icon:hover ~ .star-icon::before {
+  content: "\2606";
+}
+
+
 @media (max-width: 1199px) {
   .btn-desconto:last-child {
     margin-top: 30px;
