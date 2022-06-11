@@ -618,11 +618,11 @@ def addproduto():
         desc = request.form['desc']
         photo = save_images(request.files['photo'])
         categoria = request.form['categoria']
-
+        info_uso = request.form['info_uso']
         post = Produtos(nome=nome,
                         price=price, desconto=desconto,
                         estoque=estoque, desc=desc,
-                        image=photo, categoria=categoria)
+                        image=photo, categoria=categoria, info_uso=info_uso)
 
         db.session.add(post)
         db.session.commit()
@@ -691,6 +691,28 @@ def admin_perfil(id):
 
         db.session.commit()
     return render_template('admin/perfil.html')
+
+@app.route('/admin/testeadmin', methods=['GET', 'POST'])
+def testeadmin():
+    if request.method == 'POST':
+        texto = request.form['nome']
+        nome = texto.upper()
+        price = request.form['price']
+        desconto = request.form['desconto']
+        estoque = request.form['estoque']
+        desc = request.form['desc']
+        photo = save_images(request.files['photo'])
+        categoria = request.form['categoria']
+        info_uso = request.form['info_uso']
+        post = Produtos(nome=nome,
+                        price=price, desconto=desconto,
+                        estoque=estoque, desc=desc,
+                        image=photo, categoria=categoria, info_uso=info_uso)
+
+        db.session.add(post)
+        db.session.commit()
+    return render_template('admin/registrarusuario.html')
+
 
 
 if __name__ == '__main__':

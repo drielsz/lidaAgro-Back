@@ -177,12 +177,6 @@ body {
   padding: 15px;
 }
 
-.button-enviar-avaliacao {
-  height: 44px;
-  flex: 1;
-  background-color: #339121;
-  border: none
-}
 
 .xmd-div-estrela-avaliacao {
   width: 100%;
@@ -261,6 +255,33 @@ body {
 
 .box-informations-name-message {
   margin-left: 30px
+}
+
+.modal-title{
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.card-title{
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+}
+.quantidade-cjuros{
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;  
+}
+
+.accept-bandeira{
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
 }
 
 @media (max-width: 1199px) {
