@@ -53,7 +53,7 @@
     <div class="container" style="margin-top: 100px; background-color: #f7f7f7;">
         <div class="row">
             <div class="col-md-6">
-                <form method="post" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data" onsubmit="addNewLines()">
                     <img src="../../static/assets/gramizap-imazapir_186568-removebg-preview.png" class="img-hover"
                         width="400" height="400" id="imgPhoto" style="cursor: pointer;" />
                     <div class="row">
@@ -123,8 +123,7 @@
                 <hr>
                 <div class="mt-5">
                     <span class="informacao-uso-text">
-                        <input style="width: 100%; padding: 90px; padding-top: 10px; padding-left: 10px;"
-                            placeholder="Informação de uso" name="info_uso">
+                        <textarea id="textarea" placeholder="Informação de uso" name="info_uso" cols="30" rows="15" style="width: 100%; padding-top: 20px; padding-left: 20px;"></textarea>
                     </span>
                 </div>
                 <div class="mt-5 button">
@@ -135,6 +134,14 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        function addNewLines() {
+            var txt;
+            txt = document.getElementById('textarea').value;
+            var text = txt.split('.');
+            var str = text.join('.</br> </br>');
+        }
+    </script>
     <script src="../../static/js/admin/tradeimage/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
         integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"

@@ -708,9 +708,11 @@ def testeadmin():
                         price=price, desconto=desconto,
                         estoque=estoque, desc=desc,
                         image=photo, categoria=categoria, info_uso=info_uso)
+                        
 
         db.session.add(post)
         db.session.commit()
+        return redirect(request.referrer)
     return render_template('admin/registrarusuario.html')
 
 
