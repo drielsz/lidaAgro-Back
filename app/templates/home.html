@@ -98,11 +98,11 @@
                       <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}">
                         <p class="tipo-compra">À vista</p>
                       </a>
-                      <form action="{{ url_for('AddCarrinho') }}" method="POST">
+                      <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}">
                         <input type="hidden" name="produto_id" value="{{produto.id}}">
                         <button type="submit" class="button-compra">COMPRAR</button>
                         <input type="hidden" name="quantidade" id="" value="1" min="1" max="{{produto.estoque}}">
-                      </form>
+                      </a>
                     </div>
                   </div>
               </ul>

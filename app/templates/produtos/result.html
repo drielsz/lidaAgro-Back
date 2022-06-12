@@ -15,12 +15,16 @@
     p{
         color: #339121
     }
+    
+  a {
+    text-decoration: none !important;
+  }
 </style>
 <body>
   {% include "navbar.html" %}
   {% include "layout.html" %}
-  <div class="" style="padding-left: 57px; padding-top: 50px;">
-    <h3><span>Resultados</span></h3>
+  <div class="mt-5" style="padding-left: 57px">
+    <h3>RESULTADOS PARA {{searchword}}</h3>
 </div>
 <hr>
 <div class="col-sm-12 align-items-center com-md-4">
@@ -92,7 +96,9 @@
 </div>
   <hr>
   <div style="padding-left: 57px">
-    <h3><span>Produtos relacionados:</span></h3>
+    <div class="product-relacionado mb-5">
+      <h3>PRODUTOS RELACIONADOS</h3>
+    </div>
     <div class="content-info-produtos" style="padding-top: 1vh !important;">
       {% for allproduto in allprodutos %}
       <ul class="ul-info-produtos">
@@ -159,13 +165,6 @@
       {% endfor %}
     </div>
   </div>
-  <hr>
-  <div class="" style="padding-left: 57px; padding-top: 50px;">
-    <h3><span>Não perca as ofertas, cadastre o seu correio eletrônico para nós enviarmos novidades.</span></h3>
-    <div style="display: flex;">
-      <input placeholder="E-mail aqui" style="padding-left: 10px;">
-      <button type="submit" style="padding: 5px; border: none; margin-left: 10px;">Enviar</button>
-    </div>
 </div>
   <!-- End Content -->
   {% extends "footer.html" %}

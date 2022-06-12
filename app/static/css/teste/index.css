@@ -4,8 +4,24 @@
   --hover: #37a720;
 }
 
-.padding-bottom{
+.padding-bottom {
   padding-bottom: 1.25rem;
+}
+
+.mt-5 h3 {
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.product-relacionado h3 {
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 600;
 }
 
 .img-banner-bg {
@@ -26,28 +42,28 @@
 }
 
 div .img-banner-text h3 {
-    margin-bottom: 20px;
-    font-weight: 400;
-    font-family: "Poppins", sans-serif;
-    font-size: clamp(2rem, 2vw, 2vw);
+  margin-bottom: 20px;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2rem, 2vw, 2vw);
 }
 
 main .container h1 {
-    color: #ffffff;
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-size: clamp(12px, 3em, 50px);
-    text-transform: uppercase;
-    position: absolute;
-    top: 20%;
-    left: 57px;
-    margin: 0;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(12px, 3em, 50px);
+  text-transform: uppercase;
+  position: absolute;
+  top: 20%;
+  left: 57px;
+  margin: 0;
 }
 
 div .img-banner-text h1 {
-    font-weight: 700;
-    font-family: "Poppins", sans-serif;
-    font-size: clamp(2.5rem, 4vw, 4vw);
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(2.5rem, 4vw, 4vw);
 }
 
 div .img-banner-text hr {
@@ -60,10 +76,10 @@ div .img-banner-text hr {
 }
 
 .container-bg {
-    min-width: 100%;
-    height: 100px;
-    background-color: #339121;
-    position: relative;
+  min-width: 100%;
+  height: 100px;
+  background-color: #339121;
+  position: relative;
 }
 
 /* Section destaque */
@@ -328,7 +344,7 @@ div .img-banner-text hr {
   z-index: 2;
 }
 
-.destaques .container h1{
+.destaques .container h1 {
   position: absolute;
   left: 57px;
   color: #339121;
@@ -336,12 +352,10 @@ div .img-banner-text hr {
   font-weight: 700;
 }
 
-
-@media (max-width: 461px){
-    main .container h1 {
-        font-size: clamp(7px, 2em, 50px);
-        position: absolute;
-        top: 30%
-    }
-    
+@media (max-width: 461px) {
+  main .container h1 {
+    font-size: clamp(7px, 2em, 50px);
+    position: absolute;
+    top: 30%;
+  }
 }

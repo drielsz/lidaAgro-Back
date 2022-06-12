@@ -254,8 +254,8 @@ def result():
     # Limit = Limite de quantos resultados vão voltar
     # Fields = Pesquise por ('nome', 'desc')
     produtos = Produtos.query.msearch(searchword, fields=['nome', 'desc'])
-    allprodutos = Produtos.query.all()
-    return render_template('produtos/result.html', produtos=produtos, allprodutos=allprodutos)
+    allprodutos = Produtos.query.limit(4).all()
+    return render_template('produtos/result.html', produtos=produtos, allprodutos=allprodutos, searchword=searchword)
 
 
 @app.route('/produtos=?user=?cliente', methods=['GET', 'POST'])
