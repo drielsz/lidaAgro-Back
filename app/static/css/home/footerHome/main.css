@@ -12,31 +12,31 @@ body {
 
 .footer {
   font-family: "Poppins", sans-serif;
-  padding: 75px 0;
+  padding: 4.6875rem 0;
   padding-bottom: 0;
   background-color: #574c41;
   position: static;
   bottom: 0;
-  margin-top: 150px;
+  margin-top: 9.375rem;
 }
 
 .footer .social {
   text-align: center;
-  padding-bottom: 25px;
+  padding-bottom: 1.5625rem;
   color: #fff;
 }
 
 .footer .social a {
-  font-size: 24px;
+  font-size: 1.5rem;
   color: inherit;
-  border: 1px solid black;
-  width: 40px;
-  height: 40px;
-  line-height: 38px;
+  border: 0.0625rem solid black;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.375rem;
   display: inline-block;
   text-align: center;
   border-radius: 50%;
-  margin: 0 8px;
+  margin: 0 0.5rem;
   opacity: 0.75;
 }
 
@@ -48,7 +48,7 @@ body {
   margin-top: 0;
   padding: 0;
   list-style: none;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 0;
   text-decoration: none;
@@ -63,7 +63,7 @@ body {
 
 .footer ul li {
   display: inline-block;
-  padding: 0 15px;
+  padding: 0 0.9375rem;
 }
 
 .footer ul li a:hover {
@@ -72,21 +72,21 @@ body {
 
 .footer .copyright {
   text-align: center;
-  margin-top: 15px;
-  font-size: 13px;
+  margin-top: 0.9375rem;
+  font-size: 0.8125rem;
   color: #aaa;
   margin-bottom: 0;
 }
 
 
-@media (max-width: 999px) {
+@media (max-width: 62.4375rem) {
   .footer{
-    margin-top: 500px;
+    margin-top: 31.25rem;
   }
 }
 
-@media (max-width: 490px) {
+@media (max-width: 30.625rem) {
   .footer{
-    margin-top: 1451px;
+    margin-top: 90.6875rem;
   }
 }

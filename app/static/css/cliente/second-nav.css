@@ -14,19 +14,19 @@
 }
 
 .h-40 {
-  height: 40px;
+  height: 2.5rem;
 }
 
 .lh-40 {
-  line-height: 40px;
+  line-height: 2.5rem;
 }
 
 .mr {
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 
 .ml {
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 
 .justify-content-between {
@@ -82,16 +82,16 @@
   display: none;
   position: absolute;
   background: #f1f1f1f1;
-  min-width: 160px;
+  min-width: 10rem;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0rem 0.5rem 1rem 0rem rgba(0, 0, 0, 0.2);
   z-index: 1;
-  padding: 10px;
+  padding: 0.625rem;
 }
 
 
 .last{
-  padding-right: 10px;
+  padding-right: 0.625rem;
 }
 
 .dropdown-content .dropdown-Foliarmanure,
@@ -100,7 +100,7 @@
   display: none;
 }
 
-@media (max-width: 610px){
+@media (max-width: 38.125rem){
     .penultimate{
         display: none;
     }
@@ -109,7 +109,7 @@
     } 
 }
 
-@media (max-width: 501px){
+@media (max-width: 31.3125rem){
     .foliar-manure{
         display: none;
     }
@@ -118,7 +118,7 @@
     }
 }
 
-@media (max-width: 390px){
+@media (max-width: 24.375rem){
     .seeds{
         display: none;
     }
@@ -127,7 +127,7 @@
     }
 }
 
-@media (max-width: 307px){
+@media (max-width: 19.1875rem){
   .last{display: none;}
 }
 

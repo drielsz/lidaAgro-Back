@@ -1,23 +1,23 @@
 .whatsapp-div {
   position: fixed;
-  right: 20px;
-  bottom: 60px;
-  min-width: 50px;
-  max-width: 50px;
-  min-height: 50px;
-  max-height: 50px;
+  right: 1.25rem;
+  bottom: 3.75rem;
+  min-width: 3.125rem;
+  max-width: 3.125rem;
+  min-height: 3.125rem;
+  max-height: 3.125rem;
   border-radius: 50%;
   z-index: 1000;
   background-color: #25d366;
   text-align: center;
   justify-content: center;
-  -webkit-box-shadow: -1px 5px 29px -8px rgba(0, 0, 0, 0.18);
-  box-shadow: -1px 5px 29px -8px rgba(0, 0, 0, 0.18);
+  -webkit-box-shadow: -0.0625rem 0.3125rem 1.8125rem -0.5rem rgba(0, 0, 0, 0.18);
+  box-shadow: -0.0625rem 0.3125rem 1.8125rem -0.5rem rgba(0, 0, 0, 0.18);
 }
 
 .icon-whatsapp {
   color: rgb(255, 255, 255);
-  line-height: 50px;
+  line-height: 3.125rem;
 }
 
 .anim {
@@ -30,19 +30,19 @@
     transform: translate(0, 0);
   }
   1.78571% {
-    transform: translate(5px, 0);
+    transform: translate(0.3125rem, 0);
   }
   3.57143% {
     transform: translate(0, 0);
   }
   5.35714% {
-    transform: translate(5px, 0);
+    transform: translate(0.3125rem, 0);
   }
   7.14286% {
     transform: translate(0, 0);
   }
   8.92857% {
-    transform: translate(5px, 0);
+    transform: translate(0.3125rem, 0);
   }
   10.71429% {
     transform: translate(0, 0);

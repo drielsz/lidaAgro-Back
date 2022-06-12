@@ -6,13 +6,13 @@
 
 .container {
   width: 100%;
-  border-radius: 5px;
-  margin-left: 57px;
+  border-radius: 0.3125rem;
+  margin-left: 3.5625rem;
   margin-right: 0;
 }
 
 .container .title {
-  font-size: 25px;
+  font-size: 1.5625rem;
   font-weight: 500;
   position: relative;
 }
@@ -22,8 +22,8 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  height: 3px;
-  width: 55px;
+  height: 0.1875rem;
+  width: 3.4375rem;
   background-image: linear-gradient(135deg, #a8ff78, #78ffd6);
 }
 
@@ -31,34 +31,34 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 20px 0 12px 0;
+  margin: 1.25rem 0 0.75rem 0;
 }
 
 form .user-details .input-box {
-  margin-bottom: 15px;
-  width: calc(100% / 2 - 20px);
+  margin-bottom: 0.9375rem;
+  width: calc(100% / 2 - 1.25rem);
 }
 
 .user-details .input-box .details {
   display: block;
   font-weight: 500;
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
 }
 
 .input-box p {
   color: red;
-  margin-top: 16px;
+  margin-top: 1rem;
   margin-bottom: 0;
 }
 
 .user-details .input-box input {
-  height: 45px;
+  height: 2.8125rem;
   width: 100%;
   outline: none;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding-left: 15px;
-  font-size: 16px;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid #ccc;
+  padding-left: 0.9375rem;
+  font-size: 1rem;
   transition: all 0.3 ease;
 }
 
@@ -68,7 +68,7 @@ form .user-details .input-box {
 }
 
 form .gender-details .gender-title {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
 }
 
@@ -84,12 +84,12 @@ form .gender-details .category {
 }
 
 .gender-details .category .dot {
-  height: 18px;
-  width: 18px;
+  height: 1.125rem;
+  width: 1.125rem;
   background: #d9d9d9d9;
   border-radius: 50%;
-  margin-right: 10px;
-  border: 5px solid transparent;
+  margin-right: 0.625rem;
+  border: 0.3125rem solid transparent;
   transition: all 0.3s ease;
 }
 
@@ -105,8 +105,8 @@ form input[type="radio"] {
 }
 
 form .button {
-  height: 45px;
-  margin: 45px 0;
+  height: 2.8125rem;
+  margin: 2.8125rem 0;
 }
 
 form .button input {
@@ -115,26 +115,26 @@ form .button input {
   color: #fff;
   outline: none;
   border: none;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 500;
-  border-radius: 5px;
-  letter-spacing: 1px;
+  border-radius: 0.3125rem;
+  letter-spacing: 0.0625rem;
   background: #339121;
 }
 
-@media (max-width: 584px) {
+@media (max-width: 36.5rem) {
   .container {
     margin-left: 0;
   }
   form .user-details .input-box {
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
     width: 100%;
   }
   form .gender-details .category {
     width: 100%;
   }
   .container form .user-details {
-    max-height: 300px;
+    max-height: 18.75rem;
     overflow-y: scroll;
   }
   .user-details::-webkit-scrollbar {

@@ -23,7 +23,7 @@
 <body>
   {% include "navbar.html" %}
   {% include "layout.html" %}
-  <div class="mt-5" style="padding-left: 57px">
+  <div class="mt-5" style="padding-left: 3.5625rem">
     <h3>RESULTADOS PARA {{searchword}}</h3>
 </div>
 <hr>
@@ -52,10 +52,10 @@
               <p class="nome-produto">{{produto.nome}}</p>
               {% if produto.desconto > 0 %}
                 {% set a = "%0.2f"|format(produto.price|float) %}
-                <div class="cifra-real" style="color: #B0B0B0; font-size: 12px; margin-left: 3px; padding-top: 2px;">
+                <div class="cifra-real" style="color: #B0B0B0; font-size: 0.75rem; margin-left: 0.1875rem; padding-top: 0.125rem;">
                 <p class="">R$</p>
                 <a href="{{url_for('single_page', id=produto.id, categoria=produto.categoria)}}">
-                  <p class="price-produto-sem-desconto strikethroug" style="color: #B0B0B0; font-size: 12px;">{{a.replace('.',',')}}</p>
+                  <p class="price-produto-sem-desconto strikethroug" style="color: #B0B0B0; font-size: 0.75rem;">{{a.replace('.',',')}}</p>
                 </a>
                 </div>
                 {% set x = produto.desconto/100 %}
@@ -95,7 +95,7 @@
     </div>
 </div>
   <hr>
-  <div style="padding-left: 57px">
+  <div style="padding-left: 3.5625rem">
     <div class="product-relacionado mb-5">
       <h3>PRODUTOS RELACIONADOS</h3>
     </div>
@@ -123,10 +123,10 @@
               <p class="nome-produto">{{allproduto.nome}}</p>
               {% if allproduto.desconto > 0 %}
                 {% set a = "%0.2f"|format(allproduto.price|float) %}
-                <div class="cifra-real" style="color: #B0B0B0; font-size: 12px; margin-left: 3px; padding-top: 2px;">
+                <div class="cifra-real" style="color: #B0B0B0; font-size: 0.75rem; margin-left: 0.1875rem; padding-top: 0.125rem;">
                 <p class="">R$</p>
                 <a href="{{url_for('single_page', id=allproduto.id, categoria=allproduto.categoria)}}">
-                  <p class="price-produto-sem-desconto" style="color: #B0B0B0; font-size: 12px;">{{a.replace('.',',')}}</p>
+                  <p class="price-produto-sem-desconto" style="color: #B0B0B0; font-size: 0.75rem;">{{a.replace('.',',')}}</p>
                 </a>
                 </div>
                 {% set x = allproduto.desconto/100 %}
