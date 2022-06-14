@@ -44,18 +44,16 @@ class Produtos(db.Model):
     nome = db.Column(db.String(80), nullable=False)
     price = db.Column(db.Numeric(10,2), nullable=False)
     desconto = db.Column(db.Integer, default=0)
-    estoque = db.Column(db.Integer, nullable=False)
     desc = db.Column(db.Text, nullable=False)
     data = db.Column(db.LargeBinary)
     image = db.Column(db.Text(150), nullable=False)
     categoria = db.Column(db.String(80))
     info_uso = db.Column(db.Text, nullable=False)
     
-    def __init__(self, nome, price, desconto, estoque, desc, image, categoria, info_uso):
+    def __init__(self, nome, price, desconto, desc, image, categoria, info_uso):
         self.nome = nome,
         self.price = price,
         self.desconto= desconto,
-        self.estoque = estoque,
         self.desc = desc,
         self.image = image,
         self.categoria = categoria,

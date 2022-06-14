@@ -228,18 +228,18 @@ a {
 }
 
 .input-nav {
-  border-radius: 0.375rem;
+  border-radius: 6px;
   box-sizing: border-box;
-  border: 0.125rem solid #cccccc;
+  border: 2px solid #cccccc;
   background: #eeeeee;
-  height: 3.125rem;
-  max-height: 3.125rem;
-  width: 17.5rem;
+  height: 50px;
+  max-height: 50px;
+  width: 280px;
   font-family: "Poppins", sans-serif;
-  padding: 0.75rem;
+  padding: 12px;
   position: absolute;
-  left: 13.75rem;
-  top: 1.875rem;
+  left: 220px;
+  top: 30px;
 }
 
 .div-input-mobile {

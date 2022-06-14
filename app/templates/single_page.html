@@ -185,20 +185,7 @@
                                 fill="#101010" />
                         </svg>
                         <div style="margin-left: 1.25rem;">
-
-                            {% set price_produto_parcela = produto.price / 2 %}
-                            {% set xx = "%0.2f"|format(z|float / 2) %}
-                            {% set price_produtodescontado_parcela = xx.replace('.', ',') %}
-                            {% if produto.desconto > 0 %}
-                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$
-                                    {{price_produtodescontado_parcela}}</span></span>
-
-                            {% else %}
-
-                            <span class="quantidade-parcela">Até 2x de <span class="price-parcela">R$
-                                    {{price_produto_parcela}}</span></span>
-
-                            {% endif %}
+                            <span class="quantidade-parcela">Até 6x com juros</span>
                         </div>
                     </div>
                 </div>

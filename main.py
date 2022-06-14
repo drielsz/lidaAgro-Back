@@ -178,6 +178,10 @@ def home():
 
 # Filtros
 
+@app.route('/category_filter=?adubo')
+def filter_by_adubo():
+    produtos = Produtos.query.filter_by(categoria="adubo").all()
+    return render_template('produtos/result.html', produtos=produtos)
 
 @app.route('/category_filter=?sementes')
 def filter_by_sementes():
@@ -238,6 +242,13 @@ def filter_by_embalagens():
 
     return render_template('produtos/result.html', produtos=produtos)
 
+#Filtros 
+@app.route('/category_filter=?irrigacao')
+def filter_by_irrigacao():
+    produtos = Produtos.query.filter_by(categoria="Irrigacao")
+
+    return render_template('produtos/result.html')
+
 # End Filtros
 
 
@@ -261,8 +272,7 @@ def result():
 @app.route('/produtos=?user=?cliente', methods=['GET', 'POST'])
 def produtos_cliente():
     page = request.args.get('page', 1, type=int)
-    produtos = Produtos.query.filter(
-        Produtos.estoque > 0).paginate(page=page, per_page=3)
+    produtos = Produtos.query.filter_by().paginate(page=page, per_page=5)
     return render_template('produtos.html', produtos=produtos)
 
 
@@ -330,7 +340,7 @@ def AddCarrinho():
         if produto and quantidade and produto_id and request.method == 'POST':
             # Passando as informações para o carrinho
             DictItems = {produto_id: {'nome': produto.nome, 'price': produto.price, 'desconto': produto.desconto,
-                                      'quantidade': quantidade, 'image': produto.image, 'estoque': produto.estoque}}
+                                      'quantidade': quantidade, 'image': produto.image}}
             # End
             if 'Shoppingcart' in session:
                 print(session['Shoppingcart'])
@@ -614,14 +624,13 @@ def addproduto():
         nome = texto.upper()
         price = request.form['price']
         desconto = request.form['desconto']
-        estoque = request.form['estoque']
+        
         desc = request.form['desc']
         photo = save_images(request.files['photo'])
         categoria = request.form['categoria']
         info_uso = request.form['info_uso']
         post = Produtos(nome=nome,
-                        price=price, desconto=desconto,
-                        estoque=estoque, desc=desc,
+                        price=price, desconto=desconto, desc=desc,
                         image=photo, categoria=categoria, info_uso=info_uso)
 
         db.session.add(post)
@@ -660,14 +669,14 @@ def atualizar_produto(id):
         nome = texto.upper()
         price = request.form['price']
         desconto = request.form['desconto']
-        estoque = request.form['estoque']
+        
         desc = request.form['desc']
         photo = save_images(request.files['photo'])
 
         produto.nome = nome
         produto.price = price
         produto.desconto = desconto
-        produto.estoque = estoque
+
         produto.desc = desc
         produto.image = photo
 
@@ -699,14 +708,12 @@ def testeadmin():
         nome = texto.upper()
         price = request.form['price']
         desconto = request.form['desconto']
-        estoque = request.form['estoque']
         desc = request.form['desc']
         photo = save_images(request.files['photo'])
         categoria = request.form['categoria']
         info_uso = request.form['info_uso']
         post = Produtos(nome=nome,
-                        price=price, desconto=desconto,
-                        estoque=estoque, desc=desc,
+                        price=price, desconto=desconto, desc=desc,
                         image=photo, categoria=categoria, info_uso=info_uso)
                         
 
