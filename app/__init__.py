@@ -15,6 +15,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DB_CONNECTION_STRING')
 app.secret_key = os.environ.get('APP_K')
 app.config['SECRET_KEY'] = os.environ.get('S_K')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = os.environ.get('TRACK_MODIFICATIONS')
 
 login_manager = LoginManager(app)
 db = SQLAlchemy(app)
